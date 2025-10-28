@@ -1,10 +1,5 @@
 import type { SetlistResponse, Setlist } from '../types/setlist';
-import { CACHE_DURATION_HOURS, LINKIN_PARK_MBID } from "../constants/shared.ts";
-
-const CACHE_KEY = 'lp-setlists-cache';
-const API_BASE_URL = import.meta.env.DEV
-  ? '/api/rest/1.0'  // Development: use Vite proxy
-  : '/api/setlistfm';  // Production: use Vercel serverless function
+import { API_ROUTES, CACHE_DURATION_HOURS, CACHE_KEY, API_BASE_URL } from "../constants/shared.ts";
 
 interface CacheData {
   data: SetlistResponse;
@@ -111,7 +106,7 @@ export class SetlistFMService {
 
     // Fetch fresh data from API
     console.log('Fetching from Setlist.fm API...');
-    const data = await this.fetchAPI(`/artist/${LINKIN_PARK_MBID}/setlists?p=${page}`);
+    const data = await this.fetchAPI(`${API_ROUTES.linkinParkSetlists}?p=${page}`);
 
     // Cache the response
     this.setCache(data, page);
