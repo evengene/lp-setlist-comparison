@@ -121,27 +121,26 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-white border-b border-gray-200 bg-gradient-to-br from-gray-900 to-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-12 text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Music className="w-8 h-8" />
-            <h1 className="text-4xl font-bold text-gray-900">Linkin Park Setlist Companion</h1>
+            <Music className="w-8 h-8 text-red-500" />
+            <h1 className="text-4xl font-bold text-white">Linkin Park Setlist Companion</h1>
           </div>
-          <p className="text-gray-600 text-lg mb-8">
+          <p className="text-gray-300 text-lg mb-8">
             Celebrating the artistry behind every setlist.
             <br/>
             Compare Linkin Park shows side-by-side and discover which songs made each night special.
           </p>
 
           {/* Tour Info Card */}
-          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm max-w-2xl mx-auto">
+          <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-md
+              hover:shadow-xl hover:-translate-y-1 transition-all duration-300
+              max-w-2xl mx-auto">
             <h2 className="text-2xl font-semibold text-gray-900 mb-3">From Zero World Tour 2024-2025</h2>
             <div className="flex items-center justify-center gap-8 text-sm text-gray-600">
               <div>
                 <span className="font-medium text-gray-900">{shows.length}</span> shows loaded
-              </div>
-              <div>
-                Data from <span className="font-medium text-gray-900">setlist.fm</span>
               </div>
             </div>
           </div>
@@ -188,19 +187,20 @@ function App() {
           <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8 shadow-sm">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-gray-900 mb-1">
+                <div className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600
+              bg-clip-text text-transparent mb-1">
                   {comparisonStats.similarityPercent}%
                 </div>
                 <div className="text-sm text-gray-600">Setlist Similarity</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-emerald-600 mb-1">
+                <div className="text-5xl font-bold bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent mb-1">
                   {comparisonStats.sharedCount}
                 </div>
                 <div className="text-sm text-gray-600">Songs in Both Shows</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-rose-600 mb-1">
+                <div className="text-5xl font-bold text-rose-600 mb-1">
                   {comparisonStats.uniqueCount}
                 </div>
                 <div className="text-sm text-gray-600">Unique Songs Total</div>
