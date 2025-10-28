@@ -1,13 +1,10 @@
 import type { SetlistResponse, Setlist } from '../types/setlist';
+import { CACHE_DURATION_HOURS, LINKIN_PARK_MBID } from "../constants/shared.ts";
 
 const CACHE_KEY = 'lp-setlists-cache';
-const CACHE_DURATION_HOURS = 24;
 const API_BASE_URL = import.meta.env.DEV
   ? '/api/rest/1.0'  // Development: use Vite proxy
   : '/api/setlistfm';  // Production: use Vercel serverless function
-
-// Linkin Park MBID (MusicBrainz ID)
-const LINKIN_PARK_MBID = 'f59c5520-5f46-4d2c-b2c4-822eabf53419';
 
 interface CacheData {
   data: SetlistResponse;
@@ -79,6 +76,7 @@ export class SetlistFMService {
   private async fetchAPI(endpoint: string): Promise<any> {
     const headers: HeadersInit = {
       'Accept': 'application/json',
+      'x-api-key': import.meta.env.VITE_SETLISTFM_API_KEY
     };
 
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {

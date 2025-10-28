@@ -23,6 +23,7 @@ function App() {
     const fetchSetlists = async () => {
       try {
         setLoading(true);
+        debugger;
         const response = await setlistService.getLinkinParkSetlists(1);
 
         // Filter for "From Zero World Tour" only
