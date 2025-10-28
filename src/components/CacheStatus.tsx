@@ -1,5 +1,5 @@
 import { RefreshCw, Clock } from 'lucide-react';
-import { setlistFM } from '../services/setlistfm';
+import { setlistService } from '../services/setlistService.ts';
 
 interface CacheStatusProps {
   onRefresh: () => void;
@@ -7,7 +7,7 @@ interface CacheStatusProps {
 }
 
 export function CacheStatus({ onRefresh, loading }: CacheStatusProps) {
-  const cacheInfo = setlistFM.getCacheInfo();
+  const cacheInfo = setlistService.getCacheInfo();
 
   if (!cacheInfo.exists) {
     return (

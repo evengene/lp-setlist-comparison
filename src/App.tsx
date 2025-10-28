@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Music, Loader2 } from 'lucide-react';
 
-import { setlistFM } from './services/setlistfm';
+import { setlistService } from './services/setlistService.ts';
 import { processSetlist, compareShows } from './utils/setlistUtils';
 import { CacheStatus } from './components/CacheStatus';
 import { ShowCard } from './components/ShowCard';
@@ -23,7 +23,7 @@ function App() {
     const fetchSetlists = async () => {
       try {
         setLoading(true);
-        const response = await setlistFM.getLinkinParkSetlists(1);
+        const response = await setlistService.getLinkinParkSetlists(1);
 
         // Filter for "From Zero World Tour" only
         const fromZeroTour = response.setlist.filter(setlist =>
@@ -74,7 +74,7 @@ function App() {
     setRefreshing(true);
     try {
       // Force refresh = ignore cache
-      const response = await setlistFM.getLinkinParkSetlists(1, true);
+      const response = await setlistService.getLinkinParkSetlists(1, true);
       const processedShows = response.setlist.map(processSetlist);
       setShows(processedShows);
 

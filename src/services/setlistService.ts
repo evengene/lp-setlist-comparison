@@ -2,10 +2,9 @@ import type { SetlistResponse, Setlist } from '../types/setlist';
 
 const CACHE_KEY = 'lp-setlists-cache';
 const CACHE_DURATION_HOURS = 24;
-const API_KEY = import.meta.env.VITE_SETLISTFM_API_KEY || '';
 const API_BASE_URL = import.meta.env.DEV
   ? '/api/rest/1.0'  // Development: use Vite proxy
-  : 'https://api.setlist.fm/rest/1.0';  // Production: direct call
+  : '/api/setlistfm';  // Production: use Vercel serverless function
 
 // Linkin Park MBID (MusicBrainz ID)
 const LINKIN_PARK_MBID = 'f59c5520-5f46-4d2c-b2c4-822eabf53419';
@@ -15,7 +14,6 @@ interface CacheData {
   timestamp: number;
   page: number;
 }
-
 
 export class SetlistFMService {
 
@@ -83,16 +81,8 @@ export class SetlistFMService {
       'Accept': 'application/json',
     };
 
-    // Add API key for production (dev uses proxy)
-    if (!import.meta.env.DEV) {
-      headers['x-api-key'] = API_KEY;
-    }
-
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-      headers: {
-        'x-api-key': API_KEY,
-        'Accept': 'application/json',
-      },
+      headers,
     });
 
     if (!response.ok) {
@@ -166,4 +156,4 @@ export class SetlistFMService {
   }
 }
 
-export const setlistFM = new SetlistFMService();
+export const setlistService = new SetlistFMService();
