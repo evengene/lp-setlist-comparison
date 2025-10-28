@@ -1,7 +1,7 @@
 // api/setlistfm.ts
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-const API_KEY = process.env.VITE_SETLISTFM_API_KEY;
+const API_KEY = process.env.SETLISTFM_API_KEY;
 const API_BASE = 'https://api.setlist.fm/rest/1.0';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
