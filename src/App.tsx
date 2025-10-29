@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Music, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 
 import { setlistService } from './services/setlistService.ts';
 import { processSetlist, compareShows } from './utils/setlistUtils';
@@ -59,7 +59,7 @@ function App() {
     if (selectedShow1 && selectedShow2) {
       const show1 = shows.find(s => s.id === selectedShow1);
       const show2 = shows.find(s => s.id === selectedShow2);
-      
+
       if (show1 && show2) {
         const comparison = compareShows(show1, show2);
         setComparisonStats(comparison.stats);
@@ -121,42 +121,58 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 bg-gradient-to-br from-gray-900 to-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-12 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <Music className="w-8 h-8 text-red-500" />
-            <h1 className="text-4xl font-bold text-white">Linkin Park Setlist Companion</h1>
-          </div>
-          <p className="text-gray-300 text-lg mb-8">
-            Celebrating the artistry behind every setlist.
-            <br/>
-            Compare Linkin Park shows side-by-side and discover which songs made each night special.
-          </p>
+      <header className="relative overflow-hidden bg-gradient-to-b from-slate-900 to-slate-800 px-8 pt-20 pb-24 text-center">
+        {/* Purple radial gradient overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.15) 0%, transparent 60%)'
+          }}
+        />
 
-          {/* Tour Info Card */}
-          <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-md
-              hover:shadow-xl hover:-translate-y-1 transition-all duration-300
-              max-w-2xl mx-auto">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-3">From Zero World Tour 2024-2025</h2>
-            <div className="flex items-center justify-center gap-8 text-sm text-gray-600">
-              <div>
-                <span className="font-medium text-gray-900">{shows.length}</span> shows loaded
-              </div>
-            </div>
+        <div className="relative z-10">
+          <svg
+            className="w-12 h-12 mx-auto mb-6 text-purple-500"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+            />
+          </svg>
+          <h1 className="mb-4 text-6xl font-extrabold tracking-tight text-white">
+            LP Setlist Comparison
+          </h1>
+          <p className="mx-auto max-w-2xl text-xl font-normal text-white/70">
+            Celebrating the artistry behind every live performance. Compare Linkin Park shows side-by-side and discover which songs made each night special.
+          </p>
+          <div className="inline-block bg-purple-500/15 text-purple-200 px-5 py-2 rounded-full text-sm font-semibold mt-6">
+            From Zero World Tour 2024-2025
           </div>
         </div>
-      </div>
+      </header>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      {/* Main Container - with negative margin */}
+      <div
+        className="relative z-10 mx-auto max-w-7xl px-8 pb-16"
+        style={{ marginTop: '-3rem' }}
+      >
+
         {/* Show Selectors */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Select First Show</label>
+        <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* First Show */}
+          <div className="rounded-[20px] bg-white p-10 shadow-lg">
+            <label className="mb-6 block text-xs font-bold uppercase tracking-widest text-slate-500">
+              First Show
+            </label>
             <select
               value={selectedShow1}
               onChange={(e) => setSelectedShow1(e.target.value)}
-              className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-gray-900"
+              className="mb-4 w-full appearance-none rounded-xl border-0 bg-slate-100 px-6 py-5 pr-14 text-lg font-semibold text-slate-900 transition-all hover:bg-slate-200 focus:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-gray-900"
             >
               {shows.map((show) => (
                 <option key={show.id} value={show.id}>
@@ -164,14 +180,21 @@ function App() {
                 </option>
               ))}
             </select>
+            {show1 && (
+              <div className="mt-2 text-[15px] font-medium text-slate-500">
+                {show1.venue}
+              </div>
+            )}
           </div>
-
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Select Second Show</label>
+          {/* Second Show */}
+          <div className="rounded-[20px] bg-white p-10 shadow-lg">
+            <label className="mb-6 block text-xs font-bold uppercase tracking-widest text-slate-500">
+              Second Show
+            </label>
             <select
               value={selectedShow2}
-              onChange={(e) => setSelectedShow2(e.target.value)}
-              className="w-full px-4 py-3 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-gray-900"
+              onChange={(e) => setSelectedShow1(e.target.value)}
+              className="mb-4 w-full appearance-none rounded-xl border-0 bg-slate-100 px-6 py-5 pr-14 text-lg font-semibold text-slate-900 transition-all hover:bg-slate-200 focus:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-gray-900"
             >
               {shows.map((show) => (
                 <option key={show.id} value={show.id}>
@@ -179,37 +202,52 @@ function App() {
                 </option>
               ))}
             </select>
+
+            {show2 && (
+              <div className="mt-2 text-[15px] font-medium text-slate-500">
+                {show2.venue}
+              </div>
+            )}
           </div>
+
         </div>
 
-        {/* Stats */}
+        {/* Stats Grid */}
         {comparisonStats && (
-          <div className="bg-white border border-gray-200 rounded-lg p-6 mb-8 shadow-sm">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600
-              bg-clip-text text-transparent mb-1">
-                  {comparisonStats.similarityPercent}%
-                </div>
-                <div className="text-sm text-gray-600">Setlist Similarity</div>
+          <div className="mb-12 grid grid-cols-1 gap-8 md:grid-cols-3">
+            {/* Similarity */}
+            <div className="rounded-[20px] bg-white px-8 py-12 text-center shadow-lg transition-transform hover:-translate-y-1">
+              <div className="mb-3 text-6xl font-extrabold leading-none tracking-tight text-gray-700">
+                {comparisonStats.similarityPercent}%
               </div>
-              <div>
-                <div className="text-5xl font-bold bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent mb-1">
-                  {comparisonStats.sharedCount}
-                </div>
-                <div className="text-sm text-gray-600">Songs in Both Shows</div>
+              <div className="text-[15px] font-semibold text-slate-500">
+                Setlist Similarity
               </div>
-              <div>
-                <div className="text-5xl font-bold text-rose-600 mb-1">
-                  {comparisonStats.uniqueCount}
-                </div>
-                <div className="text-sm text-gray-600">Unique Songs Total</div>
+            </div>
+
+            {/* Shared Songs */}
+            <div className="rounded-[20px] bg-white px-8 py-12 text-center shadow-lg transition-transform hover:-translate-y-1">
+              <div className="mb-3 text-6xl font-extrabold leading-none tracking-tight text-gray-700">
+                {comparisonStats.sharedCount}
+              </div>
+              <div className="text-[15px] font-semibold text-slate-500">
+                Songs in Both Shows
+              </div>
+            </div>
+
+            {/* Unique Songs */}
+            <div className="rounded-[20px] bg-white px-8 py-12 text-center shadow-lg transition-transform hover:-translate-y-1">
+              <div className="mb-3 text-6xl font-extrabold leading-none tracking-tight text-gray-700">
+                {comparisonStats.uniqueCount}
+              </div>
+              <div className="text-[15px] font-semibold text-slate-500">
+                Unique Songs Total
               </div>
             </div>
           </div>
         )}
 
-        <div className="mt-4 pt-4 border-t border-gray-200">
+        <div className="mt-4 pt-4">
           <CacheStatus onRefresh={handleRefresh} loading={refreshing} />
         </div>
 
@@ -225,25 +263,44 @@ function App() {
         )}
 
         {/* Legend */}
-        <div className="mt-8 bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-          <h4 className="font-semibold text-gray-900 mb-4">Color Guide</h4>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-emerald-50 border border-emerald-200 rounded flex items-center justify-center">
-                <div className="w-6 h-6 bg-emerald-100 rounded"></div>
-              </div>
+        <div className="rounded-[20px] bg-white mt-12 p-10 shadow-lg">
+          <h4 className="mb-6 text-xs font-bold uppercase tracking-widest text-slate-500">
+            Color Guide
+          </h4>
+          <div className="flex flex-wrap gap-12">
+            {/* Shared Songs */}
+            <div className="flex min-w-[250px] flex-1 items-center gap-4">
+              <div
+                className="h-12 w-12 flex-shrink-0 rounded-xl"
+                style={{
+                  background: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)'
+                }}
+              />
               <div>
-                <div className="font-medium text-gray-900">Played in Both Shows</div>
-                <div className="text-sm text-gray-600">Tour staples and shared songs</div>
+                <div className="mb-1 text-base font-bold text-slate-900">
+                  Played in Both Shows
+                </div>
+                <div className="text-sm text-slate-500">
+                  Tour staples and shared songs
+                </div>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-rose-50 border border-rose-200 rounded flex items-center justify-center">
-                <div className="w-6 h-6 bg-rose-100 rounded"></div>
-              </div>
+
+            {/* Unique Songs */}
+            <div className="flex min-w-[250px] flex-1 items-center gap-4">
+              <div
+                className="h-12 w-12 flex-shrink-0 rounded-xl"
+                style={{
+                  background: 'linear-gradient(135deg, #ffe4e6 0%, #fecdd3 100%)'
+                }}
+              />
               <div>
-                <div className="font-medium text-gray-900">Unique to This Show</div>
-                <div className="text-sm text-gray-600">Rotating songs and special moments</div>
+                <div className="mb-1 text-base font-bold text-slate-900">
+                  Unique to This Show
+                </div>
+                <div className="text-sm text-slate-500">
+                  Rotating songs and special moments
+                </div>
               </div>
             </div>
           </div>
@@ -251,7 +308,7 @@ function App() {
       </div>
 
       {/* Footer */}
-      <div className="bg-gray-800 text-gray-300 text-center py-6 mt-16">
+      <div className="text-gray-600 text-center py-6 mt-8">
         <p className="text-sm mb-2">
           Celebrating the artistry of Linkin Park's live performances.
         </p>
@@ -265,7 +322,7 @@ function App() {
           >
             setlist.fm
           </a>
-          {' '}— The live music wiki
+          • For fans made with ❤️ by <a href={"https://github.com/evengene"} className="text-blue-400 hover:text-blue-300 underline">evengene</a>
         </p>
       </div>
     </div>
