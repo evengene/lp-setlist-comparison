@@ -7,6 +7,7 @@ import { CacheStatus } from './components/CacheStatus';
 import { ShowCard } from './components/ShowCard';
 
 import type { Show, ComparisonStats } from './types/setlist';
+import {ShareButton} from "./components/ShareButton.tsx";
 
 
 function App() {
@@ -253,14 +254,19 @@ function App() {
 
         {/* Side-by-Side Setlists */}
         {show1 && show2 && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Show 1 */}
-            <ShowCard show={show1} />
+            <>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <ShowCard show={show1} />
+                <ShowCard show={show2} />
+              </div>
 
-            {/* Show 2 */}
-            <ShowCard show={show2} />
-          </div>
+              {/* Share Button */}
+              <div className="mt-8 text-center">
+                <ShareButton show1={show1} show2={show2} />
+              </div>
+            </>
         )}
+
 
         {/* Legend */}
         <div className="rounded-[20px] bg-white mt-12 p-10 shadow-lg">
