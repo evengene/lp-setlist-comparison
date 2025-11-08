@@ -5,9 +5,10 @@ import { setlistService } from './services/setlistService.ts';
 import { processSetlist, compareShows } from './utils/setlistUtils';
 import { CacheStatus } from './components/CacheStatus';
 import { ShowCard } from './components/ShowCard';
+import { ShareButton } from "./components/ShareButton.tsx";
+
 
 import type { Show, ComparisonStats } from './types/setlist';
-import {ShareButton} from "./components/ShareButton.tsx";
 
 
 function App() {
@@ -18,6 +19,31 @@ function App() {
   const [selectedShow2, setSelectedShow2] = useState<string>('');
   const [comparisonStats, setComparisonStats] = useState<ComparisonStats | null>(null);
   const [refreshing, setRefreshing] = useState(false);
+
+
+// Update url when on different shows selection
+  const updateURL = (show1Id: string, show2Id: string) => {
+    const newUrl = `${window.location.pathname}?show1=${show1Id}&show2=${show2Id}`;
+    window.history.pushState({}, '', newUrl);
+  };
+
+  useEffect(() => {
+    if (selectedShow1 && selectedShow2) {
+      updateURL(selectedShow1, selectedShow2);
+    }
+  }, [selectedShow1, selectedShow2]);
+
+
+  // Check url params for current show
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    console.log('URL Params:', {
+      show1: urlParams.get('show1'),
+      show2: urlParams.get('show2'),
+      fullURL: window.location.href
+    });
+
+  }, []);
 
   // Fetch Linkin Park setlists on mount
   useEffect(() => {
@@ -132,19 +158,12 @@ function App() {
         />
 
         <div className="relative z-10">
-          <svg
-            className="w-12 h-12 mx-auto mb-6 text-purple-500"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
-            />
-          </svg>
+
+          {/*add a png image from public folder */}
+
+          <img src="/linkin-park-logo.png" alt="Linkin Park Logo" className="w-12 h-12 mx-auto mb-6" />
+
+
           <h1 className="mb-4 text-6xl font-extrabold tracking-tight text-white">
             LP Setlist Comparison
           </h1>
@@ -252,15 +271,37 @@ function App() {
           <CacheStatus onRefresh={handleRefresh} loading={refreshing} />
         </div>
 
-        {/* Side-by-Side Setlists */}
         {show1 && show2 && (
             <>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <ShowCard show={show1} />
-                <ShowCard show={show2} />
+              {/* Downloadable Comparison Container */}
+              <div
+                  id="comparison-container"
+                  className="p-6 rounded-xl"
+                  style={{
+                    background: 'linear-gradient(135deg, #f9fafb 0%, #ffffff 100%)',
+                  }}
+              >
+                {/* Header for Downloaded Image */}
+                <div className="mb-6 text-center">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                    Linkin Park Setlist Comparison
+                  </h2>
+                  <p className="text-sm text-gray-600">From Zero World Tour</p>
+                </div>
+
+                {/* The Comparison Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <ShowCard show={show1} />
+                  <ShowCard show={show2} />
+                </div>
+
+                {/* Footer for Downloaded Image */}
+                <div className="mt-6 text-center text-sm text-gray-500">
+                  lpsetlists.com
+                </div>
               </div>
 
-              {/* Share Button */}
+              {/* Share Button (outside the download container) */}
               <div className="mt-8 text-center">
                 <ShareButton show1={show1} show2={show2} />
               </div>
