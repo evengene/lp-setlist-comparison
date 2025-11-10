@@ -181,47 +181,66 @@ function App() {
         className="relative z-10 mx-auto max-w-7xl px-8 pb-16"
         style={{ marginTop: '-3rem' }}
       >
-
         {/* Show Selectors */}
         <div className="mb-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
           {/* First Show */}
-          <div className="rounded-[20px] bg-white p-10 shadow-lg">
+          <div className="relative rounded-[20px] bg-white p-10 shadow-lg">
             <label className="mb-6 block text-xs font-bold uppercase tracking-widest text-slate-500">
               First Show
             </label>
-            <select
-              value={selectedShow1}
-              onChange={(e) => setSelectedShow1(e.target.value)}
-              className="mb-4 w-full appearance-none rounded-xl border-0 bg-slate-100 px-6 py-5 pr-14 text-lg font-semibold text-slate-900 transition-all hover:bg-slate-200 focus:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-gray-900"
-            >
-              {shows.map((show) => (
-                <option key={show.id} value={show.id}>
-                  {show.name} - {show.date}
-                </option>
-              ))}
-            </select>
+
+            <div className="relative">
+              <select
+                value={selectedShow1}
+                onChange={(e) => setSelectedShow1(e.target.value)}
+                className="mb-1 w-full appearance-none rounded-xl border-0 bg-slate-100 px-6 py-5 pr-14 text-lg font-semibold text-slate-900 transition-all hover:bg-slate-200 focus:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-gray-900"
+              >
+                {shows.map((show) => (
+                  <option key={show.id} value={show.id}>
+                    {show.name} - {show.date}
+                  </option>
+                ))}
+              </select>
+
+              <div className="pointer-events-none absolute right-6 top-1/2 -translate-y-1/2">
+                <svg className="h-5 w-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
+
             {show1 && (
               <div className="mt-2 text-[15px] font-medium text-slate-500">
                 {show1.venue}
               </div>
             )}
           </div>
+
           {/* Second Show */}
-          <div className="rounded-[20px] bg-white p-10 shadow-lg">
+          <div className="relative rounded-[20px] bg-white p-10 shadow-lg">
             <label className="mb-6 block text-xs font-bold uppercase tracking-widest text-slate-500">
               Second Show
             </label>
-            <select
-              value={selectedShow2}
-              onChange={(e) => setSelectedShow1(e.target.value)}
-              className="mb-4 w-full appearance-none rounded-xl border-0 bg-slate-100 px-6 py-5 pr-14 text-lg font-semibold text-slate-900 transition-all hover:bg-slate-200 focus:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-gray-900"
-            >
-              {shows.map((show) => (
-                <option key={show.id} value={show.id}>
-                  {show.name} - {show.date}
-                </option>
-              ))}
-            </select>
+
+            <div className="relative">
+              <select
+                value={selectedShow2}
+                onChange={(e) => setSelectedShow2(e.target.value)}
+                className="mb-1 w-full appearance-none rounded-xl border-0 bg-slate-100 px-6 py-5 pr-14 text-lg font-semibold text-slate-900 transition-all hover:bg-slate-200 focus:bg-slate-200 focus:outline-none focus:ring-2 focus:ring-gray-900"
+              >
+                {shows.map((show) => (
+                  <option key={show.id} value={show.id}>
+                    {show.name} - {show.date}
+                  </option>
+                ))}
+              </select>
+
+              <div className="pointer-events-none absolute right-6 top-1/2 -translate-y-1/2">
+                <svg className="h-5 w-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </div>
 
             {show2 && (
               <div className="mt-2 text-[15px] font-medium text-slate-500">
@@ -229,7 +248,6 @@ function App() {
               </div>
             )}
           </div>
-
         </div>
 
         {/* Stats Grid */}
