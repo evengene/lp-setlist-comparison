@@ -1,4 +1,5 @@
-import type { SetlistResponse, Setlist } from '../types/setlist';
+import type {
+  SetlistResponse, Setlist } from '../types/setlist';
 import { API_ROUTES, CACHE_DURATION_HOURS, CACHE_KEY, API_BASE_URL } from "../constants/shared.ts";
 
 interface CacheData {

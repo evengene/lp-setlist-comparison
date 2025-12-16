@@ -1,6 +1,6 @@
 import { MapPin, Calendar, Users } from 'lucide-react';
 import type { Show, ProcessedSong } from '../types/setlist';
-import { getLinkinpediaUrl } from '../utils/setlistUtils';
+import { getLinkinpediaUrl } from '../utils/setlistHelpers.ts';
 
 interface ShowCardProps {
   show: Show;
