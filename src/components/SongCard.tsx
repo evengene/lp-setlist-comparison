@@ -4,11 +4,10 @@ import type { SongStats } from "../utils/setlistStats.ts";
 interface SongCardProps {
   song: SongStats;
   totalShows: number;
-  filteredShows: any;
   onClick: (song: SongStats) => void;
 }
 
-const SongCard: React.FC<SongCardProps> = ({ song, onClick, filteredShows }) => {
+const SongCard: React.FC<SongCardProps> = ({ song, onClick, totalShows }) => {
 
   return (
     <div
@@ -36,7 +35,7 @@ const SongCard: React.FC<SongCardProps> = ({ song, onClick, filteredShows }) => 
         )}
         {/* Left: Song Info */}
         <div className="flex-1 min-w-0">
-          <h3 className="text-lg font-semibold text-gray-900 mb-1 group-hover:text-gray-700">
+          <h3 className="text-lg font-semibold text-slate-900 mb-1 group-hover:text-gray-700">
             {song.title}
           </h3>
           <p className="text-sm text-gray-500 mb-2">
@@ -44,7 +43,7 @@ const SongCard: React.FC<SongCardProps> = ({ song, onClick, filteredShows }) => 
           </p>
           <div className="flex items-center gap-4 text-sm">
                       <span className="text-gray-700 font-medium">
-                        {song.timesPlayed}/{filteredShows.length} shows played
+                        {song.timesPlayed}/{totalShows} shows played
                       </span>
             {song.positionRange && (
               <span className="text-gray-500">
@@ -79,42 +78,7 @@ const SongCard: React.FC<SongCardProps> = ({ song, onClick, filteredShows }) => 
         </div>
       </div>
     </div>
-    // <div className="bg-white rounded-lg p-4 hover:shadow-md transition-shadow border border-gray-200">
-    //   <div className="flex items-center gap-4">
-    //     {/* Album Cover or Placeholder */}
-    //     {song.coverUrl ? (
-    //       <img
-    //         src={song.coverUrl}
-    //         alt={`${song.album} cover`}
-    //         className="w-14 h-14 rounded object-cover flex-shrink-0 shadow-sm"
-    //       />
-    //     ) : (
-    //       <div className="w-14 h-14 bg-gray-100 rounded flex items-center justify-center flex-shrink-0">
-    //         <svg className="w-7 h-7 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-    //           <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
-    //         </svg>
-    //       </div>
-    //     )}
-    //
-    //     <div className="flex-1 min-w-0">
-    //       <h3 className="font-bold text-lg mb-1">{song.title}</h3>
-    //       {song.album && song.year && (
-    //         <div className="text-sm text-gray-500 mb-2">
-    //           {song.album} • {song.year}
-    //         </div>
-    //       )}
-    //       <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500">
-    //         <span className="font-medium">{song.timesPlayed}/{totalShows} shows</span>
-    //         {song.lastPlayed && <span>Last: {song.lastPlayed}</span>}
-    //         {getCategoryBadge()}
-    //       </div>
-    //     </div>
-    //
-    //     <svg className="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-    //     </svg>
-    //   </div>
-    // </div>
+
   );
 };
 

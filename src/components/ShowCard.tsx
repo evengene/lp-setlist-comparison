@@ -22,7 +22,7 @@ export function ShowCard( { show }: ShowCardProps ) {
     <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
       {/* Venue Header */}
       <div className="border-b border-gray-100 p-6 bg-gray-50">
-        <h3 className="text-xl font-bold text-gray-900 mb-3">{show.name}</h3>
+        <h3 className="text-xl font-bold text-slate-900 mb-3">{show.name}</h3>
         <div className="space-y-2 text-sm text-gray-600 mb-4">
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-gray-400" />
@@ -103,7 +103,7 @@ export function ShowCard( { show }: ShowCardProps ) {
                     {song.position}
                   </div>
                   <div className="flex-grow min-w-0">
-                    <div className="font-medium text-gray-900">{song.name}</div>
+                    <div className="font-medium text-slate-900">{song.name}</div>
                     {song.info && (
                       <div className="text-xs text-gray-500 mt-0.5 italic">{song.info}</div>
                     )}

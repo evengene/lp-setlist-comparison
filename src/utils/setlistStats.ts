@@ -21,7 +21,6 @@ const SONG_ALBUM_MAP: Record<string, AlbumInfo> =
 
 // 4. Helper function with type
 function getAlbumInfo(songTitle: string): AlbumInfo | undefined {
-  debugger;
   return SONG_ALBUM_MAP[songTitle];
 }
 export interface SongStats {

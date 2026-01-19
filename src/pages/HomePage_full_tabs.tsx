@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { getTourData } from '../services/tourDataService';
-import { calculateTourStats } from '../utils/setlistStats';
+import { calculateTourStats, type SongStats } from '../utils/setlistStats';
 import SongCard from "../components/SongCard.tsx";
+import HeaderWrapper from "../components/HeaderWrapper.tsx";
+
 
 const FILTER_OPTIONS = [
   { id: 'staples', label: 'Core Playlist' },
@@ -15,7 +17,19 @@ export default function HomePage() {
   const tourData = getTourData();
   const [selectedLeg, setSelectedLeg] = useState<number | null>(null);
   const [activeFilter, setActiveFilter] = useState('staples');
-  const [selectedSong, setSelectedSong] = useState<any>(null);
+  const [selectedSong, setSelectedSong] = useState<SongStats | null>(null);
+
+  // Add useEffect for ESC key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedSong(null);
+    };
+
+    if (selectedSong) {
+      document.addEventListener('keydown', handleEscape);
+      return () => document.removeEventListener('keydown', handleEscape);
+    }
+  }, [selectedSong]);
 
   // Filter shows by selected leg
   const filteredShows = selectedLeg === null
@@ -25,112 +39,208 @@ export default function HomePage() {
   // Calculate stats from filtered shows
   const stats = calculateTourStats(filteredShows.map(s => s.setlist));
 
-  // Filter songs by active filter
-  const getFilteredSongs = () => {
+
+  // Determine songs to display based on active filter
+  const displayedSongs = useMemo(() => {
     if (!stats || !stats.allSongs) return [];
 
     switch (activeFilter) {
-      case 'staples':
-        return stats.staple || [];
-      case 'rotation':
-        return stats.rotation || [];
-      case 'rare':
-        return stats.rare || [];
-      case 'deep-cut':
-        return stats.deepCut || [];
-      case 'predictions':
-        // For predictions, return rare and deep cuts sorted by times played
-        return [...(stats.rare || []), ...(stats.deepCut || [])]
-          .sort((a, b) => b.timesPlayed - a.timesPlayed);
-      default:
-        return stats.allSongs || [];
+      case 'staples': return stats.staple || [];
+      case 'rotation': return stats.rotation || [];
+      case 'rare': return stats.rare || [];
+      case 'deep-cut': return stats.deepCut || [];
+      case 'predictions': return stats.overdue || [];
+      default: return stats.allSongs || [];
     }
-  };
+  }, [activeFilter, stats]);
 
-  const displayedSongs = getFilteredSongs();
+  // 🔍 DEBUG LOGS
+  console.log('🎯 Selected Leg:', selectedLeg);
+  console.log('🎯 Total Shows:', tourData.shows.length);
+  console.log('🎯 Filtered Shows:', filteredShows.length);
+  console.log('🎯 Stats:', stats);
+  console.log('🎯 Displayed Songs:', displayedSongs.length);
+
+  // Check a few shows to see their legId
+  console.log('🎯 Sample shows:', tourData.shows.slice(0, 3).map(s => ({
+    city: s.city,
+    legId: s.legId,
+    legIdType: typeof s.legId
+  })));
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
-      {/* Header */}
-      <div className="border-b border-gray-100">
-        <div className="max-w-3xl mx-auto px-6 py-16 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-            Linkin Park Song Tracker
-          </h1>
-          <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-            Select a tour leg and filter songs to explore song rarity.
-          </p>
-        </div>
-      </div>
+    <div className="min-h-screen bg-white">
 
-      {/* Controls */}
-      <div className="max-w-3xl mx-auto px-6 py-12">
-        {/* Leg Selector */}
+      <HeaderWrapper
+        badge={"From Zero World Tour 2024-2026"}
+        title={"Setlist Explorer"}
+        subtitle={"Explore song rarity and setlist history across all tour legs"}
+      />
+
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-6 py-10">
+
+        {/* Tour Legs - Visual Cards with B&W → Color */}
         <div className="mb-10">
-          <label className="block text-sm font-medium text-gray-700 mb-3">
-            Tour Leg
-          </label>
-          <select
-            value={selectedLeg === null ? 'all' : selectedLeg}
-            onChange={(e) => setSelectedLeg(e.target.value === 'all' ? null : Number(e.target.value))}
-            className="w-full px-5 py-3.5 border border-gray-200 rounded-xl bg-white text-gray-900
-                     hover:border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-900
-                     focus:border-transparent transition-colors
-                     text-base font-medium"
-          >
-            <option value="all">All Legs</option>
-            {tourData.legs.map(leg => (
-              <option key={leg.id} value={leg.id}>
-                Leg {leg.id}: {leg.region}
-              </option>
-            ))}
-          </select>
-        </div>
+          <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">
+            Select Tour Leg
+          </h2>
 
-        {/* Filter Buttons */}
-        <div className="mb-12">
-          <div className="flex flex-wrap justify-center gap-3">
-            {FILTER_OPTIONS.map((filter) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3">
+            {/* All Legs */}
+            <button
+              onClick={() => setSelectedLeg(null)}
+              className={`group relative aspect-square rounded-xl overflow-hidden transition-all ${
+                selectedLeg === null
+                  ? 'ring-4 ring-slate-600 shadow-lg'
+                  : 'hover:ring-2 hover:ring-gray-300'
+              }`}
+            >
+              <div className={`absolute inset-0 bg-linear-to-br from-slate-700 to-slate-900 ${
+                selectedLeg === null ? '' : 'grayscale group-hover:grayscale-0'
+              } transition-all`}>
+                {/* Icon or pattern */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                  </svg>
+                </div>
+              </div>
+              <div className="absolute bottom-0 left-0 right-0 p-2 bg-linear-to-t from-black/80">
+                <div className="text-white text-xs font-bold">All Legs</div>
+              </div>
+            </button>
+
+            {/* Individual Legs */}
+            {tourData.legs.map(leg => (
               <button
-                key={filter.id}
-                onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-full text-sm font-semibold transition-colors cursor-pointer border-2 ${
-                  activeFilter === filter.id
-                    ? 'bg-gray-900 text-white border-gray-900 shadow-sm'
-                    : 'bg-white text-gray-700 border-gray-200 hover:border-gray-900'
+                key={leg.id}
+                onClick={() => setSelectedLeg(leg.id)}
+                className={`group relative aspect-square rounded-xl overflow-hidden transition-all ${
+                  selectedLeg === leg.id
+                    ? 'ring-4 ring-slate-600 shadow-lg'
+                    : 'hover:ring-2 hover:ring-gray-300'
                 }`}
               >
-                {filter.label}
+                {/* Image with grayscale → color effect */}
+                <img
+                  src={`/tour-images/leg-${leg.id}.jpg`}
+                  alt={`Leg ${leg.id}`}
+                  className={`absolute inset-0 w-full h-full object-cover transition-all ${
+                    selectedLeg === leg.id
+                      ? 'grayscale-0'
+                      : 'grayscale group-hover:grayscale-0'
+                  }`}
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all"></div>
+                {/* Label */}
+                <div className="absolute bottom-0 left-0 right-0 p-2 bg-linear-to-t from-black/80 to-transparent">
+                  <div className="text-white text-xs font-bold">Leg {leg.id}</div>
+                  <div className="text-white/80 text-xs">{leg.region}</div>
+                </div>
               </button>
             ))}
           </div>
         </div>
 
+        {/* Rarity Filters - Match Badge Colors */}
+        <div className="mb-8 flex flex-wrap items-center gap-3">
+        <span className="text-sm font-bold text-slate-900 uppercase tracking-wide">
+          Filter by Rarity:
+        </span>
+
+          <button
+            onClick={() => setActiveFilter('staples')}
+            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+              activeFilter === 'staples'
+                ? 'bg-green-100 text-green-700 ring-2 ring-green-600'
+                : 'bg-gray-100 text-gray-600 hover:bg-green-50'
+            }`}
+          >
+            Staple
+          </button>
+
+          <button
+            onClick={() => setActiveFilter('rotation')}
+            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+              activeFilter === 'rotation'
+                ? 'bg-yellow-100 text-yellow-700 ring-2 ring-yellow-600'
+                : 'bg-gray-100 text-gray-600 hover:bg-yellow-50'
+            }`}
+          >
+            Rotation
+          </button>
+
+          <button
+            onClick={() => setActiveFilter('rare')}
+            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+              activeFilter === 'rare'
+                ? 'bg-orange-100 text-orange-700 ring-2 ring-orange-600'
+                : 'bg-gray-100 text-gray-600 hover:bg-orange-50'
+            }`}
+          >
+            Rare
+          </button>
+
+          <button
+            onClick={() => setActiveFilter('deep-cuts')}
+            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+              activeFilter === 'deep-cuts'
+                ? 'bg-purple-100 text-slate-700 ring-2 ring-slate-600'
+                : 'bg-gray-100 text-gray-600 hover:bg-purple-50'
+            }`}
+          >
+            Deep Cut
+          </button>
+
+          {/*<button*/}
+          {/*  onClick={() => setActiveFilter('predictions')}*/}
+          {/*  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${*/}
+          {/*    activeFilter === 'predictions'*/}
+          {/*      ? 'bg-blue-100 text-blue-700 ring-2 ring-blue-600'*/}
+          {/*      : 'bg-gray-100 text-gray-600 hover:bg-blue-50'*/}
+          {/*  }`}*/}
+          {/*>*/}
+          {/*  Predictions*/}
+          {/*</button>*/}
+        </div>
+
+        {/* Result Count */}
+        {displayedSongs.length > 0 && (
+          <div className="mb-6">
+            <div className="text-2xl font-bold text-slate-900">
+              {displayedSongs.length} songs
+            </div>
+            <div className="text-sm text-slate-600 mt-1">
+              Showing {FILTER_OPTIONS.find(f => f.id === activeFilter)?.label}
+              {selectedLeg && ` in Leg ${selectedLeg}`}
+            </div>
+          </div>
+        )}
+
         {/* Songs List */}
         <div className="space-y-3">
           {displayedSongs.length === 0 ? (
-            <div className="bg-white rounded-2xl border border-gray-100 p-12 text-center">
-              <div className="max-w-md mx-auto">
-                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  No songs found
-                </h3>
-                <p className="text-sm text-gray-500">
-                  Try selecting a different filter or tour leg
-                </p>
+            <div className="bg-gray-50 rounded-2xl border border-gray-200 p-12 text-center">
+              <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                </svg>
               </div>
+              <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                No songs found
+              </h3>
+              <p className="text-sm text-gray-600">
+                Try selecting a different filter or tour leg
+              </p>
             </div>
           ) : (
             displayedSongs.map((song) => (
               <SongCard
                 key={song.title}
                 song={song}
-                totalShows={stats.totalShows}
-                filteredShows={filteredShows}
+                totalShows={filteredShows.length}
                 onClick={() => setSelectedSong(song)}
               />
             ))
@@ -138,29 +248,29 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Song Detail Modal - Placeholder for Task 3 */}
+      {/* Modal */}
       {selectedSong && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50"
           onClick={() => setSelectedSong(null)}
         >
           <div
-            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8"
+            className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-6">
-              <h2 className="text-3xl font-bold text-gray-900">
+              <h2 className="text-3xl font-bold text-slate-900">
                 {selectedSong.title}
               </h2>
               <button
                 onClick={() => setSelectedSong(null)}
-                className="text-gray-400 hover:text-gray-600 text-3xl leading-none"
+                className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
               >
                 ×
               </button>
             </div>
             <p className="text-gray-600">
-              Timeline view coming in Task 3!
+              Timeline view coming soon!
             </p>
           </div>
         </div>

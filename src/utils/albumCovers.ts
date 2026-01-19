@@ -22,7 +22,6 @@ const ALBUM_COVERS: Record<string, string> = {
 };
 
 export function resolveCoverByAlbum(album?: string): string | undefined {
-  debugger;
   if (!album) return undefined;
   return ALBUM_COVERS[album];
 }

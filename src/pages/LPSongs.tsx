@@ -1,169 +1,30 @@
 import React, { useState, useMemo } from 'react';
+import { useLPSongData } from '../hooks/useLPSongData.ts';
 
-import '../styles/LPSongs.css';
-
-
-interface Song {
-  title: string;
-  abbreviation: string;
-}
-
-interface Album {
-  name: string;
-  year: number;
-  songs: Song[];
-}
-
-const lpDiscography: Album[] = [
-  {
-    name: 'Hybrid Theory',
-    year: 2000,
-    songs: [
-      { title: 'Papercut', abbreviation: 'PPC' },
-      { title: 'One Step Closer', abbreviation: 'OSC' },
-      { title: 'With You', abbreviation: 'WY' },
-      { title: 'Points of Authority', abbreviation: 'POA' },
-      { title: 'Crawling', abbreviation: 'CRWL' },
-      { title: 'Runaway', abbreviation: 'RNA' },
-      { title: 'By Myself', abbreviation: 'BM' },
-      { title: 'In the End', abbreviation: 'ITE' },
-      { title: 'A Place for My Head', abbreviation: 'APFMH' },
-      { title: 'Forgotten', abbreviation: 'FGT' },
-      { title: 'Cure for the Itch', abbreviation: 'CFTI' },
-      { title: 'Pushing Me Away', abbreviation: 'PMA' },
-    ],
-  },
-  {
-    name: 'Meteora',
-    year: 2003,
-    songs: [
-      { title: 'Foreword', abbreviation: 'FWD' },
-      { title: "Don't Stay", abbreviation: 'DS' },
-      { title: 'Somewhere I Belong', abbreviation: 'SIB' },
-      { title: 'Lying from You', abbreviation: 'LFY' },
-      { title: 'Hit the Floor', abbreviation: 'HTF' },
-      { title: 'Easier to Run', abbreviation: 'ETR' },
-      { title: 'Faint', abbreviation: 'FNT' },
-      { title: 'Figure.09', abbreviation: 'F09' },
-      { title: 'Breaking the Habit', abbreviation: 'BTH' },
-      { title: 'From the Inside', abbreviation: 'FTI' },
-      { title: 'Nobody\'s Listening', abbreviation: 'NL' },
-      { title: 'Session', abbreviation: 'SSN' },
-      { title: 'Numb', abbreviation: 'NMB' },
-    ],
-  },
-  {
-    name: 'Minutes to Midnight',
-    year: 2007,
-    songs: [
-      { title: 'Wake', abbreviation: 'WK' },
-      { title: 'Given Up', abbreviation: 'GU' },
-      { title: 'Leave Out All the Rest', abbreviation: 'LOATR' },
-      { title: 'Bleed It Out', abbreviation: 'BIO' },
-      { title: 'Shadow of the Day', abbreviation: 'SOTD' },
-      { title: "What I've Done", abbreviation: 'WID' },
-      { title: 'Hands Held High', abbreviation: 'HHH' },
-      { title: 'No More Sorrow', abbreviation: 'NMS' },
-      { title: 'Valentine\'s Day', abbreviation: 'VD' },
-      { title: 'In Between', abbreviation: 'IB' },
-      { title: 'In Pieces', abbreviation: 'IP' },
-      { title: 'The Little Things Give You Away', abbreviation: 'TLTGYA' },
-    ],
-  },
-  {
-    name: 'A Thousand Suns',
-    year: 2010,
-    songs: [
-      { title: 'The Requiem', abbreviation: 'TR' },
-      { title: 'The Radiance', abbreviation: 'TRD' },
-      { title: 'Burning in the Skies', abbreviation: 'BITS' },
-      { title: 'Empty Spaces', abbreviation: 'ES' },
-      { title: 'When They Come for Me', abbreviation: 'WTCFM' },
-      { title: 'Robot Boy', abbreviation: 'RB' },
-      { title: 'Jornada del Muerto', abbreviation: 'JDM' },
-      { title: 'Waiting for the End', abbreviation: 'WFTE' },
-      { title: 'Blackout', abbreviation: 'BO' },
-      { title: 'Wretches and Kings', abbreviation: 'WAK' },
-      { title: 'Wisdom, Justice, and Love', abbreviation: 'WJAL' },
-      { title: 'Iridescent', abbreviation: 'IRD' },
-      { title: 'Fallout', abbreviation: 'FO' },
-      { title: 'The Catalyst', abbreviation: 'TC' },
-      { title: 'The Messenger', abbreviation: 'TM' },
-    ],
-  },
-  {
-    name: 'Living Things',
-    year: 2012,
-    songs: [
-      { title: 'Lost in the Echo', abbreviation: 'LITE' },
-      { title: 'In My Remains', abbreviation: 'IMR' },
-      { title: 'Burn It Down', abbreviation: 'BID' },
-      { title: 'Lies Greed Misery', abbreviation: 'LGM' },
-      { title: "I'll Be Gone", abbreviation: 'IBG' },
-      { title: 'Castle of Glass', abbreviation: 'COG' },
-      { title: 'Victimized', abbreviation: 'VCT' },
-      { title: 'Roads Untraveled', abbreviation: 'RU' },
-      { title: 'Skin to Bone', abbreviation: 'STB' },
-      { title: 'Until It Breaks', abbreviation: 'UIB' },
-      { title: 'Tinfoil', abbreviation: 'TF' },
-      { title: 'Powerless', abbreviation: 'PWR' },
-    ],
-  },
-  {
-    name: 'The Hunting Party',
-    year: 2014,
-    songs: [
-      { title: 'Keys to the Kingdom', abbreviation: 'KTTK' },
-      { title: 'All for Nothing', abbreviation: 'AFN' },
-      { title: 'Guilty All the Same', abbreviation: 'GATS' },
-      { title: 'The Summoning', abbreviation: 'TS' },
-      { title: 'War', abbreviation: 'WAR' },
-      { title: 'Wastelands', abbreviation: 'WL' },
-      { title: 'Until It\'s Gone', abbreviation: 'UIG' },
-      { title: 'Rebellion', abbreviation: 'RBL' },
-      { title: 'Mark the Graves', abbreviation: 'MTG' },
-      { title: 'Drawbar', abbreviation: 'DB' },
-      { title: 'Final Masquerade', abbreviation: 'FM' },
-      { title: 'A Line in the Sand', abbreviation: 'ALITS' },
-    ],
-  },
-  {
-    name: 'One More Light',
-    year: 2017,
-    songs: [
-      { title: 'Nobody Can Save Me', abbreviation: 'NCSM' },
-      { title: 'Good Goodbye', abbreviation: 'GG' },
-      { title: 'Talking to Myself', abbreviation: 'TTM' },
-      { title: 'Battle Symphony', abbreviation: 'BS' },
-      { title: 'Invisible', abbreviation: 'INV' },
-      { title: 'Heavy', abbreviation: 'HVY' },
-      { title: 'Sorry for Now', abbreviation: 'SFN' },
-      { title: 'Halfway Right', abbreviation: 'HR' },
-      { title: 'One More Light', abbreviation: 'OML' },
-      { title: 'Sharp Edges', abbreviation: 'SE' },
-    ],
-  },
-];
 
 export const LPSongs: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const { albumsWithSongs } = useLPSongData();
+
   const [viewMode, setViewMode] = useState<'album' | 'alphabetical'>('album');
 
+
+  // Filter albums based on search query
   const filteredDiscography = useMemo(() => {
-    if (!searchQuery) return lpDiscography;
+    if (!searchQuery) return albumsWithSongs;
 
     const query = searchQuery.toLowerCase();
-    return lpDiscography.map(album => ({
+    return albumsWithSongs.map(album => ({
       ...album,
       songs: album.songs.filter(song =>
         song.title.toLowerCase().includes(query) ||
         song.abbreviation.toLowerCase().includes(query)
       ),
     })).filter(album => album.songs.length > 0);
-  }, [searchQuery]);
+  }, [searchQuery, albumsWithSongs]);
 
   const alphabeticalSongs = useMemo(() => {
-    const allSongs = lpDiscography.flatMap(album =>
+    const allSongs = albumsWithSongs.flatMap(album =>
       album.songs.map(song => ({
         ...song,
         album: album.name,
@@ -182,112 +43,196 @@ export const LPSongs: React.FC = () => {
   }, [searchQuery]);
 
   return (
-    <div className="lp-discography-container">
-      <header className="lp-header">
-        <h1 className="lp-title">Linkin Park Discography</h1>
-        <p className="lp-subtitle">Complete list of studio albums and song abbreviations</p>
-      </header>
+    <div className="max-w-7xl mx-auto p-6">
+      {/* Header */}
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-slate-900 mb-2">Linkin Park Discography</h1>
+        <p className="text-gray-600">Complete song collection with abbreviations</p>
+      </div>
 
-      <div className="lp-controls">
-        <input
-          type="text"
-          className="lp-search-input"
-          placeholder="Search by song title or abbreviation..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-        <div className="lp-view-toggle">
-          <button
-            className={`lp-toggle-btn ${viewMode === 'album' ? 'lp-toggle-active' : ''}`}
-            onClick={() => setViewMode('album')}
-          >
-            By Album
-          </button>
-          <button
-            className={`lp-toggle-btn ${viewMode === 'alphabetical' ? 'lp-toggle-active' : ''}`}
-            onClick={() => setViewMode('alphabetical')}
-          >
-            Alphabetical
-          </button>
+      {/* Controls */}
+      <div className="bg-white border border-gray-200 rounded-xl p-6 mb-8">
+        <div className="flex gap-4 items-center flex-wrap">
+          <div className="flex-1 min-w-[300px]">
+            <input
+              type="text"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              placeholder="Search by song title or abbreviation..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+          <div className="flex bg-gray-100 rounded-lg p-1">
+            <button
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                viewMode === 'album'
+                  ? 'bg-white text-slate-900 shadow-sm'
+                  : 'text-gray-600 hover:text-slate-900'
+              }`}
+              onClick={() => setViewMode('album')}
+            >
+              By Album
+            </button>
+            <button
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                viewMode === 'alphabetical'
+                  ? 'bg-white text-slate-900 shadow-sm'
+                  : 'text-gray-600 hover:text-slate-900'
+              }`}
+              onClick={() => setViewMode('alphabetical')}
+            >
+              Alphabetical
+            </button>
+          </div>
         </div>
       </div>
 
+      {/* Results Count */}
       {searchQuery && (
-        <div className="lp-results-count">
-          Found {viewMode === 'album'
-          ? filteredDiscography.reduce((sum, album) => sum + album.songs.length, 0)
-          : alphabeticalSongs.length
-        } song{(viewMode === 'album'
-          ? filteredDiscography.reduce((sum, album) => sum + album.songs.length, 0)
-          : alphabeticalSongs.length) !== 1 ? 's' : ''}
+        <div className="mb-6">
+          <p className="text-sm text-gray-600 bg-blue-50 border border-blue-200 rounded-lg px-4 py-2 inline-block">
+            Found {viewMode === 'album'
+            ? filteredDiscography.reduce((sum, album) => sum + album.songs.length, 0)
+            : alphabeticalSongs.length
+          } song{(viewMode === 'album'
+            ? filteredDiscography.reduce((sum, album) => sum + album.songs.length, 0)
+            : alphabeticalSongs.length) !== 1 ? 's' : ''}
+          </p>
         </div>
       )}
 
-      <div className="lp-content">
+      {/* Content */}
+      <div className="space-y-8">
         {viewMode === 'album' ? (
           filteredDiscography.length > 0 ? (
             filteredDiscography.map((album, albumIndex) => (
-              <section key={albumIndex} className="lp-album-section">
-                <h2 className="lp-album-title">
-                  {album.name} <span className="lp-year">({album.year})</span>
-                </h2>
-                <table className="lp-table">
-                  <thead>
-                  <tr>
-                    <th className="lp-th-track">#</th>
-                    <th className="lp-th-title">Title</th>
-                    <th className="lp-th-abbr">Abbreviation</th>
-                  </tr>
-                  </thead>
-                  <tbody>
+              <div key={albumIndex} className="space-y-4">
+                {/* Album Header Card */}
+                <div className="bg-white border border-gray-200 rounded-xl p-6">
+                  <div className="flex items-center gap-6">
+                    <div className="flex-shrink-0">
+                      {album?.coverUrl ? (
+                        <img
+                          src={album?.coverUrl}
+                          alt={`${album.name} album cover`}
+                          className="w-20 h-20 rounded-lg object-cover shadow-md"
+                          onError={(e) => {
+                            e.currentTarget.src = 'https://via.placeholder.com/80x80/f3f4f6/9ca3af?text=LP';
+                          }}
+                        />
+                      ) : (
+                        <div className="w-20 h-20 bg-gray-100 rounded-lg flex items-center justify-center">
+                          <svg className="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex-1">
+                      <h2 className="text-2xl font-bold text-slate-900 mb-1">
+                        {album.name}
+                      </h2>
+                      <p className="text-gray-600 mb-2">{album.year}</p>
+                      <p className="text-sm text-gray-500">
+                        {album.songs.length} tracks
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Songs Grid */}
+                <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
                   {album.songs.map((song, songIndex) => (
-                    <tr key={songIndex} className="lp-table-row">
-                      <td className="lp-track-number">
-                        {lpDiscography.find(a => a.name === album.name)?.songs.findIndex(s => s.title === song.title)! + 1}
-                      </td>
-                      <td className="lp-song-title">{song.title}</td>
-                      <td className="lp-abbreviation">{song.abbreviation}</td>
-                    </tr>
+                    <div
+                      key={songIndex}
+                      className="bg-white border border-gray-200 rounded-lg p-4 hover:border-gray-300 hover:shadow-sm transition-all group"
+                    >
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-3 mb-2">
+                        <span className="text-xs font-semibold text-gray-500 bg-gray-100 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">
+                          {songIndex + 1}
+                        </span>
+                            <h3 className="font-semibold text-slate-900 text-sm group-hover:text-gray-700 truncate">
+                              {song.title}
+                            </h3>
+                          </div>
+                          <div className="mt-2">
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700 font-mono ">
+                          {song.abbreviation}
+                        </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   ))}
-                  </tbody>
-                </table>
-              </section>
+                </div>
+              </div>
             ))
           ) : (
-            <div className="lp-no-results">No songs found matching "{searchQuery}"</div>
+            <div className="bg-white border border-gray-200 rounded-xl p-12 text-center">
+              <svg className="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.5-.816-6.207-2.175.168-.288.327-.584.475-.888C7.25 11.205 9.51 11 12 11c2.49 0 4.75.205 5.732.937.148.304.307.6.475.888A7.962 7.962 0 0112 15z" />
+              </svg>
+              <h3 className="text-lg font-medium text-slate-900 mb-1">No songs found</h3>
+              <p className="text-gray-500">No songs match your search for "{searchQuery}"</p>
+            </div>
           )
         ) : (
-          <section className="lp-album-section">
-            <h2 className="lp-album-title">All Songs (A-Z)</h2>
+          <div className="space-y-4">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 mb-6">
+              <h2 className="text-2xl font-bold text-slate-900 mb-1">All Songs</h2>
+              <p className="text-gray-600">Alphabetical listing</p>
+            </div>
+
             {alphabeticalSongs.length > 0 ? (
-              <table className="lp-table">
-                <thead>
-                <tr>
-                  <th className="lp-th-title">Title</th>
-                  <th className="lp-th-abbr">Abbreviation</th>
-                  <th className="lp-th-album">Album</th>
-                </tr>
-                </thead>
-                <tbody>
+              <div className="grid gap-3">
                 {alphabeticalSongs.map((song, index) => (
-                  <tr key={index} className="lp-table-row">
-                    <td className="lp-song-title">{song.title}</td>
-                    <td className="lp-abbreviation">{song.abbreviation}</td>
-                    <td className="lp-album-name">{song.album} ({song.year})</td>
-                  </tr>
+                  <div
+                    key={index}
+                    className="bg-white border border-gray-200 rounded-lg p-5 hover:border-gray-300 hover:shadow-sm transition-all group"
+                  >
+                    <div className="flex items-center gap-4">
+                      {/* Song Info */}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg font-semibold text-slate-900 mb-1 group-hover:text-gray-700">
+                          {song.title}
+                        </h3>
+                        <p className="text-sm text-gray-500 mb-2">
+                          {song.album} • {song.year}
+                        </p>
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 font-mono">
+                      {song.abbreviation}
+                    </span>
+                      </div>
+                    </div>
+                  </div>
                 ))}
-                </tbody>
-              </table>
+              </div>
             ) : (
-              <div className="lp-no-results">No songs found matching "{searchQuery}"</div>
+              <div className="bg-white border border-gray-200 rounded-xl p-12 text-center">
+                <svg className="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.5-.816-6.207-2.175.168-.288.327-.584.475-.888C7.25 11.205 9.51 11 12 11c2.49 0 4.75.205 5.732.937.148.304.307.6.475.888A7.962 7.962 0 0112 15z" />
+                </svg>
+                <h3 className="text-lg font-medium text-slate-900 mb-1">No songs found</h3>
+                <p className="text-gray-500">No songs match your search for "{searchQuery}"</p>
+              </div>
             )}
-          </section>
+          </div>
         )}
       </div>
 
-      <footer className="lp-footer">
-        <p>Total: {lpDiscography.length} albums, {lpDiscography.reduce((sum, album) => sum + album.songs.length, 0)} songs</p>
-      </footer>
+      {/* Footer */}
+      <div className="mt-12 pt-8 border-t border-gray-200">
+        <div className="bg-gray-50 rounded-xl p-6 text-center">
+          <p className="text-sm text-gray-600">
+            <span className="font-semibold text-slate-900">{albumsWithSongs.length}</span> albums •
+            <span className="font-semibold text-slate-900 ml-1">
+          {albumsWithSongs.reduce((sum, album) => sum + album.songs.length, 0)}
+        </span> total songs
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

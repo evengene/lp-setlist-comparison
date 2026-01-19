@@ -112,7 +112,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
 
                                 {/* Header */}
                                 <div className="flex items-center justify-between mb-6">
-                                    <h3 className="text-lg font-bold text-gray-900">Share Comparison</h3>
+                                    <h3 className="text-lg font-bold text-slate-900">Share Comparison</h3>
                                     <button
                                         onClick={() => setIsOpen(false)}
                                         className="text-gray-400 hover:text-gray-600 transition-colors"
@@ -155,7 +155,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
                                                 <Share2 className="w-5 h-5 text-blue-600"/>
                                             </div>
                                             <div>
-                                                <div className="font-medium text-gray-900">Share</div>
+                                                <div className="font-medium text-slate-900">Share</div>
                                                 <div className="text-sm text-gray-500">Open share menu</div>
                                             </div>
                                         </button>
@@ -175,7 +175,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
                                             </svg>
                                         </div>
                                         <div>
-                                            <div className="font-medium text-gray-900">Twitter / X</div>
+                                            <div className="font-medium text-slate-900">Twitter / X</div>
                                             <div className="text-sm text-gray-500">Post to your feed</div>
                                         </div>
                                     </button>
@@ -194,7 +194,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
                                             </svg>
                                         </div>
                                         <div>
-                                            <div className="font-medium text-gray-900">Facebook</div>
+                                            <div className="font-medium text-slate-900">Facebook</div>
                                             <div className="text-sm text-gray-500">Share on your timeline</div>
                                         </div>
                                     </button>
@@ -213,7 +213,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
                                             )}
                                         </div>
                                         <div>
-                                            <div className="font-medium text-gray-900">
+                                            <div className="font-medium text-slate-900">
                                                 {copied ? 'Link Copied!' : 'Copy Link'}
                                             </div>
                                             <div className="text-sm text-gray-500">

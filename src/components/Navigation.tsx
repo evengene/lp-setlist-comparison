@@ -14,8 +14,8 @@ export const Navigation = () => {
     <nav className="border-b border-gray-200 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center space-x-2 text-xl font-semibold">
-            <span className="text-2xl">🎵</span>
+          <Link to="/" className="flex items-center space-x-2 text-xl font-semibold text-slate-900">
+            <img src="/lp-logo-navy.png" alt="Linkin Park Logo" className="w-12 h-12 mx-auto mr-3" />
             <span>LP Setlists</span>
           </Link>
 
@@ -25,10 +25,10 @@ export const Navigation = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                className={`px-4 py-2 rounded-3xl text-sm font-medium transition-colors ${
                   location.pathname === item.path
-                    ? 'bg-black text-white'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? 'bg-slate-900 text-white'
+                    : 'text-slate-700 hover:bg-gray-100'
                 }`}
               >
                 {item.label}
