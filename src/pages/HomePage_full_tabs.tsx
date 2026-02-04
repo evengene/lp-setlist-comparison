@@ -3,6 +3,7 @@ import { getTourData } from '../services/tourDataService';
 import { calculateTourStats, type SongStats } from '../utils/setlistStats';
 import SongCard from "../components/SongCard.tsx";
 import HeaderWrapper from "../components/HeaderWrapper.tsx";
+import { TourLeg } from "../components/TourLeg.tsx";
 
 
 const FILTER_OPTIONS = [
@@ -73,8 +74,8 @@ export default function HomePage() {
 
       <HeaderWrapper
         badge={"From Zero World Tour 2024-2026"}
-        title={"Setlist Explorer"}
-        subtitle={"Explore song rarity and setlist history across all tour legs"}
+        title={"Linkin Park Live Shows"}
+        subtitle={"Explore the setlist history across all tour legs"}
       />
 
       {/* Main Content */}
@@ -113,33 +114,12 @@ export default function HomePage() {
 
             {/* Individual Legs */}
             {tourData.legs.map(leg => (
-              <button
+              <TourLeg
                 key={leg.id}
+                legId={leg.id}
                 onClick={() => setSelectedLeg(leg.id)}
-                className={`group relative aspect-square rounded-xl overflow-hidden transition-all ${
-                  selectedLeg === leg.id
-                    ? 'ring-4 ring-slate-600 shadow-lg'
-                    : 'hover:ring-2 hover:ring-gray-300'
-                }`}
-              >
-                {/* Image with grayscale → color effect */}
-                <img
-                  src={`/tour-images/leg-${leg.id}.jpg`}
-                  alt={`Leg ${leg.id}`}
-                  className={`absolute inset-0 w-full h-full object-cover transition-all ${
-                    selectedLeg === leg.id
-                      ? 'grayscale-0'
-                      : 'grayscale group-hover:grayscale-0'
-                  }`}
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-all"></div>
-                {/* Label */}
-                <div className="absolute bottom-0 left-0 right-0 p-2 bg-linear-to-t from-black/80 to-transparent">
-                  <div className="text-white text-xs font-bold">Leg {leg.id}</div>
-                  <div className="text-white/80 text-xs">{leg.region}</div>
-                </div>
-              </button>
+                selectedLeg= {selectedLeg}
+              />
             ))}
           </div>
         </div>

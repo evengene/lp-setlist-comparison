@@ -32,7 +32,7 @@ const HeaderWrapper = ( props: HeaderWrapperProps ) => {
             {badge}
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-3 tracking-tight">
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-3 tracking-tight">
             {title}
           </h1>
 
