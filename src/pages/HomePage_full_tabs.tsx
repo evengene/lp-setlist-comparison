@@ -5,19 +5,10 @@ import SongCard from "../components/SongCard.tsx";
 import HeaderWrapper from "../components/HeaderWrapper.tsx";
 import { TourLeg } from "../components/TourLeg.tsx";
 
-
-const FILTER_OPTIONS = [
-  { id: 'staples', label: 'Core Playlist' },
-  { id: 'rotation', label: 'Rotation' },
-  { id: 'rare', label: 'Rare' },
-  { id: 'deep-cut', label: 'Deep Cuts' },
-  { id: 'predictions', label: 'Predictions' },
-];
-
 export default function HomePage() {
   const tourData = getTourData();
   const [selectedLeg, setSelectedLeg] = useState<number | null>(null);
-  const [activeFilter, setActiveFilter] = useState('staples');
+  const [activeFilter, setActiveFilter] = useState('all');
   const [selectedSong, setSelectedSong] = useState<SongStats | null>(null);
 
   // Add useEffect for ESC key
@@ -119,6 +110,7 @@ export default function HomePage() {
                 legId={leg.id}
                 onClick={() => setSelectedLeg(leg.id)}
                 selectedLeg= {selectedLeg}
+                region={leg.region}
               />
             ))}
           </div>
@@ -129,6 +121,16 @@ export default function HomePage() {
         <span className="text-sm font-bold text-slate-900 uppercase tracking-wide">
           Filter by Rarity:
         </span>
+          <button
+            onClick={() => setActiveFilter('all')}
+            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+              activeFilter === 'all'
+                ? 'bg-slate-300 text-slate-700 ring-2 ring-slate-600'
+                : 'bg-gray-100 text-slate-600 hover:bg-slate-200'
+            }`}
+          >
+            All
+          </button>
 
           <button
             onClick={() => setActiveFilter('staples')}
@@ -190,10 +192,11 @@ export default function HomePage() {
         {displayedSongs.length > 0 && (
           <div className="mb-6">
             <div className="text-2xl font-bold text-slate-900">
-              {displayedSongs.length} songs
+
+              {'List of songs played on Linkin Park Live shows'}
             </div>
             <div className="text-sm text-slate-600 mt-1">
-              Showing {FILTER_OPTIONS.find(f => f.id === activeFilter)?.label}
+              {displayedSongs.length} songs
               {selectedLeg && ` in Leg ${selectedLeg}`}
             </div>
           </div>

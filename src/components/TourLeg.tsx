@@ -4,11 +4,12 @@ type PropTypes = {
   legId: number;
   onClick: () => void;
   selectedLeg: number | null;
+  region: string;
 }
 
 export const TourLeg = (props: PropTypes) => {
 
-  const { legId, onClick, selectedLeg } = props;
+  const { legId, onClick, selectedLeg, region } = props;
 
   return (
     <button
@@ -34,7 +35,7 @@ export const TourLeg = (props: PropTypes) => {
       {/* Label */}
       <div className="absolute bottom-0 left-0 right-0 p-2 bg-linear-to-t from-black/80 to-transparent">
         <div className="text-white text-xs font-bold">Leg {legId}</div>
-        <div className="text-white/80 text-xs">{legId}</div>
+        <div className="text-white/80 text-xs">{region}</div>
       </div>
     </button>
   )
