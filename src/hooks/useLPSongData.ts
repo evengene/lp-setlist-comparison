@@ -19,7 +19,7 @@ export interface Album {
 
 export function useLPSongData() {
 
-  // Transform flat songs into grouped albums structure
+  // Transform flat songs into a grouped albums structure
   const albumsWithSongs = useMemo(() => {
     const albumMap = new Map<string, Album>();
 

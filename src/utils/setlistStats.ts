@@ -1,6 +1,7 @@
-import type { Setlist } from '../types/setlist';
 import lpSongDatabase from '../data/lpSongDatabase.json';
 import { resolveCoverByAlbum } from './albumCovers';
+
+import type { Setlist } from '../types/setlist';
 
 type AlbumInfo = {
   album: string;
@@ -9,7 +10,7 @@ type AlbumInfo = {
 };
 
 
-// 3. Create song-to-album map with type
+// 3. Create a song-to-album map with type
 const SONG_ALBUM_MAP: Record<string, AlbumInfo> =
   lpSongDatabase.songs.reduce((map, song) => {
     map[song.title] = {
@@ -75,6 +76,7 @@ export function calculateTourStats(setlists: Setlist[]): TourStats {
   }
 
   const totalShows = setlists.length;
+  
   const songPlayCount = new Map<string, {
     count: number;
     lastCity?: string;
@@ -107,6 +109,39 @@ export function calculateTourStats(setlists: Setlist[]): TourStats {
     return true;
   };
 
+  // Precompute typical position ranges in ONE pass (instead of per-song scanning all setlists)
+  const positionMinMaxByTitle = new Map<string, { min: number; max: number }>();
+
+  sortedSetlists.forEach(setlist => {
+    let position = 1;
+
+    setlist.sets?.set?.forEach((set: any) => {
+      set.song?.forEach((song: any) => {
+        // Skip tape songs - they don't count as positions (and shouldn't increment)
+        if (song.tape) return;
+
+        const title = song.name as string;
+
+        const existing = positionMinMaxByTitle.get(title);
+        if (!existing) {
+          positionMinMaxByTitle.set(title, { min: position, max: position });
+        } else {
+          existing.min = Math.min(existing.min, position);
+          existing.max = Math.max(existing.max, position);
+        }
+
+        position++;
+      });
+    });
+  });
+
+  const getPositionRange = (songTitle: string): string | null => {
+    const mm = positionMinMaxByTitle.get(songTitle);
+    if (!mm) return null;
+    if (mm.min === mm.max) return `${mm.min}`;
+    return `${mm.min}-${mm.max}`;
+  };
+
   // Count song plays and track last played info
   sortedSetlists.forEach((setlist, showIndex) => {
     const songs = setlist.sets?.set?.flatMap(s => s.song || []) || [];
@@ -114,9 +149,6 @@ export function calculateTourStats(setlists: Setlist[]): TourStats {
     songs.forEach(song => {
       // Skip non-LP songs using API properties
       if (!isLinkinParkSong(song)) return;
-
-      // calculate song typical position
-
 
       const title = song.name;
 
@@ -141,69 +173,19 @@ export function calculateTourStats(setlists: Setlist[]): TourStats {
     });
   });
 
-  // Get typical position range for a song
-  function calculatePositionRange(songTitle: string): string | null {
-    const positions: number[] = [];
-
-    // Loop through all setlists
-    sortedSetlists.forEach(setlist => {
-      let position = 1;
-
-      // Loop through all sets
-      setlist.sets?.set?.forEach((set: any) => {
-        // Loop through songs in this set
-        set.song?.forEach((song: any) => {
-          // Skip tape songs - they don't count as positions
-          if (song.tape) return;
-
-          // If this is our song, record the position
-          if (song.name === songTitle) {
-            positions.push(position);
-          }
-
-          // Increment position counter
-          position++;
-        });
-      });
-    });
-
-    // If song was never played, return null
-    if (positions.length === 0) return null;
-
-    // Calculate min and max
-    const min = Math.min(...positions);
-    const max = Math.max(...positions);
-
-    // If always same position, return single number
-    if (min === max) {
-      return `${min}`;
-    }
-
-    // Return range
-    return `${min}-${max}`;
-  }
-
-  // Convert to SongStats array
-  const allSongs: SongStats[] = Array.from(songPlayCount.entries()).map(([title, data]) => {
+  // Convert to SongStats array (NO undefined entries)
+  const allSongs: SongStats[] = [...songPlayCount].map(([title, data]) => {
     const percentage = (data.count / totalShows) * 100;
-    let category: SongStats['category'];
 
-    // Core setlist: 80%+ of shows
-    if (percentage >= 80) category = 'staple';
-    // Rotating: 40-79% of shows (every other show roughly)
-    else if (percentage >= 40) category = 'rotation';
-    // Rare: 20-39%
-    else if (percentage >= 20) category = 'rare';
-    // deepCut: <20%
-    else if (percentage < 20) category = 'deep-cut';
+    // Always assign a category (removes the undefined-return issue entirely)
+    const category: SongStats['category'] =
+      percentage >= 80 ? 'staple'
+        : percentage >= 40 ? 'rotation'
+          : percentage >= 20 ? 'rare'
+            : 'deep-cut';
 
-    else return;
-
-    // Get album info
     const albumInfo = getAlbumInfo(title);
-
     const coverUrl = resolveCoverByAlbum(albumInfo?.album, title);
-
 
     return {
       title,
@@ -217,7 +199,7 @@ export function calculateTourStats(setlists: Setlist[]): TourStats {
       album: albumInfo?.album,
       year: albumInfo?.year,
       coverUrl,
-      positionRange: calculatePositionRange(title),
+      positionRange: getPositionRange(title),
     };
   });
 
@@ -247,24 +229,3 @@ export function calculateTourStats(setlists: Setlist[]): TourStats {
   };
 }
 
-/**
- * Get the next upcoming show (if available in setlist.fm data)
- * Note: This would need upcoming shows data from setlist.fm
- */
-// export function getNextShow(setlists: Setlist[]) {
-//   // For now, return null - you'll need to implement this
-//   // when you have access to upcoming shows data
-//   return null;
-// }
-
-/**
- * Get days until a future date
- */
-export function getDaysUntil(dateString: string): number {
-  const [day, month, year] = dateString.split('-');
-  const targetDate = new Date(`${year}-${month}-${day}`);
-  const today = new Date();
-  const diffTime = targetDate.getTime() - today.getTime();
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  return diffDays;
-}
