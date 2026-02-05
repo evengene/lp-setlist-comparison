@@ -4,6 +4,7 @@ import { calculateTourStats, type SongStats } from '../utils/setlistStats';
 import SongCard from "../components/SongCard.tsx";
 import HeaderWrapper from "../components/HeaderWrapper.tsx";
 import { TourLeg } from "../components/TourLeg.tsx";
+import { AudioLines } from "lucide-react";
 
 export default function HomePage() {
   const tourData = getTourData();
@@ -93,9 +94,7 @@ export default function HomePage() {
               } transition-all`}>
                 {/* Icon or pattern */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                  </svg>
+                  <AudioLines className="w-24 h-24 text-white" />
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-2 bg-linear-to-t from-black/80">
@@ -166,9 +165,9 @@ export default function HomePage() {
           </button>
 
           <button
-            onClick={() => setActiveFilter('deep-cuts')}
+            onClick={() => setActiveFilter('deep-cut')}
             className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-              activeFilter === 'deep-cuts'
+              activeFilter === 'deep-cut'
                 ? 'bg-purple-100 text-slate-700 ring-2 ring-slate-600'
                 : 'bg-gray-100 text-gray-600 hover:bg-purple-50'
             }`}
@@ -196,7 +195,7 @@ export default function HomePage() {
               {'List of songs played on Linkin Park Live shows'}
             </div>
             <div className="text-sm text-slate-600 mt-1">
-              {displayedSongs.length} songs
+              {displayedSongs.length} songs played across {filteredShows.length} shows
               {selectedLeg && ` in Leg ${selectedLeg}`}
             </div>
           </div>
@@ -228,6 +227,14 @@ export default function HomePage() {
               />
             ))
           )}
+        </div>
+      </div>
+
+      <div className="pt-16 mt-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <p className="text-2xl md:text-3xl text-gray-800 font-light italic">
+            "Dream big, work hard, and don't be an a**hole." - Mike Shinoda
+          </p>
         </div>
       </div>
 

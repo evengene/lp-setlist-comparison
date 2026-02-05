@@ -38,9 +38,11 @@ const SongCard: React.FC<SongCardProps> = ({ song, onClick, totalShows }) => {
           <h3 className="text-lg font-semibold text-slate-900 mb-1 group-hover:text-gray-700">
             {song.title}
           </h3>
+          {song.album && song.album &&
           <p className="text-sm text-gray-500 mb-2">
             {song.album} • {song.year}
           </p>
+          }
           <div className="flex items-center gap-4 text-sm">
                       <span className="text-gray-700 font-medium">
                         {song.timesPlayed}/{totalShows} shows played
