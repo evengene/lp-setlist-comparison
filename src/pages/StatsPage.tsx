@@ -9,13 +9,16 @@ export const StatsPage = () => {
   // Stats
   const totalShows = tourData.shows.length;
   const uniqueSongs = new Set(
-    tourData.shows.flatMap(show =>
-      show.setlist.sets?.set?.flatMap((s: any) =>
-        s.song?.filter((song: any) => !song.tape).map((song: any) => song.name) || []
-      ) || []
-    )
+    tourData.shows.flatMap(show => {
+      const sets = (show.setlist as any).sets?.set || [];
+      return sets.flatMap((set: any) => {
+        const songs = set.song || [];
+        return songs
+          .filter((song: any) => !song.tape)
+          .map((song: any) => song.name);
+      });
+    })
   ).size;
-
 
   return (
 

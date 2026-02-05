@@ -29,10 +29,10 @@ export default function HomePage() {
     : tourData.shows.filter(show => show.legId === selectedLeg);
 
   // Calculate stats from filtered shows
-  const stats = calculateTourStats(filteredShows.map(s => s.setlist));
+  const stats = calculateTourStats(filteredShows.map(s => s.setlist as any));
 
 
-  // Determine songs to display based on active filter
+  // Determine songs to display based on an active filter
   const displayedSongs = useMemo(() => {
     if (!stats || !stats.allSongs) return [];
 
