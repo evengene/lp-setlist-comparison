@@ -24,7 +24,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
         } catch (err) {
-            alert('Failed to copy link');
+            alert(`'Failed to copy link', ${err}`);
         }
     };
 
@@ -39,11 +39,11 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
                 });
             } catch (err) {
                 // User cancelled or error
-                console.log('Share cancelled');
+                console.log('Share cancelled or failed:', err);
             }
         } else {
             // Fallback to copy
-            handleCopyLink();
+            await handleCopyLink();
         }
     };
 
@@ -128,7 +128,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
                                     <button
                                         onClick={handleDownloadImage}
                                         disabled={downloading}
-                                        className="w-full flex items-center gap-3 p-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600 rounded-lg transition-all text-left disabled:opacity-50"
+                                        className="w-full flex items-center gap-3 p-3 bg-linear-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600 rounded-lg transition-all text-left disabled:opacity-50"
                                     >
                                         <div
                                             className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">

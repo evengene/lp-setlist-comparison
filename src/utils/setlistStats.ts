@@ -31,7 +31,7 @@ export interface SongStats {
   lastPlayed?: string;
   lastPlayedDate?: string;
   showsSinceLastPlayed: number;
-  category: 'staple' | 'rotation' | 'rare' | 'deep-cut' | 'prediction';
+  category: 'staple' | 'rotation' | 'rare' | 'deep-cut' | 'prediction'
   album?: string;
   coverUrl?: string;
   year?: number;
@@ -184,39 +184,41 @@ export function calculateTourStats(setlists: Setlist[]): TourStats {
   }
 
   // Convert to SongStats array
-  const allSongs: SongStats[] = Array.from(songPlayCount.entries()).map(([title, data]) => {
-    const percentage = (data.count / totalShows) * 100;
-    let category: SongStats['category'];
+  const STAPLE_THRESHOLD = 80;
+  const ROTATION_THRESHOLD = 40;
+  const RARE_THRESHOLD = 20;
 
-    // Core setlist: 80%+ of shows
-    if (percentage >= 80) category = 'staple';
-    // Rotating: 40-79% of shows (every other show roughly)
-    else if (percentage >= 40) category = 'rotation';
-    // Rare: 20-39%
-    else if (percentage >= 20) category = 'rare';
-    // deepCut: <20%
-    else category = 'deep-cut';
+  const getCategoryFromPercentage = (percentage: number): SongStats["category"] => {
+    if (percentage >= STAPLE_THRESHOLD) return "staple";
+    if (percentage >= ROTATION_THRESHOLD) return "rotation";
+    if (percentage >= RARE_THRESHOLD) return "rare";
+    return "deep-cut";
+  };
 
-    // Get album info
+  const allSongs: SongStats[] = Array.from(songPlayCount.entries()).flatMap(([ title, playStats ]) => {
+    const percentage = (playStats.count / totalShows) * 100;
+    const category = getCategoryFromPercentage(percentage);
+
     const albumInfo = getAlbumInfo(title);
+    const album = albumInfo?.album;
+    const coverUrl = resolveCoverByAlbum(album);
 
-    const coverUrl = resolveCoverByAlbum(albumInfo?.album);
-
-
-    return {
-      title,
-      timesPlayed: data.count,
-      totalShows,
-      percentage,
-      lastPlayed: data.lastCity,
-      lastPlayedDate: data.lastDate,
-      showsSinceLastPlayed: data.lastShowIndex,
-      category,
-      album: albumInfo?.album,
-      year: albumInfo?.year,
-      coverUrl,
-      positionRange: calculatePositionRange(title),
-    };
+    return [
+      {
+        title,
+        timesPlayed: playStats.count,
+        totalShows,
+        percentage,
+        lastPlayed: playStats.lastCity,
+        lastPlayedDate: playStats.lastDate,
+        showsSinceLastPlayed: playStats.lastShowIndex,
+        category,
+        album,
+        year: albumInfo?.year,
+        coverUrl,
+        positionRange: calculatePositionRange(title)
+      }
+    ];
   });
 
   // Sort by play count (descending)

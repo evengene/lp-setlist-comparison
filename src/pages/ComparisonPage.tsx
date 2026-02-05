@@ -79,7 +79,9 @@ export const ComparisonPage = () => {
       }
     };
 
-    fetchSetlists();
+    fetchSetlists().then(r =>
+    console.log(r)
+    );
   }, []);
 
   // Update comparison when shows change
@@ -275,7 +277,7 @@ export const ComparisonPage = () => {
             {/* Shared Songs */}
             <div className="flex min-w-[250px] flex-1 items-center gap-4">
               <div
-                className="h-12 w-12 flex-shrink-0 rounded-xl"
+                className="h-12 w-12 shrink-0 rounded-xl"
                 style={{
                   background: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)'
                 }}
@@ -293,7 +295,7 @@ export const ComparisonPage = () => {
             {/* Unique Songs */}
             <div className="flex min-w-[250px] flex-1 items-center gap-4">
               <div
-                className="h-12 w-12 flex-shrink-0 rounded-xl"
+                className="h-12 w-12 shrink-0 rounded-xl"
                 style={{
                   background: 'linear-gradient(135deg, #ffe4e6 0%, #fecdd3 100%)'
                 }}

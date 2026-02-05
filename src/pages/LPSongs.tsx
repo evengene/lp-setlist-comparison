@@ -40,7 +40,7 @@ export const LPSongs: React.FC = () => {
       : allSongs;
 
     return filtered.sort((a, b) => a.title.localeCompare(b.title));
-  }, [searchQuery]);
+  }, [albumsWithSongs, searchQuery]);
 
   return (
     <div className="max-w-7xl mx-auto p-6">
@@ -110,7 +110,7 @@ export const LPSongs: React.FC = () => {
                 {/* Album Header Card */}
                 <div className="bg-white border border-gray-200 rounded-xl p-6">
                   <div className="flex items-center gap-6">
-                    <div className="flex-shrink-0">
+                    <div className="shrink-0">
                       {album?.coverUrl ? (
                         <img
                           src={album?.coverUrl}
@@ -150,7 +150,7 @@ export const LPSongs: React.FC = () => {
                       <div className="flex items-start justify-between">
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-3 mb-2">
-                        <span className="text-xs font-semibold text-gray-500 bg-gray-100 rounded-full w-6 h-6 flex items-center justify-center flex-shrink-0">
+                        <span className="text-xs font-semibold text-gray-500 bg-gray-100 rounded-full w-6 h-6 flex items-center justify-center shrink-0">
                           {songIndex + 1}
                         </span>
                             <h3 className="font-semibold text-slate-900 text-sm group-hover:text-gray-700 truncate">

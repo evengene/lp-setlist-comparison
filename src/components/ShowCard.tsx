@@ -94,7 +94,7 @@ export function ShowCard( { show }: ShowCardProps ) {
                   }`}
                 >
                   <div
-                    className={`w-7 h-7 rounded-md flex items-center justify-center text-xs font-semibold flex-shrink-0 ${
+                    className={`w-7 h-7 rounded-md flex items-center justify-center text-xs font-semibold shrink-0 ${
                       song.status === 'shared'
                         ? 'bg-emerald-200 text-emerald-800'
                         : 'bg-rose-200 text-rose-800'
@@ -102,7 +102,7 @@ export function ShowCard( { show }: ShowCardProps ) {
                   >
                     {song.position}
                   </div>
-                  <div className="flex-grow min-w-0">
+                  <div className="grow min-w-0">
                     <div className="font-medium text-slate-900">{song.name}</div>
                     {song.info && (
                       <div className="text-xs text-gray-500 mt-0.5 italic">{song.info}</div>

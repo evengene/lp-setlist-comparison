@@ -26,7 +26,7 @@ export function useLPSongData() {
     // Group songs by album
     lpSongDatabase.songs.forEach(song => {
       if (!albumMap.has(song.album)) {
-        // Create new album entry
+        // Create a new album entry
         albumMap.set(song.album, {
           name: song.album,
           year: song.year,
