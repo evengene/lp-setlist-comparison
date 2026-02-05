@@ -1,0 +1,2036 @@
+{
+  "legId": 1,
+  "shows": [
+    {
+      "id": "635ef22b",
+      "versionId": "g336184dd",
+      "eventDate": "12-12-2024",
+      "lastUpdated": "2025-12-07T06:03:48.891+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "1bde4998",
+        "name": "Soundstorm Festival Grounds",
+        "city": {
+          "id": "108410",
+          "name": "Riyadh",
+          "state": "Ar Riyāḑ",
+          "stateCode": "10",
+          "coords": {
+            "lat": 24.68773,
+            "long": 46.72185
+          },
+          "country": {
+            "code": "SA",
+            "name": "Saudi Arabia"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/soundstorm-festival-grounds-riyadh-saudi-arabia-1bde4998.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "song": [
+              {
+                "name": "Inception Intro A",
+                "tape": true,
+                "info": "with elements of \"Castle of Glass\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "New Divide",
+                "info": "with \"Moscow\" intro"
+              },
+              {
+                "name": "The Emptiness Machine"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Waiting for the End"
+              },
+              {
+                "name": "Two Faced"
+              },
+              {
+                "name": "Given Up"
+              },
+              {
+                "name": "One Step Closer",
+                "info": "with pyro/fireworks"
+              },
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "shortened; Mike and Emily piano version"
+              },
+              {
+                "name": "What I've Done"
+              },
+              {
+                "name": "Over Each Other",
+                "info": "with Emily on guitar"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "extended outro"
+              },
+              {
+                "name": "Resolution Intro A",
+                "tape": true,
+                "info": "with elements of \"Castle of Glass\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "Heavy Is the Crown"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "ext. bridge w/ 'A Place For My Head' verse 1"
+              }
+            ]
+          }
+        ]
+      },
+      "info": "First performance in Saudi Arabia.",
+      "url": "https://www.setlist.fm/setlist/linkin-park/2024/soundstorm-festival-grounds-riyadh-saudi-arabia-635ef22b.html"
+    },
+    {
+      "id": "73536229",
+      "versionId": "g7b50de84",
+      "eventDate": "16-11-2024",
+      "lastUpdated": "2024-11-20T14:54:44.989+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "6bd41616",
+        "name": "Allianz Parque",
+        "city": {
+          "id": "3448439",
+          "name": "São Paulo",
+          "state": "São Paulo",
+          "stateCode": "SP",
+          "coords": {
+            "lat": -23.5475,
+            "long": -46.63611111
+          },
+          "country": {
+            "code": "BR",
+            "name": "Brazil"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/allianz-parque-sao-paulo-brazil-6bd41616.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "Inception Intro B",
+                "tape": true,
+                "info": "with elements of \"Iridescent\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "Points of Authority"
+              },
+              {
+                "name": "Two Faced"
+              },
+              {
+                "name": "New Divide",
+                "info": "with \"Moscow\" intro"
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro B",
+                "tape": true,
+                "info": "with elements of \"Iridescent\""
+              },
+              {
+                "name": "The Catalyst",
+                "info": "without third chorus/breakdown"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Waiting for the End"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Joe Hahn Solo",
+                "info": "with Colin on drums"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo; with Colin on drums"
+              },
+              {
+                "name": "Casualty"
+              },
+              {
+                "name": "One Step Closer"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "shortened; Mike and Emily piano version"
+              },
+              {
+                "name": "Breaking the Habit"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Leave Out All the Rest"
+              },
+              {
+                "name": "Friendly Fire"
+              },
+              {
+                "name": "Over Each Other",
+                "info": "with Emily on guitar"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "extended outro"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro B",
+                "tape": true,
+                "info": "with elements of \"Iridescent\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "Heavy Is the Crown"
+              },
+              {
+                "name": "A Place for My Head"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "extended bridge with Fort Minor's \"There They Go\" verse 1"
+              }
+            ]
+          }
+        ]
+      },
+      "url": "https://www.setlist.fm/setlist/linkin-park/2024/allianz-parque-sao-paulo-brazil-73536229.html"
+    },
+    {
+      "id": "3b532080",
+      "versionId": "g6b4ade32",
+      "eventDate": "15-11-2024",
+      "lastUpdated": "2025-05-17T10:31:12.790+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "6bd41616",
+        "name": "Allianz Parque",
+        "city": {
+          "id": "3448439",
+          "name": "São Paulo",
+          "state": "São Paulo",
+          "stateCode": "SP",
+          "coords": {
+            "lat": -23.5475,
+            "long": -46.63611111
+          },
+          "country": {
+            "code": "BR",
+            "name": "Brazil"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/allianz-parque-sao-paulo-brazil-6bd41616.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "Inception Intro A",
+                "tape": true,
+                "info": "with elements of \"Castle of Glass\" and \"In the End\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "Lying From You"
+              },
+              {
+                "name": "Two Faced",
+                "info": "Live debut. Recorded and released on the 2CD version of From Zero Deluxe Edition"
+              },
+              {
+                "name": "New Divide",
+                "info": "with \"Moscow intro\""
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro A",
+                "tape": true,
+                "info": "with elements of \"Castle of Glass\""
+              },
+              {
+                "name": "The Catalyst",
+                "info": "without third chorus/breakdown"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Waiting for the End",
+                "info": "2024 intro"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Joe Hahn Solo",
+                "info": "with Colin on drums"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo; with Colin on guitar for \"When They Come for Me\" and drums for \"Remember the Name\""
+              },
+              {
+                "name": "Casualty"
+              },
+              {
+                "name": "One Step Closer"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "shortened; Mike and Emily duet piano version"
+              },
+              {
+                "name": "Breaking the Habit"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Leave Out All the Rest"
+              },
+              {
+                "name": "My December",
+                "info": "acoustic"
+              },
+              {
+                "name": "Over Each Other",
+                "info": "with Emily on guitar"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro A",
+                "tape": true,
+                "info": "with elements of \"Castle of Glass\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "Lost in the Echo"
+              },
+              {
+                "name": "Heavy Is the Crown"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "with \"A Place for My Head\" verse 1 in the bridge"
+              }
+            ]
+          }
+        ]
+      },
+      "info": "The first 6 songs were streamed on Linkin Park's YouTube channel. The full show was streamed on Globoplay and Multishow, and filmed to be shown in cinemas in 2025.",
+      "url": "https://www.setlist.fm/setlist/linkin-park/2024/allianz-parque-sao-paulo-brazil-3b532080.html"
+    },
+    {
+      "id": "1352759d",
+      "versionId": "g7b4ade08",
+      "eventDate": "11-11-2024",
+      "lastUpdated": "2025-05-17T10:46:24.759+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "3bd10840",
+        "name": "Coliseo MedPlus",
+        "city": {
+          "id": "3688689",
+          "name": "Bogota",
+          "state": "Bogota D.C.",
+          "stateCode": "34",
+          "coords": {
+            "lat": 4.6,
+            "long": -74.083
+          },
+          "country": {
+            "code": "CO",
+            "name": "Colombia"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/coliseo-medplus-bogota-colombia-3bd10840.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "Inception Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "Points of Authority"
+              },
+              {
+                "name": "Lying From You"
+              },
+              {
+                "name": "New Divide",
+                "info": "with short \"Moscow Intro\""
+              },
+              {
+                "name": "The Emptiness Machine",
+                "info": "technical issues arose during this song; followed by the show briefly being paused to correct them"
+              },
+              {
+                "name": "The Emptiness Machine",
+                "info": "played a second time to make up for the technical issues from the previous performance"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "The Catalyst"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Waiting for the End",
+                "info": "2024 intro"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Joe Hahn Solo"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name"
+              },
+              {
+                "name": "Casualty",
+                "info": "Recorded and released on the 2CD version of From Zero Deluxe Edition"
+              },
+              {
+                "name": "One Step Closer",
+                "info": "2024 intro; extended outro with chorus riff"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "shortened; Mike and Emily duet piano version"
+              },
+              {
+                "name": "Breaking the Habit"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Leave Out All the Rest",
+                "info": "2017 version; with \"Iridescent\" intro sample"
+              },
+              {
+                "name": "My December",
+                "info": "Acoustic"
+              },
+              {
+                "name": "Over Each Other",
+                "info": "Emily on guitar"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "Extended outro"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "Papercut",
+                "info": "2024 intro"
+              },
+              {
+                "name": "A Place for My Head"
+              },
+              {
+                "name": "Heavy Is the Crown"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "extended bridge with Fort Minor's “There They Go” verse 1; extended outro"
+              }
+            ]
+          }
+        ]
+      },
+      "url": "https://www.setlist.fm/setlist/linkin-park/2024/coliseo-medplus-bogota-colombia-1352759d.html"
+    },
+    {
+      "id": "33532085",
+      "versionId": "g6b50fe9e",
+      "eventDate": "08-11-2024",
+      "lastUpdated": "2024-11-19T15:35:39.320+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "bd085fe",
+        "name": "Globe Life Field",
+        "city": {
+          "id": "4671240",
+          "name": "Arlington",
+          "state": "Texas",
+          "stateCode": "TX",
+          "coords": {
+            "lat": 32.735687,
+            "long": -97.1080656
+          },
+          "country": {
+            "code": "US",
+            "name": "United States"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/globe-life-field-arlington-tx-usa-bd085fe.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "song": [
+              {
+                "name": "Waiting Room",
+                "tape": true,
+                "cover": {
+                  "mbid": "233fc3f3-6de2-465c-985e-e721dbabbace",
+                  "name": "Fugazi",
+                  "sortName": "Fugazi",
+                  "disambiguation": "",
+                  "url": "https://www.setlist.fm/setlists/fugazi-3d6bdff.html"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Act l",
+            "song": [
+              {
+                "name": "Inception Intro B",
+                "tape": true,
+                "info": "with elements of \"Iridescent\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "Points of Authority"
+              },
+              {
+                "name": "Lying From You"
+              },
+              {
+                "name": "New Divide",
+                "info": "with short Moscow intro"
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act ll",
+            "song": [
+              {
+                "name": "Creation Intro B",
+                "tape": true,
+                "info": "with elements of \"Iridescent\""
+              },
+              {
+                "name": "The Catalyst",
+                "info": "No third verse/chorus"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Waiting for the End",
+                "info": "with 2024 intro"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "All for Nothing",
+                "info": "Live debut",
+                "with": {
+                  "mbid": "c3aa624f-9b04-4414-b3f0-1f844d165440",
+                  "name": "Page Hamilton",
+                  "sortName": "Hamilton, Page",
+                  "disambiguation": "",
+                  "url": "https://www.setlist.fm/setlists/page-hamilton-13d6e9e5.html"
+                }
+              },
+              {
+                "name": "Joe Hahn Solo"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo"
+              },
+              {
+                "name": "Casualty",
+                "info": "World Premiere"
+              },
+              {
+                "name": "Given Up"
+              },
+              {
+                "name": "One Step Closer",
+                "info": "with 2024 intro"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "shortened; Mike and Emily duet piano version; performed on catwalk"
+              },
+              {
+                "name": "Breaking the Habit",
+                "info": "performed on catwalk"
+              },
+              {
+                "name": "What I've Done",
+                "info": "performed on catwalk"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Leave Out All the Rest",
+                "info": "2017 version; with \"Iridescent\" intro sample"
+              },
+              {
+                "name": "My December",
+                "info": "Acoustic"
+              },
+              {
+                "name": "Over Each Other",
+                "info": "Emily on guitar"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro B",
+                "tape": true,
+                "info": "with elements of \"Iridescent\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "Heavy Is the Crown"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "with \"A Place for My Head\" verse 1 in the bridge"
+              }
+            ]
+          }
+        ]
+      },
+      "info": "\"Keys to the Kingdom\" was on the setlist after \"Papercut\", but not played.",
+      "url": "https://www.setlist.fm/setlist/linkin-park/2024/globe-life-field-arlington-tx-33532085.html"
+    },
+    {
+      "id": "43532b23",
+      "versionId": "g4b53d712",
+      "eventDate": "03-11-2024",
+      "lastUpdated": "2024-11-14T01:42:11.564+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "1bd265e0",
+        "name": "Paris La Défense Arena",
+        "city": {
+          "id": "2990970",
+          "name": "Nanterre",
+          "state": "Île-de-France",
+          "stateCode": "11",
+          "coords": {
+            "lat": 48.9,
+            "long": 2.2
+          },
+          "country": {
+            "code": "FR",
+            "name": "France"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/paris-la-defense-arena-nanterre-france-1bd265e0.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "Inception Intro A",
+                "tape": true,
+                "info": "with elements of \"Castle of Glass\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "Points of Authority"
+              },
+              {
+                "name": "Lying From You"
+              },
+              {
+                "name": "New Divide",
+                "info": "with “Moscow intro”"
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro A",
+                "tape": true,
+                "info": "with elements of \"Castle of Glass\""
+              },
+              {
+                "name": "The Catalyst"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Waiting for the End",
+                "info": "with 2024 intro"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Joe Hahn Solo"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo"
+              },
+              {
+                "name": "Over Each Other",
+                "info": "live debut; with Emily on guitar"
+              },
+              {
+                "name": "Lost in the Echo"
+              },
+              {
+                "name": "Given Up"
+              },
+              {
+                "name": "One Step Closer"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "shortened; Mike and Emily duet piano version"
+              },
+              {
+                "name": "Breaking the Habit"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Leave Out All the Rest",
+                "info": "2017 version"
+              },
+              {
+                "name": "My December",
+                "info": "acoustic"
+              },
+              {
+                "name": "Friendly Fire"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "extended outro"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro A",
+                "tape": true,
+                "info": "with elements of \"Castle of Glass\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "Heavy Is the Crown"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "with \"A Place for My Head\" verse 1 in the bridge"
+              }
+            ]
+          }
+        ]
+      },
+      "url": "https://www.setlist.fm/setlist/linkin-park/2024/paris-la-defense-arena-nanterre-france-43532b23.html"
+    },
+    {
+      "id": "13527581",
+      "versionId": "g7352fec5",
+      "eventDate": "28-09-2024",
+      "lastUpdated": "2024-11-05T06:45:11.379+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "3d12183",
+        "name": "Inspire Arena",
+        "city": {
+          "id": "1843564",
+          "name": "Incheon",
+          "state": "Incheon",
+          "stateCode": "12",
+          "coords": {
+            "lat": 37.4536111,
+            "long": 126.7316667
+          },
+          "country": {
+            "code": "KR",
+            "name": "South Korea"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/inspire-arena-incheon-south-korea-3d12183.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "song": [
+              {
+                "name": "Waiting Room",
+                "tape": true,
+                "cover": {
+                  "mbid": "233fc3f3-6de2-465c-985e-e721dbabbace",
+                  "name": "Fugazi",
+                  "sortName": "Fugazi",
+                  "disambiguation": "",
+                  "url": "https://www.setlist.fm/setlists/fugazi-3d6bdff.html"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "Inception Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "Lying From You"
+              },
+              {
+                "name": "Points of Authority"
+              },
+              {
+                "name": "New Divide",
+                "info": "with \"Moscow intro\""
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "The Catalyst",
+                "info": "no third chorus/breakdown"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Waiting for the End"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Joe Hahn Solo",
+                "info": "with Colin on drums"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name"
+              },
+              {
+                "name": "A Place for My Head"
+              },
+              {
+                "name": "Given Up"
+              },
+              {
+                "name": "One Step Closer"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "shortened; Mike and Emily duet piano version"
+              },
+              {
+                "name": "Breaking the Habit"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Leave Out All the Rest"
+              },
+              {
+                "name": "My December",
+                "info": "Acoustic"
+              },
+              {
+                "name": "Friendly Fire"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "Extended outro"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "Heavy Is the Crown"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "with \"Reading My Eyes\" verse 1 in the bridge"
+              }
+            ]
+          }
+        ]
+      },
+      "info": "First show in Asia since 2015, and in South Korea since 2011. \"The Emptiness Machine\" from this show was used as Linkin Park's performance for the NRJ Music Awards in France on November 1, 2024.",
+      "url": "https://www.setlist.fm/setlist/linkin-park/2024/inspire-arena-incheon-south-korea-13527581.html"
+    },
+    {
+      "id": "352758b",
+      "versionId": "g5b53174c",
+      "eventDate": "24-09-2024",
+      "lastUpdated": "2024-11-15T22:46:15.775+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "73d466b5",
+        "name": "The O2 Arena",
+        "city": {
+          "id": "2643743",
+          "name": "London",
+          "state": "England",
+          "stateCode": "ENG",
+          "coords": {
+            "lat": 51.5084152563931,
+            "long": -0.125532746315002
+          },
+          "country": {
+            "code": "GB",
+            "name": "United Kingdom"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/the-o2-arena-london-england-73d466b5.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "Inception Intro B",
+                "tape": true,
+                "info": "with elements of \"Iridescent\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "Lying From You"
+              },
+              {
+                "name": "Points of Authority"
+              },
+              {
+                "name": "New Divide",
+                "info": "with \"Moscow intro\""
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro B",
+                "tape": true,
+                "info": "with elements of \"Iridescent\""
+              },
+              {
+                "name": "The Catalyst",
+                "info": "no third chorus/breakdown"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Waiting for the End",
+                "info": "2024 Intro"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Joe Hahn Solo",
+                "info": "with Colin on drums"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo; Colin on guitar and drums"
+              },
+              {
+                "name": "Keys to the Kingdom"
+              },
+              {
+                "name": "Given Up"
+              },
+              {
+                "name": "One Step Closer",
+                "info": "2024 Intro; Extended outro w/chorus riff"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "shortened; Mike and Emily duet piano version"
+              },
+              {
+                "name": "Breaking the Habit"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Leave Out All the Rest",
+                "info": "2017 version"
+              },
+              {
+                "name": "My December",
+                "info": "acoustic"
+              },
+              {
+                "name": "Friendly Fire"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "extended outro"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro B",
+                "tape": true,
+                "info": "with elements of \"Iridescent\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "Heavy Is the Crown",
+                "info": "Recorded and released on the expanded version of From Zero"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "with Fort Minor's \"There They Go\" verse 1 in the bridge"
+              }
+            ]
+          }
+        ]
+      },
+      "url": "https://www.setlist.fm/setlist/linkin-park/2024/the-o2-arena-london-england-352758b.html"
+    },
+    {
+      "id": "3527583",
+      "versionId": "g6352fecb",
+      "eventDate": "22-09-2024",
+      "lastUpdated": "2024-11-05T06:39:35.660+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "2bd02c8e",
+        "name": "Barclays Arena",
+        "city": {
+          "id": "2911298",
+          "name": "Hamburg",
+          "state": "Hamburg",
+          "stateCode": "04",
+          "coords": {
+            "lat": 53.55,
+            "long": 10.0
+          },
+          "country": {
+            "code": "DE",
+            "name": "Germany"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/barclays-arena-hamburg-germany-2bd02c8e.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "song": [
+              {
+                "name": "Waiting Room",
+                "tape": true,
+                "cover": {
+                  "mbid": "233fc3f3-6de2-465c-985e-e721dbabbace",
+                  "name": "Fugazi",
+                  "sortName": "Fugazi",
+                  "disambiguation": "",
+                  "url": "https://www.setlist.fm/setlists/fugazi-3d6bdff.html"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "Inception Intro A",
+                "tape": true,
+                "info": "with elements of \"Castle of Glass\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "Lying From You"
+              },
+              {
+                "name": "Points of Authority"
+              },
+              {
+                "name": "New Divide",
+                "info": "with \"Moscow Intro (Short)\""
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro A",
+                "tape": true,
+                "info": "with elements of \"Castle of Glass\""
+              },
+              {
+                "name": "The Catalyst",
+                "info": "no third verse/chorus"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Waiting for the End"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Joe Hahn Solo",
+                "info": "Colin on drums"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo; Colin on guitar & drums"
+              },
+              {
+                "name": "Lost in the Echo"
+              },
+              {
+                "name": "Given Up"
+              },
+              {
+                "name": "One Step Closer"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "Shortened; Mike and Emily duet piano version"
+              },
+              {
+                "name": "Breaking the Habit"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Leave Out All the Rest"
+              },
+              {
+                "name": "My December",
+                "info": "acoustic"
+              },
+              {
+                "name": "Friendly Fire"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "extended outro"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro A",
+                "tape": true,
+                "info": "with elements of \"Castle of Glass\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "Heavy Is the Crown",
+                "info": "World premiere; second single of the new album “From Zero”"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "with \"A Place for My Head\" verse 1 in the bridge"
+              }
+            ]
+          }
+        ]
+      },
+      "info": "First show in Europe in 7 years after Chester Bennington's death.",
+      "url": "https://www.setlist.fm/setlist/linkin-park/2024/barclays-arena-hamburg-germany-3527583.html"
+    },
+    {
+      "id": "b52758e",
+      "versionId": "g7352fed5",
+      "eventDate": "16-09-2024",
+      "lastUpdated": "2024-11-05T06:38:40.624+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "2bd77066",
+        "name": "Barclays Center",
+        "city": {
+          "id": "5110302",
+          "name": "Brooklyn",
+          "state": "New York",
+          "stateCode": "NY",
+          "coords": {
+            "lat": 40.65,
+            "long": -73.95
+          },
+          "country": {
+            "code": "US",
+            "name": "United States"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/barclays-center-brooklyn-ny-usa-2bd77066.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "song": [
+              {
+                "name": "Waiting Room",
+                "tape": true,
+                "cover": {
+                  "mbid": "233fc3f3-6de2-465c-985e-e721dbabbace",
+                  "name": "Fugazi",
+                  "sortName": "Fugazi",
+                  "disambiguation": "",
+                  "url": "https://www.setlist.fm/setlists/fugazi-3d6bdff.html"
+                }
+              }
+            ]
+          },
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "Inception Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "Lying From You"
+              },
+              {
+                "name": "Points of Authority"
+              },
+              {
+                "name": "New Divide",
+                "info": "with \"Moscow Intro (Short)\""
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "The Catalyst",
+                "info": "no third verse / chorus"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Waiting for the End",
+                "info": "2024 intro"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Joe Hahn Solo",
+                "info": "with Colin Brittain"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo; w/ Colin Brittain"
+              },
+              {
+                "name": "A Place for My Head",
+                "info": "tour debut; first time live since 2017"
+              },
+              {
+                "name": "Given Up"
+              },
+              {
+                "name": "One Step Closer",
+                "info": "2024 intro; ext. outro w/ chorus riff"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "shortened; Mike and Emily duet piano version"
+              },
+              {
+                "name": "Breaking the Habit",
+                "info": "piano start"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Leave Out All the Rest",
+                "info": "2017 version"
+              },
+              {
+                "name": "My December",
+                "info": "acoustic"
+              },
+              {
+                "name": "Friendly Fire"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "extended outro"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "Keys to the Kingdom"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "extended bridge with Fort Minor's \"There They Go\" verse 1"
+              }
+            ]
+          }
+        ]
+      },
+      "info": "",
+      "url": "https://www.setlist.fm/setlist/linkin-park/2024/barclays-center-brooklyn-ny-b52758e.html"
+    },
+    {
+      "id": "b52758a",
+      "versionId": "g73abf6dd",
+      "eventDate": "11-09-2024",
+      "lastUpdated": "2024-09-13T13:54:50.649+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "2bd02c76",
+        "name": "Kia Forum",
+        "city": {
+          "id": "5359488",
+          "name": "Inglewood",
+          "state": "California",
+          "stateCode": "CA",
+          "coords": {
+            "lat": 33.9616801,
+            "long": -118.3531311
+          },
+          "country": {
+            "code": "US",
+            "name": "United States"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/kia-forum-inglewood-ca-usa-2bd02c76.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "song": [
+              {
+                "name": "Inception",
+                "tape": true,
+                "info": "with elements of \"Castle of Glass\", \"The Requiem\", \"Somewhere I Belong\" and \"Numb\""
+              },
+              {
+                "name": "Somewhere I Belong",
+                "info": "first time as a show opener"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "Lying From You",
+                "info": "with Mike Shinoda speech"
+              },
+              {
+                "name": "Points of Authority"
+              },
+              {
+                "name": "New Divide",
+                "info": "with \"Moscow Intro\""
+              },
+              {
+                "name": "The Emptiness Machine"
+              },
+              {
+                "name": "Creation",
+                "tape": true
+              },
+              {
+                "name": "The Catalyst"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Waiting for the End",
+                "info": "with Emily & Mike speech"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Joe Hahn Solo"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo; first time \"When They Come for Me\" played since 2014"
+              },
+              {
+                "name": "Lost in the Echo"
+              },
+              {
+                "name": "Given Up",
+                "info": "first time live since 2015"
+              },
+              {
+                "name": "One Step Closer"
+              },
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "shortened; Mike and Emily duet piano version"
+              },
+              {
+                "name": "Breaking the Habit"
+              },
+              {
+                "name": "What I've Done"
+              },
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Leave Out All the Rest"
+              },
+              {
+                "name": "My December",
+                "info": "first time live since 2008"
+              },
+              {
+                "name": "Friendly Fire",
+                "info": "live debut"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "extended outro"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution",
+                "tape": true,
+                "info": "with elements of \"The Requiem\" , \"Castle of Glass\" and \"Papercut\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "Keys to the Kingdom",
+                "info": "live debut; with Mike intro about Greatest Hits release"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "with band return speech; Fort Minor's \"There They Go\" snippet in the bridge"
+              }
+            ]
+          }
+        ]
+      },
+      "url": "https://www.setlist.fm/setlist/linkin-park/2024/kia-forum-inglewood-ca-b52758a.html"
+    }
+  ]
+}
