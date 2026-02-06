@@ -1,0 +1,653 @@
+{
+  "songs": [
+    {
+      "title": "Papercut",
+      "abbreviation": "PPR",
+      "album": "Hybrid Theory",
+      "year": 2000,
+      "track": 1
+    },
+    {
+      "title": "One Step Closer",
+      "abbreviation": "OSC",
+      "album": "Hybrid Theory",
+      "year": 2000,
+      "track": 2
+    },
+    {
+      "title": "With You",
+      "abbreviation": "WYO",
+      "album": "Hybrid Theory",
+      "year": 2000,
+      "track": 3
+    },
+    {
+      "title": "Points of Authority",
+      "abbreviation": "POA",
+      "album": "Hybrid Theory",
+      "year": 2000,
+      "track": 4
+    },
+    {
+      "title": "Crawling",
+      "abbreviation": "CRL",
+      "album": "Hybrid Theory",
+      "year": 2000,
+      "track": 5
+    },
+    {
+      "title": "Runaway",
+      "abbreviation": "RNA",
+      "album": "Hybrid Theory",
+      "year": 2000,
+      "track": 6
+    },
+    {
+      "title": "By Myself",
+      "abbreviation": "BMS",
+      "album": "Hybrid Theory",
+      "year": 2000,
+      "track": 7
+    },
+    {
+      "title": "In the End",
+      "abbreviation": "ITE",
+      "album": "Hybrid Theory",
+      "year": 2000,
+      "track": 8
+    },
+    {
+      "title": "A Place for My Head",
+      "abbreviation": "APFMH",
+      "album": "Hybrid Theory",
+      "year": 2000,
+      "track": 9
+    },
+    {
+      "title": "Forgotten",
+      "abbreviation": "FGT",
+      "album": "Hybrid Theory",
+      "year": 2000,
+      "track": 10
+    },
+    {
+      "title": "Pushing Me Away",
+      "abbreviation": "PMA",
+      "album": "Hybrid Theory",
+      "year": 2000,
+      "track": 11
+    },
+    {
+      "title": "Don't Stay",
+      "abbreviation": "DS",
+      "album": "Meteora",
+      "year": 2003,
+      "track": 1
+    },
+    {
+      "title": "Somewhere I Belong",
+      "abbreviation": "SIB",
+      "album": "Meteora",
+      "year": 2003,
+      "track": 2
+    },
+    {
+      "title": "Lying From You",
+      "abbreviation": "LFY",
+      "album": "Meteora",
+      "year": 2003,
+      "track": 3
+    },
+    {
+      "title": "Hit the Floor",
+      "abbreviation": "HTF",
+      "album": "Meteora",
+      "year": 2003,
+      "track": 4
+    },
+    {
+      "title": "Easier to Run",
+      "abbreviation": "ETR",
+      "album": "Meteora",
+      "year": 2003,
+      "track": 5
+    },
+    {
+      "title": "Faint",
+      "abbreviation": "FNT",
+      "album": "Meteora",
+      "year": 2003,
+      "track": 6
+    },
+    {
+      "title": "Figure.09",
+      "abbreviation": "F09",
+      "album": "Meteora",
+      "year": 2003,
+      "track": 7
+    },
+    {
+      "title": "Breaking the Habit",
+      "abbreviation": "BTH",
+      "album": "Meteora",
+      "year": 2003,
+      "track": 8
+    },
+    {
+      "title": "From the Inside",
+      "abbreviation": "FTI",
+      "album": "Meteora",
+      "year": 2003,
+      "track": 9
+    },
+    {
+      "title": "Nobody's Listening",
+      "abbreviation": "NL",
+      "album": "Meteora",
+      "year": 2003,
+      "track": 10
+    },
+    {
+      "title": "Numb",
+      "abbreviation": "NMB",
+      "album": "Meteora",
+      "year": 2003,
+      "track": 11
+    },
+    {
+      "title": "Given Up",
+      "abbreviation": "GVU",
+      "album": "Minutes to Midnight",
+      "year": 2007,
+      "track": 1
+    },
+    {
+      "title": "Leave Out All the Rest",
+      "abbreviation": "LOATR",
+      "album": "Minutes to Midnight",
+      "year": 2007,
+      "track": 2
+    },
+    {
+      "title": "Bleed It Out",
+      "abbreviation": "BIO",
+      "album": "Minutes to Midnight",
+      "year": 2007,
+      "track": 3
+    },
+    {
+      "title": "Shadow of the Day",
+      "abbreviation": "SOTD",
+      "album": "Minutes to Midnight",
+      "year": 2007,
+      "track": 4
+    },
+    {
+      "title": "What I've Done",
+      "abbreviation": "WID",
+      "album": "Minutes to Midnight",
+      "year": 2007,
+      "track": 5
+    },
+    {
+      "title": "Hands Held High",
+      "abbreviation": "HHH",
+      "album": "Minutes to Midnight",
+      "year": 2007,
+      "track": 6
+    },
+    {
+      "title": "No More Sorrow",
+      "abbreviation": "NMS",
+      "album": "Minutes to Midnight",
+      "year": 2007,
+      "track": 7
+    },
+    {
+      "title": "Valentine's Day",
+      "abbreviation": "VD",
+      "album": "Minutes to Midnight",
+      "year": 2007,
+      "track": 8
+    },
+    {
+      "title": "In Between",
+      "abbreviation": "IB",
+      "album": "Minutes to Midnight",
+      "year": 2007,
+      "track": 9
+    },
+    {
+      "title": "In Pieces",
+      "abbreviation": "IP",
+      "album": "Minutes to Midnight",
+      "year": 2007,
+      "track": 10
+    },
+    {
+      "title": "The Little Things Give You Away",
+      "abbreviation": "TLTGYA",
+      "album": "Minutes to Midnight",
+      "year": 2007,
+      "track": 11
+    },
+    {
+      "title": "Burning in the Skies",
+      "abbreviation": "BITS",
+      "album": "A Thousand Suns",
+      "year": 2010,
+      "track": 2
+    },
+    {
+      "title": "When They Come for Me",
+      "abbreviation": "WTCFM",
+      "album": "A Thousand Suns",
+      "year": 2010,
+      "track": 4
+    },
+    {
+      "title": "Robot Boy",
+      "abbreviation": "RB",
+      "album": "A Thousand Suns",
+      "year": 2010,
+      "track": 5
+    },
+    {
+      "title": "Waiting for the End",
+      "abbreviation": "WFTE",
+      "album": "A Thousand Suns",
+      "year": 2010,
+      "track": 7
+    },
+    {
+      "title": "Blackout",
+      "abbreviation": "BLK",
+      "album": "A Thousand Suns",
+      "year": 2010,
+      "track": 8
+    },
+    {
+      "title": "Wretches and Kings",
+      "abbreviation": "WAK",
+      "album": "A Thousand Suns",
+      "year": 2010,
+      "track": 10
+    },
+    {
+      "title": "Iridescent",
+      "abbreviation": "IRD",
+      "album": "A Thousand Suns",
+      "year": 2010,
+      "track": 12
+    },
+    {
+      "title": "The Catalyst",
+      "abbreviation": "TC",
+      "album": "A Thousand Suns",
+      "year": 2010,
+      "track": 13
+    },
+    {
+      "title": "The Messenger",
+      "abbreviation": "TM",
+      "album": "A Thousand Suns",
+      "year": 2010,
+      "track": 15
+    },
+    {
+      "title": "Lost in the Echo",
+      "abbreviation": "LITE",
+      "album": "Living Things",
+      "year": 2012,
+      "track": 1
+    },
+    {
+      "title": "In My Remains",
+      "abbreviation": "IMR",
+      "album": "Living Things",
+      "year": 2012,
+      "track": 2
+    },
+    {
+      "title": "Burn It Down",
+      "abbreviation": "BID",
+      "album": "Living Things",
+      "year": 2012,
+      "track": 3
+    },
+    {
+      "title": "Lies Greed Misery",
+      "abbreviation": "LGM",
+      "album": "Living Things",
+      "year": 2012,
+      "track": 4
+    },
+    {
+      "title": "I'll Be Gone",
+      "abbreviation": "IBG",
+      "album": "Living Things",
+      "year": 2012,
+      "track": 5
+    },
+    {
+      "title": "Castle of Glass",
+      "abbreviation": "COG",
+      "album": "Living Things",
+      "year": 2012,
+      "track": 6
+    },
+    {
+      "title": "Victimized",
+      "abbreviation": "VIC",
+      "album": "Living Things",
+      "year": 2012,
+      "track": 7
+    },
+    {
+      "title": "Roads Untraveled",
+      "abbreviation": "RU",
+      "album": "Living Things",
+      "year": 2012,
+      "track": 8
+    },
+    {
+      "title": "Skin to Bone",
+      "abbreviation": "STB",
+      "album": "Living Things",
+      "year": 2012,
+      "track": 9
+    },
+    {
+      "title": "Until It Breaks",
+      "abbreviation": "UIB",
+      "album": "Living Things",
+      "year": 2012,
+      "track": 10
+    },
+    {
+      "title": "Powerless",
+      "abbreviation": "PWL",
+      "album": "Living Things",
+      "year": 2012,
+      "track": 11
+    },
+    {
+      "title": "Keys to the Kingdom",
+      "abbreviation": "KTTK",
+      "album": "The Hunting Party",
+      "year": 2014,
+      "track": 1
+    },
+    {
+      "title": "All for Nothing",
+      "abbreviation": "AFN",
+      "album": "The Hunting Party",
+      "year": 2014,
+      "track": 2
+    },
+    {
+      "title": "Guilty All the Same",
+      "abbreviation": "GATS",
+      "album": "The Hunting Party",
+      "year": 2014,
+      "track": 3
+    },
+    {
+      "title": "War",
+      "abbreviation": "WAR",
+      "album": "The Hunting Party",
+      "year": 2014,
+      "track": 4
+    },
+    {
+      "title": "Wastelands",
+      "abbreviation": "WST",
+      "album": "The Hunting Party",
+      "year": 2014,
+      "track": 5
+    },
+    {
+      "title": "Until It's Gone",
+      "abbreviation": "UIG",
+      "album": "The Hunting Party",
+      "year": 2014,
+      "track": 6
+    },
+    {
+      "title": "Rebellion",
+      "abbreviation": "RBL",
+      "album": "The Hunting Party",
+      "year": 2014,
+      "track": 7
+    },
+    {
+      "title": "Mark the Graves",
+      "abbreviation": "MTG",
+      "album": "The Hunting Party",
+      "year": 2014,
+      "track": 8
+    },
+    {
+      "title": "Final Masquerade",
+      "abbreviation": "FM",
+      "album": "The Hunting Party",
+      "year": 2014,
+      "track": 10
+    },
+    {
+      "title": "A Line in the Sand",
+      "abbreviation": "ALITS",
+      "album": "The Hunting Party",
+      "year": 2014,
+      "track": 11
+    },
+    {
+      "title": "Nobody Can Save Me",
+      "abbreviation": "NCSM",
+      "album": "One More Light",
+      "year": 2017,
+      "track": 1
+    },
+    {
+      "title": "Good Goodbye",
+      "abbreviation": "GG",
+      "album": "One More Light",
+      "year": 2017,
+      "track": 2
+    },
+    {
+      "title": "Talking to Myself",
+      "abbreviation": "TTM",
+      "album": "One More Light",
+      "year": 2017,
+      "track": 3
+    },
+    {
+      "title": "Battle Symphony",
+      "abbreviation": "BS",
+      "album": "One More Light",
+      "year": 2017,
+      "track": 4
+    },
+    {
+      "title": "Invisible",
+      "abbreviation": "INV",
+      "album": "One More Light",
+      "year": 2017,
+      "track": 5
+    },
+    {
+      "title": "Heavy",
+      "abbreviation": "HVY",
+      "album": "One More Light",
+      "year": 2017,
+      "track": 6
+    },
+    {
+      "title": "Sorry for Now",
+      "abbreviation": "SFN",
+      "album": "One More Light",
+      "year": 2017,
+      "track": 7
+    },
+    {
+      "title": "Halfway Right",
+      "abbreviation": "HR",
+      "album": "One More Light",
+      "year": 2017,
+      "track": 8
+    },
+    {
+      "title": "One More Light",
+      "abbreviation": "OML",
+      "album": "One More Light",
+      "year": 2017,
+      "track": 9
+    },
+    {
+      "title": "Sharp Edges",
+      "abbreviation": "SE",
+      "album": "One More Light",
+      "year": 2017,
+      "track": 10
+    },
+    {
+      "title": "The Emptiness Machine",
+      "abbreviation": "TEM",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 2
+    },
+    {
+      "title": "Cut the Bridge",
+      "abbreviation": "CTB",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 3
+    },
+    {
+      "title": "Casualty",
+      "abbreviation": "CSL",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 4
+    },
+    {
+      "title": "Overflow",
+      "abbreviation": "OVF",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 5
+    },
+    {
+      "title": "Two Faced",
+      "abbreviation": "TF",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 6
+    },
+    {
+      "title": "Stained",
+      "abbreviation": "STN",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 7
+    },
+    {
+      "title": "IGYEIH",
+      "abbreviation": "IGYEIH",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 8
+    },
+    {
+      "title": "Good Things Go",
+      "abbreviation": "GTG",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 9
+    },
+    {
+      "title": "Over Each Other",
+      "abbreviation": "OEO",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 10
+    },
+    {
+      "title": "Unshatter",
+      "abbreviation": "USH",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 11
+    },
+    {
+      "title": "Let You Fade",
+      "abbreviation": "LYF",
+      "album": "From Zero",
+      "year": 2024,
+      "track": null
+    },
+    {
+      "title": "New Divide",
+      "abbreviation": "ND",
+      "album": "Single",
+      "year": 2009,
+      "track": null
+    },
+    {
+      "title": "Heavy Is the Crown",
+      "abbreviation": "HITC",
+      "album": "From Zero (Deluxe)",
+        "year": 2024,
+        "track": null
+    },
+    {
+      "title": "Lost",
+      "abbreviation": "LST",
+      "album": "Meteora 20",
+      "year": 2023,
+      "track": null
+    },
+    {
+      "title": "Friendly Fire",
+      "abbreviation": "FF",
+      "album": "One More Light (Bonus)",
+      "year": 2023,
+      "track": null
+    },
+    {
+      "title": "Up From the Bottom",
+      "abbreviation": "UFTB",
+      "album": "From Zero (Deluxe)",
+        "year": 2024,
+        "track": null
+    },
+    {
+      "title": "Where'd You Go",
+      "abbreviation": "WYG",
+      "album": "Fort Minor - The Rising Tied",
+      "year": 2005,
+      "track": null
+    },
+    {
+      "title": "Remember the Name",
+      "abbreviation": "RTN",
+      "album": "Fort Minor - The Rising Tied",
+      "year": 2005,
+      "track": null
+    },
+    {
+      "title": "Joe Hahn Solo",
+      "abbreviation": "JHS",
+      "album": "Mr. Hanh",
+      "year": 2025,
+      "track": null
+    }
+  ],
+  "metadata": {
+    "lastUpdated": "2024-12-10",
+    "totalSongs": 105,
+    "note": "This is the master database for LP setlist tracking. Includes all studio albums, singles, and commonly performed songs."
+  }
+}

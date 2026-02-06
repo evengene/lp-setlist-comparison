@@ -1,6 +1,6 @@
 import { MapPin, Calendar, Users } from 'lucide-react';
 import type { Show, ProcessedSong } from '../types/setlist';
-import { getLinkinpediaUrl } from '../utils/setlistUtils';
+import { getLinkinpediaUrl } from '../utils/setlistHelpers.ts';
 
 interface ShowCardProps {
   show: Show;
@@ -22,7 +22,7 @@ export function ShowCard( { show }: ShowCardProps ) {
     <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
       {/* Venue Header */}
       <div className="border-b border-gray-100 p-6 bg-gray-50">
-        <h3 className="text-xl font-bold text-gray-900 mb-3">{show.name}</h3>
+        <h3 className="text-xl font-bold text-slate-900 mb-3">{show.name}</h3>
         <div className="space-y-2 text-sm text-gray-600 mb-4">
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-gray-400" />
@@ -94,7 +94,7 @@ export function ShowCard( { show }: ShowCardProps ) {
                   }`}
                 >
                   <div
-                    className={`w-7 h-7 rounded-md flex items-center justify-center text-xs font-semibold flex-shrink-0 ${
+                    className={`w-7 h-7 rounded-md flex items-center justify-center text-xs font-semibold shrink-0 ${
                       song.status === 'shared'
                         ? 'bg-emerald-200 text-emerald-800'
                         : 'bg-rose-200 text-rose-800'
@@ -102,8 +102,8 @@ export function ShowCard( { show }: ShowCardProps ) {
                   >
                     {song.position}
                   </div>
-                  <div className="flex-grow min-w-0">
-                    <div className="font-medium text-gray-900">{song.name}</div>
+                  <div className="grow min-w-0">
+                    <div className="font-medium text-slate-900">{song.name}</div>
                     {song.info && (
                       <div className="text-xs text-gray-500 mt-0.5 italic">{song.info}</div>
                     )}

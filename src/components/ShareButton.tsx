@@ -24,7 +24,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
         } catch (err) {
-            alert('Failed to copy link');
+            alert(`'Failed to copy link', ${err}`);
         }
     };
 
@@ -39,11 +39,11 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
                 });
             } catch (err) {
                 // User cancelled or error
-                console.log('Share cancelled');
+                console.log('Share cancelled or failed:', err);
             }
         } else {
             // Fallback to copy
-            handleCopyLink();
+            await handleCopyLink();
         }
     };
 
@@ -112,7 +112,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
 
                                 {/* Header */}
                                 <div className="flex items-center justify-between mb-6">
-                                    <h3 className="text-lg font-bold text-gray-900">Share Comparison</h3>
+                                    <h3 className="text-lg font-bold text-slate-900">Share Comparison</h3>
                                     <button
                                         onClick={() => setIsOpen(false)}
                                         className="text-gray-400 hover:text-gray-600 transition-colors"
@@ -128,7 +128,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
                                     <button
                                         onClick={handleDownloadImage}
                                         disabled={downloading}
-                                        className="w-full flex items-center gap-3 p-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600 rounded-lg transition-all text-left disabled:opacity-50"
+                                        className="w-full flex items-center gap-3 p-3 bg-linear-to-r from-purple-500 to-blue-500 text-white hover:from-purple-600 hover:to-blue-600 rounded-lg transition-all text-left disabled:opacity-50"
                                     >
                                         <div
                                             className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
@@ -155,7 +155,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
                                                 <Share2 className="w-5 h-5 text-blue-600"/>
                                             </div>
                                             <div>
-                                                <div className="font-medium text-gray-900">Share</div>
+                                                <div className="font-medium text-slate-900">Share</div>
                                                 <div className="text-sm text-gray-500">Open share menu</div>
                                             </div>
                                         </button>
@@ -175,7 +175,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
                                             </svg>
                                         </div>
                                         <div>
-                                            <div className="font-medium text-gray-900">Twitter / X</div>
+                                            <div className="font-medium text-slate-900">Twitter / X</div>
                                             <div className="text-sm text-gray-500">Post to your feed</div>
                                         </div>
                                     </button>
@@ -194,7 +194,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
                                             </svg>
                                         </div>
                                         <div>
-                                            <div className="font-medium text-gray-900">Facebook</div>
+                                            <div className="font-medium text-slate-900">Facebook</div>
                                             <div className="text-sm text-gray-500">Share on your timeline</div>
                                         </div>
                                     </button>
@@ -213,7 +213,7 @@ export function ShareButton({show1, show2}: ShareButtonProps) {
                                             )}
                                         </div>
                                         <div>
-                                            <div className="font-medium text-gray-900">
+                                            <div className="font-medium text-slate-900">
                                                 {copied ? 'Link Copied!' : 'Copy Link'}
                                             </div>
                                             <div className="text-sm text-gray-500">

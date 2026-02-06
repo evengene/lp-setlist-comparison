@@ -1,0 +1,239 @@
+/* Linkin Park Discography Component Styles - Scoped to .lp-* classes */
+
+.lp-discography-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+.lp-header {
+  border-bottom: 1px solid #a2a9b1;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.lp-title {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+  border-bottom: none;
+}
+
+.lp-subtitle {
+  font-size: 14px;
+  color: #54595d;
+}
+
+/* Controls */
+.lp-controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.lp-search-input {
+  flex: 1;
+  min-width: 250px;
+  padding: 10px 14px;
+  border: 1px solid #a2a9b1;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.lp-search-input:focus {
+  border-color: #000;
+}
+
+.lp-view-toggle {
+  display: flex;
+  gap: 0;
+  border: 1px solid #a2a9b1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.lp-toggle-btn {
+  padding: 8px 16px;
+  background: #fff;
+  border: none;
+  border-right: 1px solid #a2a9b1;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.lp-toggle-btn:last-child {
+  border-right: none;
+}
+
+.lp-toggle-btn:hover {
+  background-color: #f8f9fa;
+}
+
+.lp-toggle-active {
+  background-color: #000 !important;
+  color: #fff;
+}
+
+.lp-results-count {
+  font-size: 14px;
+  color: #54595d;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.lp-no-results {
+  padding: 40px 20px;
+  text-align: center;
+  color: #54595d;
+  font-size: 16px;
+}
+
+/* Album sections */
+.lp-album-section {
+  margin-bottom: 40px;
+}
+
+.lp-album-title {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #a2a9b1;
+  font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+}
+
+.lp-year {
+  font-weight: 300;
+  color: #54595d;
+}
+
+/* Table */
+.lp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.lp-table thead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #a2a9b1;
+}
+
+.lp-table th {
+  padding: 8px 12px;
+  text-align: left;
+  font-weight: 600;
+  border: 1px solid #a2a9b1;
+}
+
+.lp-table td {
+  padding: 6px 12px;
+  border: 1px solid #a2a9b1;
+}
+
+.lp-table-row:hover {
+  background-color: #f8f9fa;
+}
+
+.lp-th-track {
+  width: 50px;
+  text-align: center;
+}
+
+.lp-th-title {
+  text-align: left;
+}
+
+.lp-th-abbr {
+  width: 150px;
+  text-align: center;
+}
+
+.lp-th-album {
+  width: 250px;
+  text-align: left;
+}
+
+.lp-track-number {
+  text-align: center;
+  color: #54595d;
+}
+
+.lp-song-title {
+  font-weight: 400;
+}
+
+.lp-abbreviation {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  text-align: center;
+  font-size: 15px;
+}
+
+.lp-album-name {
+  color: #54595d;
+  font-size: 13px;
+}
+
+/* Footer */
+.lp-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #a2a9b1;
+  color: #54595d;
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lp-discography-container {
+    padding: 15px;
+  }
+  
+  .lp-title {
+    font-size: 26px;
+  }
+  
+  .lp-album-title {
+    font-size: 20px;
+  }
+  
+  .lp-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .lp-search-input {
+    min-width: 100%;
+  }
+  
+  .lp-view-toggle {
+    width: 100%;
+  }
+  
+  .lp-toggle-btn {
+    flex: 1;
+  }
+  
+  .lp-table {
+    font-size: 12px;
+  }
+  
+  .lp-table th,
+  .lp-table td {
+    padding: 5px 8px;
+  }
+  
+  .lp-th-abbr,
+  .lp-abbreviation {
+    width: 100px;
+  }
+}

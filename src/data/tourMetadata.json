@@ -1,0 +1,75 @@
+{
+  "tourName": "From Zero World Tour",
+  "startDate": "2024-09-05",
+  "legs": [
+    {
+      "id": 1,
+      "name": "Leg 1",
+      "region": "From Zero World Tour",
+      "startDate": "2024-09-05",
+      "endDate": "2024-11-16",
+      "color": "#ff9999"
+    },
+    {
+      "id": 2,
+      "name": "Leg 2",
+      "region": "Mexico/Asia",
+      "startDate": "2025-01-31",
+      "endDate": "2025-02-16",
+      "color": "#ff99ff"
+    },
+    {
+      "id": 3,
+      "name": "Leg 3",
+      "region": "North America Part 1",
+      "startDate": "2025-04-26",
+      "endDate": "2025-05-17",
+      "color": "#99ccff"
+    },
+    {
+      "id": 4,
+      "name": "Leg 4",
+      "region": "Europe",
+      "startDate": "2025-06-12",
+      "endDate": "2025-07-11",
+      "color": "#99ff99"
+    },
+    {
+      "id": 5,
+      "name": "Leg 5",
+      "region": "North America Part 2",
+      "startDate": "2025-07-29",
+      "endDate": "2025-09-24",
+      "color": "#99ddff"
+    },
+    {
+      "id": 6,
+      "name": "Leg 6",
+      "region": "South America",
+      "startDate": "2025-10-15",
+      "endDate": "2025-11-16",
+      "color": "#ffff99"
+    },
+    {
+      "id": 7,
+      "name": "Leg 7",
+      "region": "Middle East/India",
+      "startDate": "2026-01-18",
+      "endDate": "2026-01-25"
+    },
+    {
+      "id": 8,
+      "name": "Leg 8",
+      "region": "Australia/New Zealand",
+      "startDate": "2026.03.03",
+      "endDate": "2026.03.18"
+    },
+    {
+      "id": 9,
+      "name": "Leg 9",
+      "region": "Europe",
+      "startDate": "2026.05.29",
+      "endDate": "2026.06.30"
+    }
+  ]
+}

@@ -1,0 +1,1131 @@
+{
+  "legId": 2,
+  "shows": [
+    {
+      "id": "5b5ef320",
+      "versionId": "g434c8723",
+      "eventDate": "16-02-2025",
+      "lastUpdated": "2025-04-30T23:04:03.274+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "7bd17a58",
+        "name": "Stadion Madya Gelora Bung Karno",
+        "city": {
+          "id": "1642905",
+          "name": "Kota Administrasi Jakarta Selatan",
+          "state": "Jakarta",
+          "stateCode": "04",
+          "coords": {
+            "lat": -6.266,
+            "long": 106.8135
+          },
+          "country": {
+            "code": "ID",
+            "name": "Indonesia"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/stadion-madya-gelora-bung-karno-kota-administrasi-jakarta-selatan-indonesia-7bd17a58.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "song": [
+              {
+                "name": "Everywhere",
+                "tape": true,
+                "cover": {
+                  "mbid": "a10f94a9-2a3c-4166-b9fa-a7bed0bf7d96",
+                  "name": "Michelle Branch",
+                  "sortName": "Branch, Michelle",
+                  "disambiguation": "",
+                  "url": "https://www.setlist.fm/setlists/michelle-branch-4bd6bf56.html"
+                },
+                "info": "with From Zero countdown"
+              }
+            ]
+          },
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "Inception Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "New Divide"
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "The Catalyst"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Over Each Other",
+                "info": "with Emily on guitar"
+              },
+              {
+                "name": "Waiting for the End"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Two Faced"
+              },
+              {
+                "name": "Joe Hahn Solo",
+                "info": "with Colin on drums"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo; with Colin on guitar and drums"
+              },
+              {
+                "name": "Given Up"
+              },
+              {
+                "name": "One Step Closer"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "hybrid version, 1st verse/1st chorus Mike and Emily on piano into full band version"
+              },
+              {
+                "name": "Good Things Go"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Overflow"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "extended outro"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "From the Inside"
+              },
+              {
+                "name": "Heavy Is the Crown"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "extended bridge with \"Cut the Bridge\" bridge"
+              }
+            ]
+          }
+        ]
+      },
+      "info": "The show was delayed by 14 minutes due to the stage being wet from light drizzling rain between 6:00~7:30PM",
+      "url": "https://www.setlist.fm/setlist/linkin-park/2025/stadion-madya-gelora-bung-karno-kota-administrasi-jakarta-selatan-indonesia-5b5ef320.html"
+    },
+    {
+      "id": "b5ef1ce",
+      "versionId": "g2b469c1e",
+      "eventDate": "12-02-2025",
+      "lastUpdated": "2025-02-12T16:39:00.114+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "13d639f5",
+        "name": "Saitama Super Arena",
+        "city": {
+          "id": "6940394",
+          "name": "Saitama",
+          "state": "Saitama",
+          "stateCode": "34",
+          "coords": {
+            "lat": 35.9080659046769,
+            "long": 139.656572341919
+          },
+          "country": {
+            "code": "JP",
+            "name": "Japan"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/saitama-super-arena-saitama-japan-13d639f5.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "Kaijuu Daisensou March",
+                "tape": true,
+                "cover": {
+                  "mbid": "0ac212bb-c62c-4f33-a137-9f7ba8ba1fcb",
+                  "name": "Akira Ifukube",
+                  "sortName": "Ifukube, Akira",
+                  "disambiguation": "",
+                  "url": "https://www.setlist.fm/setlists/akira-ifukube-73d366d1.html"
+                }
+              },
+              {
+                "name": "Inception Intro B",
+                "tape": true,
+                "info": "with elements of \"Iridescent\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Points of Authority"
+              },
+              {
+                "name": "New Divide"
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro B",
+                "tape": true,
+                "info": "with elements of \"Iridescent\""
+              },
+              {
+                "name": "The Catalyst"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Over Each Other",
+                "info": "with Emily on guitar"
+              },
+              {
+                "name": "Waiting for the End"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Two Faced"
+              },
+              {
+                "name": "Joe Hahn Solo",
+                "info": "with Colin on drums"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo; with Colin on guitar and drums"
+              },
+              {
+                "name": "Keys to the Kingdom"
+              },
+              {
+                "name": "One Step Closer"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "hybrid version; 1st verse/1st chorus Mike and Emily piano into full band version"
+              },
+              {
+                "name": "Good Things Go"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Overflow"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro B",
+                "tape": true,
+                "info": "with elements of \"Iridescent\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "Lying From You"
+              },
+              {
+                "name": "Heavy Is the Crown"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "extended bridge w/ \"Cut the Bridge\" bridge"
+              }
+            ]
+          }
+        ]
+      },
+      "url": "https://www.setlist.fm/setlist/linkin-park/2025/saitama-super-arena-saitama-japan-b5ef1ce.html"
+    },
+    {
+      "id": "1b5ef1c8",
+      "versionId": "g4346a74b",
+      "eventDate": "11-02-2025",
+      "lastUpdated": "2025-02-12T10:44:29.635+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "13d639f5",
+        "name": "Saitama Super Arena",
+        "city": {
+          "id": "6940394",
+          "name": "Saitama",
+          "state": "Saitama",
+          "stateCode": "34",
+          "coords": {
+            "lat": 35.9080659046769,
+            "long": 139.656572341919
+          },
+          "country": {
+            "code": "JP",
+            "name": "Japan"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/saitama-super-arena-saitama-japan-13d639f5.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "Pokémon Theme",
+                "tape": true,
+                "cover": {
+                  "mbid": "fb4aeed3-43ad-4f05-b01e-d9482d44b96e",
+                  "name": "Jason Paige",
+                  "sortName": "Paige, Jason",
+                  "disambiguation": "",
+                  "url": "https://www.setlist.fm/setlists/jason-paige-bd7c996.html"
+                }
+              },
+              {
+                "name": "Inception Intro A",
+                "tape": true,
+                "info": "With elements of \"Castle of Glass\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "New Divide"
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro A",
+                "tape": true,
+                "info": "With elements of \"Castle of Glass\""
+              },
+              {
+                "name": "The Catalyst"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Over Each Other",
+                "info": "with Emily on guitar"
+              },
+              {
+                "name": "Waiting for the End"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Two Faced"
+              },
+              {
+                "name": "Joe Hahn Solo",
+                "info": "with Colin on drums"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo; with Colin on guitar and drums"
+              },
+              {
+                "name": "Happy Birthday to You",
+                "cover": {
+                  "mbid": "af522e56-fe5a-4607-b70a-a22ed35acdd0",
+                  "name": "Mildred J. Hill & Patty Hill",
+                  "sortName": "Hill, Mildred J. & Hill, Patty",
+                  "disambiguation": "",
+                  "url": "https://www.setlist.fm/setlists/mildred-j-hill-and-patty-hill-3d3fd73.html"
+                },
+                "info": "Crowd sang to Mike and Phoenix"
+              },
+              {
+                "name": "Casualty"
+              },
+              {
+                "name": "One Step Closer"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "hybrid version, 1st verse/1st chorus Mike and Emily piano into full band version"
+              },
+              {
+                "name": "Good Things Go"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Overflow"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "Extended outro"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro A",
+                "tape": true,
+                "info": "With elements of \"Castle of Glass\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "A Place for My Head"
+              },
+              {
+                "name": "Heavy Is the Crown"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "Extended bridge w/ \"Cut the Bridge\" bridge"
+              }
+            ]
+          }
+        ]
+      },
+      "url": "https://www.setlist.fm/setlist/linkin-park/2025/saitama-super-arena-saitama-japan-1b5ef1c8.html"
+    },
+    {
+      "id": "b5ef1ca",
+      "versionId": "g3b43f860",
+      "eventDate": "05-02-2025",
+      "lastUpdated": "2025-03-23T14:19:04.502+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "13d0098d",
+        "name": "Estadio Banorte",
+        "city": {
+          "id": "11414139",
+          "name": "Monterrey",
+          "state": "Nuevo León",
+          "stateCode": "NLE",
+          "coords": {
+            "lat": 25.671,
+            "long": -100.308
+          },
+          "country": {
+            "code": "MX",
+            "name": "Mexico"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/estadio-banorte-monterrey-mexico-13d0098d.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "El corrido de Monterrey",
+                "tape": true,
+                "cover": {
+                  "mbid": "3b829056-d975-4ae7-be3c-20661ce980e8",
+                  "name": "Vicente Fernández",
+                  "sortName": "Fernández, Vicente",
+                  "disambiguation": "Mexican singer",
+                  "url": "https://www.setlist.fm/setlists/vicente-fernandez-5bd61fb4.html"
+                }
+              },
+              {
+                "name": "Inception Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "New Divide",
+                "info": "w/ short \"Moscow\" intro"
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "The Catalyst",
+                "info": "without third chorus/breakdown"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Over Each Other",
+                "info": "with Emily on guitar"
+              },
+              {
+                "name": "Waiting for the End"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Two Faced"
+              },
+              {
+                "name": "Joe Hahn Solo",
+                "info": "with Colin on drums"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo; with Colin on guitar and drums"
+              },
+              {
+                "name": "Given Up"
+              },
+              {
+                "name": "One Step Closer"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "hybrid version, 1st verse/1st chorus Mike and Emily piano into full band version"
+              },
+              {
+                "name": "Good Things Go"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Overflow",
+                "info": "live video released on Linkin Park's Youtube channel"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "extended outro"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro C",
+                "tape": true,
+                "info": "with elements of \"Burn It Down\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "From the Inside",
+                "info": "first time live since July 6, 2017"
+              },
+              {
+                "name": "Heavy Is the Crown"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "extended bridge with “Cut the Bridge” bridge"
+              }
+            ]
+          }
+        ]
+      },
+      "url": "https://www.setlist.fm/setlist/linkin-park/2025/estadio-banorte-monterrey-mexico-b5ef1ca.html"
+    },
+    {
+      "id": "35ef1cb",
+      "versionId": "gb454d76",
+      "eventDate": "03-02-2025",
+      "lastUpdated": "2025-03-11T20:47:43.250+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "5bd05f80",
+        "name": "Estadio 3 de Marzo",
+        "city": {
+          "id": "3979770",
+          "name": "Zapopan",
+          "state": "Jalisco",
+          "stateCode": "JAL",
+          "coords": {
+            "lat": 20.7166667,
+            "long": -103.4
+          },
+          "country": {
+            "code": "MX",
+            "name": "Mexico"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/estadio-3-de-marzo-zapopan-mexico-5bd05f80.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "El Rey",
+                "tape": true,
+                "cover": {
+                  "mbid": "c02be87c-adc4-4c34-afb3-900393050727",
+                  "name": "José Alfredo Jiménez",
+                  "sortName": "Jiménez, José Alfredo",
+                  "disambiguation": "",
+                  "url": "https://www.setlist.fm/setlists/jose-alfredo-jimenez-2bd7b07a.html"
+                }
+              },
+              {
+                "name": "Inception Intro B",
+                "tape": true,
+                "info": "With elements of \"Iridescent\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "New Divide",
+                "info": "w/ short \"Moscow\" intro"
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro B",
+                "tape": true,
+                "info": "With elements of \"Iridescent\""
+              },
+              {
+                "name": "The Catalyst",
+                "info": "without third chorus/breakdown"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Over Each Other",
+                "info": "with Emily on guitar"
+              },
+              {
+                "name": "Waiting for the End"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Two Faced"
+              },
+              {
+                "name": "Joe Hahn Solo",
+                "info": "with Colin on drums"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo; with Colin on guitar and drums"
+              },
+              {
+                "name": "Keys to the Kingdom"
+              },
+              {
+                "name": "One Step Closer"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "hybrid version, 1st verse/1st chorus Mike and Emily piano into full band version"
+              },
+              {
+                "name": "Good Things Go"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Overflow"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "Extended outro"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro B",
+                "tape": true,
+                "info": "With elements of \"Iridescent\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "Lying From You"
+              },
+              {
+                "name": "Heavy Is the Crown"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "extended bridge with “Cut the Bridge” bridge"
+              }
+            ]
+          }
+        ]
+      },
+      "info": "\"Good Things Go\" from this show was filmed and released on Linkin Park's YouTube channel on February 25th, 2025",
+      "url": "https://www.setlist.fm/setlist/linkin-park/2025/estadio-3-de-marzo-zapopan-mexico-35ef1cb.html"
+    },
+    {
+      "id": "135ef1d5",
+      "versionId": "g23599437",
+      "eventDate": "31-01-2025",
+      "lastUpdated": "2025-02-04T15:51:56.522+0000",
+      "artist": {
+        "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
+        "name": "Linkin Park",
+        "sortName": "Linkin Park",
+        "disambiguation": "American rock band",
+        "url": "https://www.setlist.fm/setlists/linkin-park-bd6bdae.html"
+      },
+      "venue": {
+        "id": "3bd14c44",
+        "name": "Estadio GNP Seguros",
+        "city": {
+          "id": "3530597",
+          "name": "Mexico City",
+          "state": "Distrito Federal",
+          "stateCode": "DIF",
+          "coords": {
+            "lat": 19.434,
+            "long": -99.139
+          },
+          "country": {
+            "code": "MX",
+            "name": "Mexico"
+          }
+        },
+        "url": "https://www.setlist.fm/venue/estadio-gnp-seguros-mexico-city-mexico-3bd14c44.html"
+      },
+      "tour": {
+        "name": "From Zero World Tour"
+      },
+      "sets": {
+        "set": [
+          {
+            "name": "Act I",
+            "song": [
+              {
+                "name": "Inception Intro A",
+                "tape": true,
+                "info": "w/ elements of \"Castle of Glass\""
+              },
+              {
+                "name": "Somewhere I Belong"
+              },
+              {
+                "name": "Crawling"
+              },
+              {
+                "name": "New Divide",
+                "info": "w/ \"Moscow\" intro"
+              },
+              {
+                "name": "The Emptiness Machine"
+              }
+            ]
+          },
+          {
+            "name": "Act II",
+            "song": [
+              {
+                "name": "Creation Intro A",
+                "tape": true,
+                "info": "w/ elements of \"Castle of Glass\""
+              },
+              {
+                "name": "The Catalyst",
+                "info": "without third chorus/breakdown"
+              },
+              {
+                "name": "Burn It Down"
+              },
+              {
+                "name": "Over Each Other",
+                "info": "with Emily on guitar"
+              },
+              {
+                "name": "Waiting for the End"
+              },
+              {
+                "name": "Castle of Glass"
+              },
+              {
+                "name": "Two Faced"
+              },
+              {
+                "name": "Joe Hahn Solo",
+                "info": "with Colin on drums"
+              },
+              {
+                "name": "Empty Spaces",
+                "tape": true
+              },
+              {
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo; with Colin on guitar and drums"
+              },
+              {
+                "name": "Casualty"
+              },
+              {
+                "name": "One Step Closer"
+              }
+            ]
+          },
+          {
+            "name": "Act III",
+            "song": [
+              {
+                "name": "Break/Collapse",
+                "tape": true
+              },
+              {
+                "name": "Lost",
+                "info": "hybrid version live debut; 1st verse/1st chorus Mike and Emily piano into full band version"
+              },
+              {
+                "name": "Good Things Go",
+                "info": "Live debut"
+              },
+              {
+                "name": "What I've Done"
+              }
+            ]
+          },
+          {
+            "name": "Act IV",
+            "song": [
+              {
+                "name": "Kintsugi",
+                "tape": true
+              },
+              {
+                "name": "Overflow",
+                "info": "Live debut"
+              },
+              {
+                "name": "Numb",
+                "info": "with \"Numb/Encore\" intro"
+              },
+              {
+                "name": "In the End"
+              },
+              {
+                "name": "Faint",
+                "info": "Extended outro"
+              }
+            ]
+          },
+          {
+            "encore": 1,
+            "song": [
+              {
+                "name": "Resolution Intro A",
+                "tape": true,
+                "info": "with elements of “Papercut” & \"Castle of Glass\""
+              },
+              {
+                "name": "Papercut"
+              },
+              {
+                "name": "A Place for My Head"
+              },
+              {
+                "name": "Heavy Is the Crown"
+              },
+              {
+                "name": "Bleed It Out",
+                "info": "extended bridge with “Cut the Bridge” bridge"
+              }
+            ]
+          }
+        ]
+      },
+      "url": "https://www.setlist.fm/setlist/linkin-park/2025/estadio-gnp-seguros-mexico-city-mexico-135ef1d5.html"
+    }
+  ]
+}

@@ -32,7 +32,7 @@ export function CacheStatus({ onRefresh, loading }: CacheStatusProps) {
       <button
         onClick={onRefresh}
         disabled={loading}
-        className="flex items-center gap-1 px-2 py-1 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex items-center gap-1 px-2 py-1 text-gray-600 hover:text-slate-900 hover:bg-gray-100 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         title="Refresh data from Setlist.fm"
       >
         <RefreshCw className={`w-3 h-3 ${loading ? 'animate-spin' : ''}`} />
