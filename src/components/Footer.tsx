@@ -4,6 +4,17 @@ export const Footer = () => {
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+
+          {/* About */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">About</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Linkin Park Setlist Comparison - From Zero World Tour
+              <br/>
+              Celebrating the artistry of Linkin Park's live performances
+            </p>
+          </div>
+
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
@@ -58,19 +69,20 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* About */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">About</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Celebrating the artistry of Linkin Park's live performances
-            </p>
-          </div>
-
           {/* Connect */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Connect</h3>
-            <div className="flex gap-4">
+            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+              For any inquiries, feedback, or collaboration opportunities, please reach out via email.
+            </p>
+            <a
+              href="mailto:evengene@gmail.com"
+              className="text-gray-400 hover:text-white transition-colors text-sm inline-block mb-6"
+            >
+              <u>Contact here</u>
+            </a>
 
+            <div className="flex gap-4">
 
               <a
                 href="https://github.com/evengene"
@@ -130,7 +142,8 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="text-gray-400 text-sm">
-            © 2026 LP Setlists • For fans made with ❤️ by{" "}
+
+            ©2025-{new Date().getFullYear()}{" "} LP Setlists • For fans made with ❤️ by{" "}
             <a
               href="https://github.com/evengene"
               target="_blank"
@@ -155,7 +168,7 @@ export const Footer = () => {
       </div>
 
       {/* Large Brand Text (Optional - like ANYSOUND) */}
-      <div className="bg-black border-t border-gray-800 py-8 overflow-hidden">
+      <div className="bg-black  border-gray-800 py-8 overflow-hidden">
         <div className="text-center">
           <h2 className="text-6xl md:text-9xl font-bold tracking-wider text-white">
             LINKIN PARK

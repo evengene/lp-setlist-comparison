@@ -1,4 +1,5 @@
 import { getTourData } from "../services/tourDataService.ts";
+import HeaderWrapper from "../components/HeaderWrapper.tsx";
 
 export const StatsPage = () => {
 
@@ -21,6 +22,13 @@ export const StatsPage = () => {
   ).size;
 
   return (
+<>
+      <HeaderWrapper
+        badge={"From Zero World Tour 2024-2026"}
+        title={"Coming soon"}
+        subtitle={"Live Show stats"}
+        />
+
 
     <div className="min-h-screen bg-white">
       {/* Tour Stats */}
@@ -37,6 +45,6 @@ export const StatsPage = () => {
         </div>
       </div>
     </div>
-
+</>
   );
 }
