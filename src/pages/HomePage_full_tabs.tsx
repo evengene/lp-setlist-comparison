@@ -47,13 +47,6 @@ export default function HomePage() {
     }
   }, [activeFilter, stats]);
 
-  // DEBUG LOGS
-  console.log('Selected Leg:', selectedLeg);
-  console.log('Total Shows:', tourData.shows.length);
-  console.log('Filtered Shows:', filteredShows.length);
-  console.log('Stats:', stats);
-  console.log('Displayed Songs:', displayedSongs.length);
-
   // Check a few shows to see their legId
   console.log('Sample shows:', tourData.shows.slice(0, 3).map(s => ({
     city: s.city,
