@@ -10,7 +10,7 @@ type AlbumInfo = {
 };
 
 
-// 3. Create a song-to-album map with type
+// Create a song-to-album map with type
 const SONG_ALBUM_MAP: Record<string, AlbumInfo> =
   lpSongDatabase.songs.reduce((map, song) => {
     map[song.title] = {
@@ -20,7 +20,7 @@ const SONG_ALBUM_MAP: Record<string, AlbumInfo> =
     return map;
   }, {} as Record<string, AlbumInfo>);
 
-// 4. Helper function with type
+// Helper function with type
 function getAlbumInfo(songTitle: string): AlbumInfo | undefined {
   return SONG_ALBUM_MAP[songTitle];
 }
@@ -96,20 +96,16 @@ export function calculateTourStats(setlists: Setlist[]): TourStats {
     // Exclude tape/intros
     if (song.tape === true) return false;
 
-    // Exclude covers, EXCEPT Fort Minor (Mike's project)
+    // Exclude covers, EXCEPT Fort Minor
     if (song.cover) {
       const coverArtist = song.cover.name.toLowerCase();
-      // Include Fort Minor songs even though they're technically covers
       if (coverArtist === 'fort minor') return true;
-      // Exclude all other covers
       return false;
     }
-
-    // Include everything else (real LP songs)
     return true;
   };
 
-  // Precompute typical position ranges in ONE pass (instead of per-song scanning all setlists)
+  // Precompute typical position ranges
   const positionMinMaxByTitle = new Map<string, { min: number; max: number }>();
 
   sortedSetlists.forEach(setlist => {
@@ -177,7 +173,7 @@ export function calculateTourStats(setlists: Setlist[]): TourStats {
   const allSongs: SongStats[] = [...songPlayCount].map(([title, data]) => {
     const percentage = (data.count / totalShows) * 100;
 
-    // Always assign a category (removes the undefined-return issue entirely)
+    // Assign a category
     const category: SongStats['category'] =
       percentage >= 80 ? 'staple'
         : percentage >= 40 ? 'rotation'

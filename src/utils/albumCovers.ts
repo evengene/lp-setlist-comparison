@@ -10,7 +10,7 @@ import fromZero from '../images/albums/linkin-park-from-zero.jpg';
 import fortMinor from '../images/albums/linkin-park-fort-minor.jpg';
 import mrHanh from "../images/albums/mr_hanh.jpg";
 import mikeS from "../images/albums/mike-shinoda.jpg";
-import defaultCover from "../../public/tour-images/default.jpg";
+import defaultCover from "/tour-images/default.jpg";
 
 const SPECIAL_TITLE_COVERS: Readonly<Record<string, string>> = {
   "Joe Hahn Solo": mrHanh,
@@ -28,7 +28,6 @@ export function resolveCoverByAlbum(album?: string, title?: string): string {
   return ALBUM_COVERS[album] ?? defaultCover;
 }
 
-// ... existing code ...
 const ALBUM_COVERS: Record<string, string> = {
   "Hybrid Theory": hybrid,
   "Meteora": meteora,
@@ -45,4 +44,3 @@ const ALBUM_COVERS: Record<string, string> = {
   "Joe Hanh Solo": mrHanh,
   default: defaultCover
 };
-// ... existing code ...

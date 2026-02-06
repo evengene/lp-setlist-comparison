@@ -25,11 +25,11 @@ export function processSetlist(setlist: Setlist): Show {
     const setName = set.name || (isEncore ? 'Encore' : undefined);
 
     set.song.forEach((song) => {
-      if (!song.tape) { // Skip tape/cover songs if needed
+      if (!song.tape) {
         songs.push({
           name: song.name,
           position,
-          status: 'unique', // Will be updated during comparison
+          status: 'unique',
           isEncore,
           setName,
           info: song.info,
