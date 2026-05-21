@@ -13,7 +13,7 @@ import leg04Data from '../data/tours/leg-04.json';
 import leg05Data from '../data/tours/leg-05.json';
 import leg06Data from '../data/tours/leg-06.json';
 import leg07Data from '../data/tours/leg-07.json';
-// import leg08Data from '../data/tours/leg-08.json';
+import leg08Data from '../data/tours/leg-08.json';
 // import leg09Data from '../data/tours/leg-09.json';
 
 // Raw Setlist.fm show structure (what's in your JSON files)
@@ -90,7 +90,7 @@ export function getTourData(): TourData {
     leg05Data as LegFile,
     leg06Data as LegFile,
     leg07Data as LegFile,
-    // leg08Data as LegFile,
+    leg08Data as LegFile,
     // leg09Data as LegFile,
   ];
 

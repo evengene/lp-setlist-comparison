@@ -147,23 +147,37 @@ export const LPSongs: React.FC = () => {
                       key={songIndex}
                       className="bg-white border border-gray-200 rounded-lg p-4 hover:border-gray-300 hover:shadow-sm transition-all group"
                     >
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-3 mb-2">
-                        <span className="text-xs font-semibold text-gray-500 bg-gray-100 rounded-full w-6 h-6 flex items-center justify-center shrink-0">
-                          {songIndex + 1}
-                        </span>
-                            <h3 className="font-semibold text-slate-900 text-sm group-hover:text-gray-700 truncate">
-                              {song.title}
-                            </h3>
+                      {/* Song Info + Large Abbreviation Badge */}
+                        <div className="flex items-center justify-between">
+                          <div className="flex-1 min-w-0 pr-4">
+                            <div className="flex items-center gap-3 mb-2">
+                              <span className="text-xs font-semibold text-gray-500 bg-gray-100 rounded-full w-6 h-6 flex items-center justify-center shrink-0">
+                                {songIndex + 1}
+                              </span>
+                              <h3 className="font-semibold text-slate-900 text-sm group-hover:text-gray-700 truncate">
+                                {song.title}
+                              </h3>
+                            </div>
+                            <div className="mt-2">
+                              <p className="text-sm text-gray-500 truncate">
+                                {/* keep descriptive text here if needed */}
+                              </p>
+                            </div>
                           </div>
-                          <div className="mt-2">
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700 font-mono ">
-                          {song.abbreviation}
-                        </span>
+
+                          {/* Large abbreviation badge */}
+                          <div className="flex-shrink-0 ml-4">
+                            <div
+                              className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-slate-50 to-white/60 rounded-lg shadow-sm flex items-center justify-center"
+                              title={song.abbreviation}
+                              aria-label={`Abbreviation: ${song.abbreviation}`}
+                            >
+                              <span className="text-2xl md:text-3xl font-mono font-extrabold text-slate-900 tracking-tight select-none">
+                                {song.abbreviation}
+                              </span>
+                            </div>
                           </div>
                         </div>
-                      </div>
                     </div>
                   ))}
                 </div>
