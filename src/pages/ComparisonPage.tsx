@@ -157,6 +157,7 @@ export const ComparisonPage = () => {
         badge={"From Zero World Tour 2024-2026"}
         title={"LP Setlists Comparison"}
         subtitle={"Celebrating the artistry behind every live performance. Compare Linkin Park shows side-by-side and discover which songs made each night special."}
+        backgroundImage="/lp-transparent.png"
       />
 
       {/* Main Container - with negative margin */}

@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useLPSongData } from '../hooks/useLPSongData.ts';
+import HeaderWrapper from "../components/HeaderWrapper.tsx";
 
 
 export const LPSongs: React.FC = () => {
@@ -43,12 +44,15 @@ export const LPSongs: React.FC = () => {
   }, [albumsWithSongs, searchQuery]);
 
   return (
+    <div className="min-h-screen bg-white">
+      <HeaderWrapper
+        badge={"Linkin Park Discography"}
+        title={"Song Abbreviations"}
+        subtitle={"LP community"}
+        backgroundImage="/lp-transparent-cover.png"
+      />
     <div className="max-w-7xl mx-auto p-6">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-900 mb-2">Linkin Park Discography</h1>
-        <p className="text-gray-600">Complete song collection with abbreviations</p>
-      </div>
+
 
       {/* Controls */}
       <div className="bg-white border border-gray-200 rounded-xl p-6 mb-8">
@@ -247,6 +251,7 @@ export const LPSongs: React.FC = () => {
           </p>
         </div>
       </div>
+    </div>
     </div>
   );
 };
