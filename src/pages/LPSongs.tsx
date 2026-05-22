@@ -46,9 +46,9 @@ export const LPSongs: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       <HeaderWrapper
-        badge={"Linkin Park Discography"}
+        badge={"Community Guide"}
         title={"Song Abbreviations"}
-        subtitle={"LP community"}
+        subtitle={"The abbreviations LP fans use - decoded"}
         backgroundImage="/lp-transparent-cover.png"
       />
     <div className="max-w-7xl mx-auto p-6">
