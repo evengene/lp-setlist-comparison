@@ -14,7 +14,7 @@ export const TourLeg = (props: PropTypes) => {
   return (
     <button
       onClick={onClick}
-      className={`group relative aspect-square rounded-xl overflow-hidden transition-all ${
+      className={`group relative aspect-square rounded-xl overflow-hidden transition-all cursor-pointer ${
         selectedLeg === legId
           ? 'ring-4 ring-slate-600 shadow-lg'
           : 'hover:ring-2 hover:ring-gray-300'
