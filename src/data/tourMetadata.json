@@ -63,6 +63,13 @@
       "region": "Australia/New Zealand",
       "startDate": "2026-03-03",
       "endDate": "2026-03-18"
+    },
+    {
+      "id": 9,
+      "name": "Leg 9",
+      "region": "Europe",
+      "startDate": "2026-05-29",
+      "endDate": "2026-06-30"
     }
   ]
 }

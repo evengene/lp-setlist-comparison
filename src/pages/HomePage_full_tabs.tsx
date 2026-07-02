@@ -61,7 +61,6 @@ export default function HomePage() {
         badge={"From Zero World Tour 2024-2026"}
         title={"Linkin Park Live Shows"}
         subtitle={"Explore the setlist history across all tour legs"}
-        backgroundImage="/lp-transparent.png"
       />
 
       {/* Main Content */}

@@ -3,9 +3,9 @@
   "shows": [
     {
       "id": "634c3247",
-      "versionId": "g43147b57",
+      "versionId": "g31ad1ef",
       "eventDate": "18-03-2026",
-      "lastUpdated": "2026-03-18T11:56:15.234+0000",
+      "lastUpdated": "2026-05-29T19:02:55.113+0000",
       "artist": {
         "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
         "name": "Linkin Park",
@@ -128,8 +128,8 @@
                 "tape": true
               },
               {
-                "name": "When They Come for Me / Step Up / Until It Breaks / Lift Off / Remember the Name",
-                "info": "Mike solo; w/ Colin; ext. transition"
+                "name": "When They Come for Me / Remember the Name",
+                "info": "Mike solo; Mashup; w/ Colin; Ext. transition w/ Step Up, Until it Breaks and Lift Off verses Medley"
               },
               {
                 "name": "Unshatter"
@@ -223,9 +223,9 @@
     },
     {
       "id": "6b43625e",
-      "versionId": "gb1461ba",
+      "versionId": "gb1ad1c6",
       "eventDate": "15-03-2026",
-      "lastUpdated": "2026-03-19T05:00:08.592+0000",
+      "lastUpdated": "2026-05-29T19:07:52.089+0000",
       "artist": {
         "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
         "name": "Linkin Park",
@@ -350,8 +350,8 @@
                 "tape": true
               },
               {
-                "name": "When They Come For Me / Step Up / It's Goin' Down / Lift Off / Until It Breaks / Remember the Name",
-                "info": "Mike solo; w/ Colin; first time as medley; ext. transition;"
+                "name": "When They Come for Me / Remember the Name",
+                "info": "w/ Colin; Ext. transition w/ Step Up, It's Going Down, Until it Breaks and Lift Off verses Medley"
               },
               {
                 "name": "I Will Always Love You",
@@ -363,7 +363,7 @@
                   "disambiguation": "",
                   "url": "https://www.setlist.fm/setlists/dolly-parton-4bd6e7ae.html"
                 },
-                "info": "For Joe's birthday! He threw a cake into the crowd"
+                "info": "For Joe’s birthday! He threw a cake into the crowd"
               },
               {
                 "name": "One Step Closer",
@@ -454,9 +454,9 @@
     },
     {
       "id": "7b43d634",
-      "versionId": "g1b143534",
+      "versionId": "g631ad2d7",
       "eventDate": "14-03-2026",
-      "lastUpdated": "2026-03-16T16:21:29.748+0000",
+      "lastUpdated": "2026-05-29T20:55:34.502+0000",
       "artist": {
         "mbid": "f59c5520-5f46-4d2c-b2c4-822eabf53419",
         "name": "Linkin Park",
@@ -580,7 +580,7 @@
                 "tape": true
               },
               {
-                "name": "When They Come for Me / Remember the Name / Until It Breaks",
+                "name": "When They Come for Me / Remember the Name",
                 "info": "Mike solo; w/ Colin; ext. transition w/ \"Until It Breaks\" verse 3; ext. keyboard solo outro"
               },
               {
@@ -882,7 +882,7 @@
           }
         ]
       },
-      "info": "\"Stained\" and \"Heavy Is the Crown\" were on the printed setlist but were not performed due to Emily Armstrong experiencing vocal issues toward the end of the show. Just 2 days later, Linkin Park's scheduled show on March 12 in Adelaide was cancelled.",
+      "info": "“Stained” and “Heavy Is the Crown” were on the printed setlist but were not performed due to Emily Armstrong experiencing vocal issues toward the end of the show. Just 2 days later, Linkin Park's scheduled show on March 12 in Adelaide was cancelled.",
       "url": "https://www.setlist.fm/setlist/linkin-park/2026/rod-laver-arena-melbourne-australia-7b436258.html"
     },
     {
