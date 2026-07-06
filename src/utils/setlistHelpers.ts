@@ -20,11 +20,11 @@ export function processSetlist(setlist: Setlist): Show {
   const songs: ProcessedSong[] = [];
   let position = 1;
 
-  setlist.sets.set.forEach((set) => {
+  setlist.sets?.set?.forEach((set) => {
     const isEncore = set.encore === 1;
     const setName = set.name || (isEncore ? 'Encore' : undefined);
 
-    set.song.forEach((song) => {
+    set.song?.forEach((song) => {
       if (!song.tape) {
         songs.push({
           name: song.name,

@@ -1,14 +1,12 @@
-import { useState, useEffect } from 'react';
-import { Loader2 } from 'lucide-react';
+import { useState, useEffect, useMemo } from 'react';
 
-import { setlistService } from '../services/setlistService.ts';
+import { getTourData } from '../services/tourDataService';
 import { processSetlist, compareShows } from '../utils/setlistHelpers.ts';
 
-import { CacheStatus } from "../components/CacheStatus.tsx";
 import { ShowCard } from "../components/ShowCard.tsx";
 import { ShareButton } from "../components/ShareButton.tsx";
 
-import type { ComparisonStats, Show } from "../types/setlist.ts";
+import type { ComparisonStats, Setlist, Show } from "../types/setlist.ts";
 
 function ShowSelect({
   label,
@@ -59,109 +57,31 @@ function StatCard({ value, label, accent = false }: { value: string | number; la
 }
 
 export const ComparisonPage = () => {
-  const [shows, setShows] = useState<Show[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [selectedShow1, setSelectedShow1] = useState<string>('');
-  const [selectedShow2, setSelectedShow2] = useState<string>('');
-  const [comparisonStats, setComparisonStats] = useState<ComparisonStats | null>(null);
-  const [refreshing, setRefreshing] = useState(false);
+  // Every From Zero show, straight from bundled local data — no API, no key.
+  const shows = useMemo<Show[]>(() => {
+    const data = getTourData();
+    return data.shows
+      .map((s) => processSetlist(s.setlist as unknown as Setlist))
+      .filter((show) => show.setlist.totalSongs > 0);
+  }, []);
 
-  // Keep the URL in sync with the selected shows (so comparisons are shareable)
+  const [selectedShow1, setSelectedShow1] = useState<string>(() => shows[1]?.id ?? '');
+  const [selectedShow2, setSelectedShow2] = useState<string>(() => shows[0]?.id ?? '');
+
+  // Keep the URL in sync so a comparison is shareable
   useEffect(() => {
     if (selectedShow1 && selectedShow2) {
-      const newUrl = `${window.location.pathname}?show1=${selectedShow1}&show2=${selectedShow2}`;
-      window.history.pushState({}, '', newUrl);
+      window.history.pushState({}, '', `${window.location.pathname}?show1=${selectedShow1}&show2=${selectedShow2}`);
     }
   }, [selectedShow1, selectedShow2]);
 
-  // Fetch Linkin Park setlists on mount
-  useEffect(() => {
-    const fetchSetlists = async () => {
-      try {
-        setLoading(true);
-        const response = await setlistService.getLinkinParkSetlists(1);
-
-        const fromZeroTour = response.setlist.filter((setlist) => setlist.tour?.name === 'From Zero World Tour');
-        const processedShows = fromZeroTour.map(processSetlist);
-        const showsWithSetlists = processedShows.filter((show) => show.setlist.totalSongs > 0);
-
-        setShows(showsWithSetlists);
-
-        if (showsWithSetlists.length >= 2) {
-          setSelectedShow1(showsWithSetlists[1].id);
-          setSelectedShow2(showsWithSetlists[0].id);
-        }
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to fetch setlists');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchSetlists();
-  }, []);
-
-  // Recompute the comparison when either selection changes
-  useEffect(() => {
-    if (selectedShow1 && selectedShow2) {
-      const show1 = shows.find((s) => s.id === selectedShow1);
-      const show2 = shows.find((s) => s.id === selectedShow2);
-      if (show1 && show2) {
-        setComparisonStats(compareShows(show1, show2).stats);
-      }
-    }
-  }, [selectedShow1, selectedShow2, shows]);
-
-  const getShow = (showId: string) => shows.find((s) => s.id === showId);
-  const show1 = getShow(selectedShow1);
-  const show2 = getShow(selectedShow2);
-
-  const handleRefresh = async () => {
-    setRefreshing(true);
-    try {
-      const response = await setlistService.getLinkinParkSetlists(1, true);
-      const processedShows = response.setlist.map(processSetlist);
-      setShows(processedShows);
-
-      if (selectedShow1 && selectedShow2) {
-        const comparison = compareShows(
-          processedShows.find((s) => s.id === selectedShow1)!,
-          processedShows.find((s) => s.id === selectedShow2)!,
-        );
-        setComparisonStats(comparison.stats);
-      }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to refresh');
-    } finally {
-      setRefreshing(false);
-    }
-  };
-
-  if (loading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-ink font-body text-bone">
-        <div className="text-center">
-          <Loader2 className="mx-auto mb-4 h-10 w-10 animate-spin text-ember" />
-          <p className="font-mono text-[11px] tracking-[0.1em] text-ash">LOADING SETLISTS FROM SETLIST.FM…</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-ink px-6 font-body text-bone">
-        <div className="max-w-md text-center">
-          <h2 className="font-display text-3xl uppercase text-bone">Error</h2>
-          <p className="mt-3 text-bone-dim">{error}</p>
-          <p className="mt-3 font-mono text-[11px] tracking-[0.06em] text-ash">
-            ADD YOUR SETLIST.FM API KEY TO .ENV AS VITE_SETLISTFM_API_KEY
-          </p>
-        </div>
-      </div>
-    );
-  }
+  const { show1, show2, comparisonStats } = useMemo(() => {
+    const s1 = shows.find((s) => s.id === selectedShow1);
+    const s2 = shows.find((s) => s.id === selectedShow2);
+    let stats: ComparisonStats | null = null;
+    if (s1 && s2) stats = compareShows(s1, s2).stats;
+    return { show1: s1, show2: s2, comparisonStats: stats };
+  }, [shows, selectedShow1, selectedShow2]);
 
   return (
     <div className="min-h-screen bg-ink font-body text-bone">
@@ -184,10 +104,6 @@ export const ComparisonPage = () => {
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <ShowSelect label="First Show" value={selectedShow1} onChange={setSelectedShow1} shows={shows} venue={show1?.venue} />
           <ShowSelect label="Second Show" value={selectedShow2} onChange={setSelectedShow2} shows={shows} venue={show2?.venue} />
-        </div>
-
-        <div className="mt-6">
-          <CacheStatus onRefresh={handleRefresh} loading={refreshing} />
         </div>
 
         {/* Stats */}
