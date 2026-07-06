@@ -1,238 +1,244 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useLPSongData } from '../hooks/useLPSongData.ts';
-
+import { getTourData } from '../services/tourDataService';
+import { calculateTourStats, type SongStats } from '../utils/setlistStats';
+import { SongDetail } from '../components/SongDetail.tsx';
 
 export const LPSongs: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [viewMode, setViewMode] = useState<'album' | 'alphabetical'>('album');
+  const [selectedSong, setSelectedSong] = useState<SongStats | null>(null);
+
   const { albumsWithSongs } = useLPSongData();
 
-  const [viewMode, setViewMode] = useState<'album' | 'alphabetical'>('album');
+  // Tour-play data, keyed by song title
+  const statByTitle = useMemo(() => {
+    const data = getTourData();
+    const stats = calculateTourStats(data.shows.map((s) => s.setlist as never));
+    const map = new Map<string, SongStats>();
+    (stats.allSongs ?? []).forEach((s) => map.set(s.title, s));
+    return map;
+  }, []);
 
+  // Close the deep-dive on Escape
+  useEffect(() => {
+    if (!selectedSong) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setSelectedSong(null);
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [selectedSong]);
 
-  // Filter albums based on search query
   const filteredDiscography = useMemo(() => {
     if (!searchQuery) return albumsWithSongs;
-
-    const query = searchQuery.toLowerCase();
-    return albumsWithSongs.map(album => ({
-      ...album,
-      songs: album.songs.filter(song =>
-        song.title.toLowerCase().includes(query) ||
-        song.abbreviation.toLowerCase().includes(query)
-      ),
-    })).filter(album => album.songs.length > 0);
+    const q = searchQuery.toLowerCase();
+    return albumsWithSongs
+      .map((album) => ({
+        ...album,
+        songs: album.songs.filter(
+          (song) => song.title.toLowerCase().includes(q) || song.abbreviation.toLowerCase().includes(q),
+        ),
+      }))
+      .filter((album) => album.songs.length > 0);
   }, [searchQuery, albumsWithSongs]);
 
   const alphabeticalSongs = useMemo(() => {
-    const allSongs = albumsWithSongs.flatMap(album =>
-      album.songs.map(song => ({
-        ...song,
-        album: album.name,
-        year: album.year,
-      }))
+    const all = albumsWithSongs.flatMap((album) =>
+      album.songs.map((song) => ({ ...song, album: album.name, year: album.year })),
     );
-
+    const q = searchQuery.toLowerCase();
     const filtered = searchQuery
-      ? allSongs.filter(song =>
-        song.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        song.abbreviation.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-      : allSongs;
-
+      ? all.filter((s) => s.title.toLowerCase().includes(q) || s.abbreviation.toLowerCase().includes(q))
+      : all;
     return filtered.sort((a, b) => a.title.localeCompare(b.title));
   }, [albumsWithSongs, searchQuery]);
 
+  const totalSongs = albumsWithSongs.reduce((sum, a) => sum + a.songs.length, 0);
+  const totalPlayed = albumsWithSongs.reduce(
+    (sum, a) => sum + a.songs.filter((s) => statByTitle.has(s.title)).length,
+    0,
+  );
+  const resultCount =
+    viewMode === 'album'
+      ? filteredDiscography.reduce((sum, album) => sum + album.songs.length, 0)
+      : alphabeticalSongs.length;
+
+  const Abbr = ({ text }: { text: string }) => (
+    <span className="inline-flex items-center rounded-[3px] border border-line px-2 py-0.5 font-mono text-[10px] tracking-[0.04em] text-ash">
+      {text}
+    </span>
+  );
+
+  const PlayBadge = ({ stat }: { stat: SongStats }) => (
+    <span className="shrink-0 font-mono text-[10px] tracking-[0.04em] text-ember">{stat.timesPlayed}×</span>
+  );
+
   return (
-    <div className="max-w-7xl mx-auto p-6">
+    <div className="min-h-screen bg-ink font-body text-bone">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-900 mb-2">Linkin Park Discography</h1>
-        <p className="text-gray-600">Complete song collection with abbreviations</p>
-      </div>
-
-      {/* Controls */}
-      <div className="bg-white border border-gray-200 rounded-xl p-6 mb-8">
-        <div className="flex gap-4 items-center flex-wrap">
-          <div className="flex-1 min-w-[300px]">
-            <input
-              type="text"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-              placeholder="Search by song title or abbreviation..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
-          <div className="flex bg-gray-100 rounded-lg p-1">
-            <button
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
-                viewMode === 'album'
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-gray-600 hover:text-slate-900'
-              }`}
-              onClick={() => setViewMode('album')}
-            >
-              By Album
-            </button>
-            <button
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
-                viewMode === 'alphabetical'
-                  ? 'bg-white text-slate-900 shadow-sm'
-                  : 'text-gray-600 hover:text-slate-900'
-              }`}
-              onClick={() => setViewMode('alphabetical')}
-            >
-              Alphabetical
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Results Count */}
-      {searchQuery && (
-        <div className="mb-6">
-          <p className="text-sm text-gray-600 bg-blue-50 border border-blue-200 rounded-lg px-4 py-2 inline-block">
-            Found {viewMode === 'album'
-            ? filteredDiscography.reduce((sum, album) => sum + album.songs.length, 0)
-            : alphabeticalSongs.length
-          } song{(viewMode === 'album'
-            ? filteredDiscography.reduce((sum, album) => sum + album.songs.length, 0)
-            : alphabeticalSongs.length) !== 1 ? 's' : ''}
+      <div className="relative overflow-hidden border-b border-line">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain opacity-[0.13] mix-blend-overlay" />
+        <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-12">
+          <p className="font-mono text-[11px] tracking-[0.22em] text-ash">
+            <span className="text-ember">→</span>&nbsp;&nbsp;FROM ZERO WORLD TOUR · SONGS
+          </p>
+          <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">The Songbook</h1>
+          <p className="mt-4 max-w-xl font-body italic text-bone-dim">
+            Every Linkin Park song and its abbreviation — the {totalPlayed} played on the tour open their deep-dive.
           </p>
         </div>
-      )}
+      </div>
 
-      {/* Content */}
-      <div className="space-y-8">
+      <div className="mx-auto max-w-7xl px-6 py-10">
+        {/* Controls */}
+        <div className="mb-8 flex flex-wrap items-center gap-3">
+          <input
+            type="text"
+            className="h-11 flex-1 rounded-md border border-line bg-ink-2 px-4 text-sm text-bone placeholder-ash transition-colors focus:border-ember focus:outline-none"
+            placeholder="Search by song title or abbreviation…"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <div className="flex rounded-md border border-line p-1">
+            {(['album', 'alphabetical'] as const).map((mode) => (
+              <button
+                key={mode}
+                onClick={() => setViewMode(mode)}
+                className={`rounded px-4 py-2 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors ${
+                  viewMode === mode ? 'bg-ember text-ink' : 'text-ash hover:text-bone'
+                }`}
+              >
+                {mode === 'album' ? 'By Album' : 'A–Z'}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {searchQuery && (
+          <p className="mb-6 font-mono text-[11px] tracking-[0.06em] text-ash">
+            {resultCount} SONG{resultCount !== 1 ? 'S' : ''} FOUND
+          </p>
+        )}
+
+        {/* Album view */}
         {viewMode === 'album' ? (
           filteredDiscography.length > 0 ? (
-            filteredDiscography.map((album, albumIndex) => (
-              <div key={albumIndex} className="space-y-4">
-                {/* Album Header Card */}
-                <div className="bg-white border border-gray-200 rounded-xl p-6">
-                  <div className="flex items-center gap-6">
-                    <div className="shrink-0">
-                      {album?.coverUrl ? (
+            <div className="space-y-10">
+              {filteredDiscography.map((album) => {
+                const played = album.songs.filter((s) => statByTitle.has(s.title)).length;
+                return (
+                  <div key={album.name} className="space-y-4">
+                    <div className="flex items-center gap-5 rounded-lg border border-line bg-ink-2 p-5">
+                      {album.coverUrl ? (
                         <img
-                          src={album?.coverUrl}
-                          alt={`${album.name} album cover`}
-                          className="w-20 h-20 rounded-lg object-cover shadow-md"
-                          onError={(e) => {
-                            e.currentTarget.src = 'https://via.placeholder.com/80x80/f3f4f6/9ca3af?text=LP';
-                          }}
+                          src={album.coverUrl}
+                          alt={`${album.name} cover`}
+                          className="h-20 w-20 shrink-0 rounded object-cover grayscale"
                         />
                       ) : (
-                        <div className="w-20 h-20 bg-gray-100 rounded-lg flex items-center justify-center">
-                          <svg className="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
-                          </svg>
-                        </div>
+                        <div className="h-20 w-20 shrink-0 rounded bg-ink" />
                       )}
-                    </div>
-                    <div className="flex-1">
-                      <h2 className="text-2xl font-bold text-slate-900 mb-1">
-                        {album.name}
-                      </h2>
-                      <p className="text-gray-600 mb-2">{album.year}</p>
-                      <p className="text-sm text-gray-500">
-                        {album.songs.length} tracks
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Songs Grid */}
-                <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-                  {album.songs.map((song, songIndex) => (
-                    <div
-                      key={songIndex}
-                      className="bg-white border border-gray-200 rounded-lg p-4 hover:border-gray-300 hover:shadow-sm transition-all group"
-                    >
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-3 mb-2">
-                        <span className="text-xs font-semibold text-gray-500 bg-gray-100 rounded-full w-6 h-6 flex items-center justify-center shrink-0">
-                          {songIndex + 1}
-                        </span>
-                            <h3 className="font-semibold text-slate-900 text-sm group-hover:text-gray-700 truncate">
-                              {song.title}
-                            </h3>
-                          </div>
-                          <div className="mt-2">
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700 font-mono ">
-                          {song.abbreviation}
-                        </span>
-                          </div>
-                        </div>
+                      <div className="min-w-0">
+                        <h2 className="font-display text-2xl uppercase leading-none text-bone">{album.name}</h2>
+                        <p className="mt-2 font-mono text-[11px] tracking-[0.06em] text-ash">
+                          {album.year} · {album.songs.length} TRACKS
+                          {played > 0 && <span className="text-ember"> · {played} ON TOUR</span>}
+                        </p>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            ))
+
+                    <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+                      {album.songs.map((song) => {
+                        const stat = statByTitle.get(song.title);
+                        return (
+                          <div
+                            key={song.title}
+                            onClick={stat ? () => setSelectedSong(stat) : undefined}
+                            role={stat ? 'button' : undefined}
+                            className={`rounded-lg border p-4 transition-colors ${
+                              stat
+                                ? 'cursor-pointer border-line bg-ink-2 hover:border-ash-2'
+                                : 'border-line/60 bg-ink opacity-60'
+                            }`}
+                          >
+                            <div className="flex items-center justify-between gap-2">
+                              <h3 className="truncate text-sm font-semibold text-bone">{song.title}</h3>
+                              {stat && <PlayBadge stat={stat} />}
+                            </div>
+                            <div className="mt-2 flex items-center gap-2">
+                              <Abbr text={song.abbreviation} />
+                              {!stat && (
+                                <span className="font-mono text-[9px] tracking-[0.06em] text-ash-2">NOT ON TOUR</span>
+                              )}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           ) : (
-            <div className="bg-white border border-gray-200 rounded-xl p-12 text-center">
-              <svg className="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.5-.816-6.207-2.175.168-.288.327-.584.475-.888C7.25 11.205 9.51 11 12 11c2.49 0 4.75.205 5.732.937.148.304.307.6.475.888A7.962 7.962 0 0112 15z" />
-              </svg>
-              <h3 className="text-lg font-medium text-slate-900 mb-1">No songs found</h3>
-              <p className="text-gray-500">No songs match your search for "{searchQuery}"</p>
+            <div className="rounded-lg border border-line bg-ink-2 p-12 text-center">
+              <h3 className="mb-2 font-body text-lg font-semibold text-bone">No songs found</h3>
+              <p className="font-mono text-[11px] tracking-[0.06em] text-ash">NOTHING MATCHES "{searchQuery.toUpperCase()}"</p>
             </div>
           )
         ) : (
-          <div className="space-y-4">
-            <div className="bg-white border border-gray-200 rounded-xl p-6 mb-6">
-              <h2 className="text-2xl font-bold text-slate-900 mb-1">All Songs</h2>
-              <p className="text-gray-600">Alphabetical listing</p>
-            </div>
-
-            {alphabeticalSongs.length > 0 ? (
-              <div className="grid gap-3">
-                {alphabeticalSongs.map((song, index) => (
-                  <div
-                    key={index}
-                    className="bg-white border border-gray-200 rounded-lg p-5 hover:border-gray-300 hover:shadow-sm transition-all group"
-                  >
-                    <div className="flex items-center gap-4">
-                      {/* Song Info */}
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-lg font-semibold text-slate-900 mb-1 group-hover:text-gray-700">
-                          {song.title}
-                        </h3>
-                        <p className="text-sm text-gray-500 mb-2">
-                          {song.album} • {song.year}
-                        </p>
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800 font-mono">
-                      {song.abbreviation}
-                    </span>
-                      </div>
-                    </div>
+          /* Alphabetical view */
+          <div className="flex flex-col gap-2">
+            {alphabeticalSongs.map((song) => {
+              const stat = statByTitle.get(song.title);
+              return (
+                <div
+                  key={`${song.title}-${song.album}`}
+                  onClick={stat ? () => setSelectedSong(stat) : undefined}
+                  role={stat ? 'button' : undefined}
+                  className={`flex items-center gap-4 rounded-lg border p-4 transition-colors ${
+                    stat ? 'cursor-pointer border-line bg-ink-2 hover:border-ash-2' : 'border-line/60 bg-ink opacity-60'
+                  }`}
+                >
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-base font-semibold text-bone">{song.title}</h3>
+                    <p className="mt-0.5 font-mono text-[11px] tracking-[0.04em] text-ash">
+                      {song.album} · {song.year}
+                    </p>
                   </div>
-                ))}
-              </div>
-            ) : (
-              <div className="bg-white border border-gray-200 rounded-xl p-12 text-center">
-                <svg className="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.5-.816-6.207-2.175.168-.288.327-.584.475-.888C7.25 11.205 9.51 11 12 11c2.49 0 4.75.205 5.732.937.148.304.307.6.475.888A7.962 7.962 0 0112 15z" />
-                </svg>
-                <h3 className="text-lg font-medium text-slate-900 mb-1">No songs found</h3>
-                <p className="text-gray-500">No songs match your search for "{searchQuery}"</p>
-              </div>
-            )}
+                  <Abbr text={song.abbreviation} />
+                  {stat && <PlayBadge stat={stat} />}
+                </div>
+              );
+            })}
           </div>
         )}
-      </div>
 
-      {/* Footer */}
-      <div className="mt-12 pt-8 border-t border-gray-200">
-        <div className="bg-gray-50 rounded-xl p-6 text-center">
-          <p className="text-sm text-gray-600">
-            <span className="font-semibold text-slate-900">{albumsWithSongs.length}</span> albums •
-            <span className="font-semibold text-slate-900 ml-1">
-          {albumsWithSongs.reduce((sum, album) => sum + album.songs.length, 0)}
-        </span> total songs
-          </p>
+        {/* Footer summary */}
+        <div className="mt-12 border-t border-line pt-8 text-center font-mono text-[11px] tracking-[0.06em] text-ash">
+          {albumsWithSongs.length} ALBUMS · {totalSongs} SONGS · <span className="text-ember">{totalPlayed} PLAYED ON THE TOUR</span>
         </div>
       </div>
+
+      {/* Deep-dive modal */}
+      {selectedSong && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+          onClick={() => setSelectedSong(null)}
+        >
+          <div
+            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-lg border border-line bg-ink-2 p-8"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedSong(null)}
+              className="absolute right-4 top-4 z-10 text-2xl leading-none text-ash transition-colors hover:text-bone"
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <SongDetail song={selectedSong} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
