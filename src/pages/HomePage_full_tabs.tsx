@@ -2,9 +2,19 @@ import { useEffect, useMemo, useState } from 'react';
 import { getTourData } from '../services/tourDataService';
 import { calculateTourStats, type SongStats } from '../utils/setlistStats';
 import SongCard from "../components/SongCard.tsx";
-import HeaderWrapper from "../components/HeaderWrapper.tsx";
+import { TourHero } from "../components/TourHero.tsx";
+import { HomeHeatmap } from "../components/HomeHeatmap.tsx";
 import { TourLeg } from "../components/TourLeg.tsx";
+import { SongDetail } from "../components/SongDetail.tsx";
 import { AudioLines } from "lucide-react";
+
+const FILTERS = [
+  { key: 'all', label: 'All' },
+  { key: 'staples', label: 'Staple' },
+  { key: 'rotation', label: 'Rotation' },
+  { key: 'rare', label: 'Rare' },
+  { key: 'deep-cut', label: 'Deep Cut' },
+];
 
 export default function HomePage() {
   const tourData = getTourData();
@@ -12,31 +22,25 @@ export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedSong, setSelectedSong] = useState<SongStats | null>(null);
 
-  // Add useEffect for ESC key
+  // Close the modal on Escape
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setSelectedSong(null);
     };
-
     if (selectedSong) {
       document.addEventListener('keydown', handleEscape);
       return () => document.removeEventListener('keydown', handleEscape);
     }
   }, [selectedSong]);
 
-  // Filter shows by selected leg
   const filteredShows = selectedLeg === null
     ? tourData.shows
     : tourData.shows.filter(show => show.legId === selectedLeg);
 
-  // Calculate stats from filtered shows
   const stats = calculateTourStats(filteredShows.map(s => s.setlist as any));
 
-
-  // Determine songs to display based on an active filter
   const displayedSongs = useMemo(() => {
     if (!stats || !stats.allSongs) return [];
-
     switch (activeFilter) {
       case 'staples': return stats.staple || [];
       case 'rotation': return stats.rotation || [];
@@ -47,168 +51,84 @@ export default function HomePage() {
     }
   }, [activeFilter, stats]);
 
-  // Check a few shows to see their legId
-  console.log('Sample shows:', tourData.shows.slice(0, 3).map(s => ({
-    city: s.city,
-    legId: s.legId,
-    legIdType: typeof s.legId
-  })));
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-ink font-body text-bone">
+      <TourHero />
+      <HomeHeatmap />
 
-      <HeaderWrapper
-        badge={"From Zero World Tour 2024-2026"}
-        title={"Linkin Park Live Shows"}
-        subtitle={"Explore the setlist history across all tour legs"}
-      />
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-6 py-10">
-
-        {/* Tour Legs - Visual Cards with B&W → Color */}
-        <div className="mb-10">
-          <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wide mb-4">
-            Select Tour Leg
+      {/* Explorer */}
+      <div className="mx-auto max-w-7xl px-6 py-16">
+        {/* Leg selector */}
+        <div className="mb-12">
+          <h2 className="mb-5 font-mono text-[11px] tracking-[0.14em] text-ash">
+            <span className="text-ember">03.</span>&nbsp;&nbsp;BROWSE BY LEG
           </h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
             {/* All Legs */}
             <button
               onClick={() => setSelectedLeg(null)}
-              className={`group relative aspect-square rounded-xl overflow-hidden transition-all ${
-                selectedLeg === null
-                  ? 'ring-4 ring-slate-600 shadow-lg'
-                  : 'hover:ring-2 hover:ring-gray-300'
+              className={`group relative aspect-square overflow-hidden rounded-sm transition-all ${
+                selectedLeg === null ? 'ring-2 ring-ember' : 'ring-1 ring-line hover:ring-ash-2'
               }`}
             >
-              <div className={`absolute inset-0 bg-linear-to-br from-slate-700 to-slate-900 ${
-                selectedLeg === null ? '' : 'grayscale group-hover:grayscale-0'
-              } transition-all`}>
-                {/* Icon or pattern */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <AudioLines className="w-24 h-24 text-white" />
-                </div>
+              <div className="absolute inset-0 flex items-center justify-center bg-ink-2">
+                <AudioLines className={`h-20 w-20 ${selectedLeg === null ? 'text-ember' : 'text-ash-2'}`} />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-2 bg-linear-to-t from-black/80">
-                <div className="text-white text-xs font-bold">All Legs</div>
+              <div className="absolute inset-x-0 bottom-0 p-2">
+                <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-bone">All Legs</div>
               </div>
             </button>
 
-            {/* Individual Legs */}
             {tourData.legs.map(leg => (
               <TourLeg
                 key={leg.id}
                 legId={leg.id}
                 onClick={() => setSelectedLeg(leg.id)}
-                selectedLeg= {selectedLeg}
+                selectedLeg={selectedLeg}
                 region={leg.region}
               />
             ))}
           </div>
         </div>
 
-        {/* Rarity Filters - Match Badge Colors */}
-        <div className="mb-8 flex flex-wrap items-center gap-3">
-        <span className="text-sm font-bold text-slate-900 uppercase tracking-wide">
-          Filter by Rarity:
-        </span>
-          <button
-            onClick={() => setActiveFilter('all')}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-              activeFilter === 'all'
-                ? 'bg-slate-300 text-slate-700 ring-2 ring-slate-600'
-                : 'bg-gray-100 text-slate-600 hover:bg-slate-200'
-            }`}
-          >
-            All
-          </button>
-
-          <button
-            onClick={() => setActiveFilter('staples')}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-              activeFilter === 'staples'
-                ? 'bg-green-100 text-green-700 ring-2 ring-green-600'
-                : 'bg-gray-100 text-gray-600 hover:bg-green-50'
-            }`}
-          >
-            Staple
-          </button>
-
-          <button
-            onClick={() => setActiveFilter('rotation')}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-              activeFilter === 'rotation'
-                ? 'bg-yellow-100 text-yellow-700 ring-2 ring-yellow-600'
-                : 'bg-gray-100 text-gray-600 hover:bg-yellow-50'
-            }`}
-          >
-            Rotation
-          </button>
-
-          <button
-            onClick={() => setActiveFilter('rare')}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-              activeFilter === 'rare'
-                ? 'bg-orange-100 text-orange-700 ring-2 ring-orange-600'
-                : 'bg-gray-100 text-gray-600 hover:bg-orange-50'
-            }`}
-          >
-            Rare
-          </button>
-
-          <button
-            onClick={() => setActiveFilter('deep-cut')}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
-              activeFilter === 'deep-cut'
-                ? 'bg-purple-100 text-slate-700 ring-2 ring-slate-600'
-                : 'bg-gray-100 text-gray-600 hover:bg-purple-50'
-            }`}
-          >
-            Deep Cut
-          </button>
-
-          {/*<button*/}
-          {/*  onClick={() => setActiveFilter('predictions')}*/}
-          {/*  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${*/}
-          {/*    activeFilter === 'predictions'*/}
-          {/*      ? 'bg-blue-100 text-blue-700 ring-2 ring-blue-600'*/}
-          {/*      : 'bg-gray-100 text-gray-600 hover:bg-blue-50'*/}
-          {/*  }`}*/}
-          {/*>*/}
-          {/*  Predictions*/}
-          {/*</button>*/}
+        {/* Rarity filters */}
+        <div className="mb-8 flex flex-wrap items-center gap-2">
+          <span className="mr-2 font-mono text-[11px] tracking-[0.14em] text-ash">FILTER BY RARITY</span>
+          {FILTERS.map(f => {
+            const active = activeFilter === f.key;
+            return (
+              <button
+                key={f.key}
+                onClick={() => setActiveFilter(f.key)}
+                className={`rounded-full px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors ${
+                  active
+                    ? 'bg-ember text-ink'
+                    : 'border border-line text-ash hover:border-ash-2 hover:text-bone'
+                }`}
+              >
+                {f.label}
+              </button>
+            );
+          })}
         </div>
 
-        {/* Result Count */}
+        {/* Songs */}
         {displayedSongs.length > 0 && (
           <div className="mb-6">
-            <div className="text-2xl font-bold text-slate-900">
-
-              {'List of songs played on Linkin Park Live shows'}
-            </div>
-            <div className="text-sm text-slate-600 mt-1">
-              {displayedSongs.length} songs played across {filteredShows.length} shows
-              {selectedLeg && ` in Leg ${selectedLeg}`}
-            </div>
+            <h3 className="font-display text-3xl uppercase leading-none text-bone">Songs played</h3>
+            <p className="mt-2 font-mono text-[11px] tracking-[0.08em] text-ash">
+              {displayedSongs.length} SONGS · {filteredShows.length} SHOWS
+              {selectedLeg ? ` · LEG ${selectedLeg}` : ''}
+            </p>
           </div>
         )}
 
-        {/* Songs List */}
-        <div className="space-y-3">
+        <div className="flex flex-col gap-2">
           {displayedSongs.length === 0 ? (
-            <div className="bg-gray-50 rounded-2xl border border-gray-200 p-12 text-center">
-              <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                No songs found
-              </h3>
-              <p className="text-sm text-gray-600">
-                Try selecting a different filter or tour leg
-              </p>
+            <div className="rounded-lg border border-line bg-ink-2 p-12 text-center">
+              <h3 className="mb-2 font-body text-lg font-semibold text-bone">No songs found</h3>
+              <p className="font-mono text-[11px] tracking-[0.08em] text-ash">TRY A DIFFERENT FILTER OR LEG</p>
             </div>
           ) : (
             displayedSongs.map((song) => (
@@ -223,10 +143,12 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="pt-16 mt-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-2xl md:text-3xl text-gray-800 font-light italic">
-            "Dream big, work hard, and don't be an a**hole." - Mike Shinoda
+      {/* Quote */}
+      <div className="border-t border-line py-20">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <p className="font-body text-2xl italic text-bone-dim md:text-3xl">
+            "Dream big, work hard, and don't be an a**hole."{' '}
+            <span className="text-ash">— Mike Shinoda</span>
           </p>
         </div>
       </div>
@@ -234,27 +156,21 @@ export default function HomePage() {
       {/* Modal */}
       {selectedSong && (
         <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
           onClick={() => setSelectedSong(null)}
         >
           <div
-            className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl"
+            className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-lg border border-line bg-ink-2 p-8"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex justify-between items-start mb-6">
-              <h2 className="text-3xl font-bold text-slate-900">
-                {selectedSong.title}
-              </h2>
-              <button
-                onClick={() => setSelectedSong(null)}
-                className="text-gray-400 hover:text-gray-600 text-2xl leading-none"
-              >
-                ×
-              </button>
-            </div>
-            <p className="text-gray-600">
-              Timeline view coming soon!
-            </p>
+            <button
+              onClick={() => setSelectedSong(null)}
+              className="absolute right-4 top-4 z-10 text-2xl leading-none text-ash transition-colors hover:text-bone"
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <SongDetail song={selectedSong} />
           </div>
         </div>
       )}

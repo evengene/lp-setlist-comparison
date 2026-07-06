@@ -11,32 +11,32 @@ export function CacheStatus({ onRefresh, loading }: CacheStatusProps) {
 
   if (!cacheInfo.exists) {
     return (
-      <div className="flex items-center gap-2 text-xs text-gray-500">
-        <Clock className="w-3 h-3" />
-        <span>Loading fresh data...</span>
+      <div className="flex items-center gap-2 font-mono text-[11px] tracking-[0.06em] text-ash">
+        <Clock className="h-3 w-3" />
+        <span>LOADING FRESH DATA…</span>
       </div>
     );
   }
 
   return (
-    <div className="flex items-center gap-3 text-xs">
-      <div className="flex items-center gap-1 text-gray-500">
-        <Clock className="w-3 h-3" />
-        <span>Data from {cacheInfo.age}</span>
+    <div className="flex items-center gap-3 font-mono text-[11px] tracking-[0.06em]">
+      <div className="flex items-center gap-1.5 text-ash">
+        <Clock className="h-3 w-3" />
+        <span>DATA FROM {String(cacheInfo.age).toUpperCase()}</span>
         {cacheInfo.valid ? (
-          <span className="text-emerald-600 font-medium">✓ Fresh</span>
+          <span className="text-ember">✓ FRESH</span>
         ) : (
-          <span className="text-amber-600 font-medium">⚠ Stale</span>
+          <span className="text-bone-dim">⚠ STALE</span>
         )}
       </div>
       <button
         onClick={onRefresh}
         disabled={loading}
-        className="flex items-center gap-1 px-2 py-1 text-gray-600 hover:text-slate-900 hover:bg-gray-100 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="flex items-center gap-1.5 rounded px-2 py-1 text-ash transition-colors hover:text-bone disabled:opacity-50"
         title="Refresh data from Setlist.fm"
       >
-        <RefreshCw className={`w-3 h-3 ${loading ? 'animate-spin' : ''}`} />
-        <span>Refresh</span>
+        <RefreshCw className={`h-3 w-3 ${loading ? 'animate-spin' : ''}`} />
+        <span>REFRESH</span>
       </button>
     </div>
   );
