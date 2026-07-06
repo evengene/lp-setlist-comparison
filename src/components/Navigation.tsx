@@ -9,6 +9,7 @@ export const Navigation = () => {
   // page for now; these firm up as the real Setlists + Data pages get built.
   const navItems = [
     { path: '/', label: 'Retrospective' },
+    { path: '/your-show', label: 'Your Show' },
     { path: '/comparison', label: 'Setlists' },
     { path: '/songs', label: 'Songs' },
     { path: '/stats', label: 'Data' },

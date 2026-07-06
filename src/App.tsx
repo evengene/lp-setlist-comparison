@@ -6,12 +6,13 @@ import HomePage from "./pages/HomePage_full_tabs.tsx";
 import { LPSongs } from "./pages/LPSongs.tsx";
 import { ComparisonPage } from "./pages/ComparisonPage.tsx";
 import { StatsPage } from "./pages/StatsPage.tsx";
+import { FindYourShow } from "./pages/FindYourShow.tsx";
 
 
 function App() {
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-ink">
       <Navigation />
 
       <main className="flex-1">
@@ -20,6 +21,7 @@ function App() {
           <Route path="songs" element={<LPSongs />} />
           <Route path="comparison" element={<ComparisonPage />} />
           <Route path="stats" element={<StatsPage />} />
+          <Route path="your-show" element={<FindYourShow />} />
         </Routes>
       </main>
 
