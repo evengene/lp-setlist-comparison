@@ -6,123 +6,95 @@ interface ShowCardProps {
   show: Show;
 }
 
-export function ShowCard( { show }: ShowCardProps ) {
+export function ShowCard({ show }: ShowCardProps) {
   // Group songs by their set name
   const groupedSets = new Map<string, ProcessedSong[]>();
-
-  show.setlist.songs.forEach(( song ) => {
+  show.setlist.songs.forEach((song) => {
     const setName = song.setName || 'Main Set';
-    if (!groupedSets.has(setName)) {
-      groupedSets.set(setName, []);
-    }
+    if (!groupedSets.has(setName)) groupedSets.set(setName, []);
     groupedSets.get(setName)!.push(song);
   });
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-      {/* Venue Header */}
-      <div className="border-b border-gray-100 p-6 bg-gray-50">
-        <h3 className="text-xl font-bold text-slate-900 mb-3">{show.name}</h3>
-        <div className="space-y-2 text-sm text-gray-600 mb-4">
-          <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-gray-400" />
-            <span>{show.venue}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-gray-400" />
-            <span>{show.date}</span>
-          </div>
+    <div className="overflow-hidden rounded-lg border border-line bg-ink-2">
+      {/* Venue header */}
+      <div className="border-b border-line bg-ink p-6">
+        <h3 className="font-display text-xl uppercase leading-none text-bone">{show.name}</h3>
+        <div className="mt-3 space-y-1.5 font-mono text-[11px] tracking-[0.04em] text-ash">
+          <div className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5 text-ash-2" /><span>{show.venue}</span></div>
+          <div className="flex items-center gap-2"><Calendar className="h-3.5 w-3.5 text-ash-2" /><span>{show.date}</span></div>
           {show.capacity && (
-            <div className="flex items-center gap-2">
-              <Users className="w-4 h-4 text-gray-400" />
-              <span>Capacity: {show.capacity}</span>
-            </div>
+            <div className="flex items-center gap-2"><Users className="h-3.5 w-3.5 text-ash-2" /><span>CAPACITY: {show.capacity}</span></div>
           )}
         </div>
 
-        {/* External Links */}
-        <div className="flex flex-wrap gap-2 text-xs">
-
+        <div className="mt-4 flex flex-wrap gap-2 font-mono text-[10px] uppercase tracking-[0.06em]">
           <a
             href={show.setlistUrl || '#'}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 px-3 py-1.5 bg-white text-blue-600 hover:bg-blue-50 rounded-full border border-gray-200 transition-all shadow-sm hover:shadow"
+            className="inline-flex items-center gap-1 rounded-full border border-line px-3 py-1.5 text-bone-dim transition-colors hover:border-ember hover:text-ember"
           >
-            <span>View on Setlist.fm</span>
-            <span className="text-[10px]">→</span>
+            Setlist.fm <span>→</span>
           </a>
-
           <a
             href={getLinkinpediaUrl(show.rawDate)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 px-3 py-1.5 bg-white text-purple-600 hover:bg-purple-50 rounded-full border border-gray-200 transition-all shadow-sm hover:shadow"
+            className="inline-flex items-center gap-1 rounded-full border border-line px-3 py-1.5 text-bone-dim transition-colors hover:border-ember hover:text-ember"
           >
-            <span>View on Linkinpedia</span>
-            <span className="text-[10px]">→</span>
+            Linkinpedia <span>→</span>
           </a>
         </div>
       </div>
 
       {/* Setlist */}
       <div className="p-6">
-        {Array.from(groupedSets.entries()).map(( [setName, songs], setIdx ) => (
-          <div
-            key={setIdx}
-            className="mb-8 last:mb-0"
-          >
-            {/* Set Header - Small Pill Badge */}
+        {Array.from(groupedSets.entries()).map(([setName, songs], setIdx) => (
+          <div key={setIdx} className="mb-8 last:mb-0">
             <div className="mb-4 flex items-center gap-2">
-              <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700`}>
+              <span className="inline-block rounded-full border border-line px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-ash">
                 {setName}
               </span>
-              <span className="text-xs text-gray-400">
-                {songs.length} {songs.length === 1 ? 'song' : 'songs'}
+              <span className="font-mono text-[10px] text-ash-2">
+                {songs.length} {songs.length === 1 ? 'SONG' : 'SONGS'}
               </span>
             </div>
 
-            {/* Songs in this set */}
             <div className="space-y-2">
-              {songs.map(( song, idx ) => (
-                <div
-                  key={idx}
-                  className={`flex items-center gap-3 p-3 rounded-lg transition-all hover:shadow-sm ${
-                    song.status === 'shared'
-                      ? 'bg-emerald-50 border border-emerald-200'
-                      : 'bg-rose-50 border border-rose-200'
-                  }`}
-                >
+              {songs.map((song, idx) => {
+                const shared = song.status === 'shared';
+                return (
                   <div
-                    className={`w-7 h-7 rounded-md flex items-center justify-center text-xs font-semibold shrink-0 ${
-                      song.status === 'shared'
-                        ? 'bg-emerald-200 text-emerald-800'
-                        : 'bg-rose-200 text-rose-800'
+                    key={idx}
+                    className={`flex items-center gap-3 rounded-md p-3 transition-colors ${
+                      shared ? 'border border-line bg-ink' : 'border border-ember/40 bg-ember/10'
                     }`}
                   >
-                    {song.position}
+                    <div
+                      className={`flex h-7 w-7 shrink-0 items-center justify-center rounded font-mono text-[11px] font-semibold ${
+                        shared ? 'bg-line text-ash' : 'bg-ember text-ink'
+                      }`}
+                    >
+                      {song.position}
+                    </div>
+                    <div className="min-w-0 grow">
+                      <div className={`font-medium ${shared ? 'text-bone-dim' : 'text-bone'}`}>{song.name}</div>
+                      {song.info && <div className="mt-0.5 text-xs italic text-ash">{song.info}</div>}
+                    </div>
                   </div>
-                  <div className="grow min-w-0">
-                    <div className="font-medium text-slate-900">{song.name}</div>
-                    {song.info && (
-                      <div className="text-xs text-gray-500 mt-0.5 italic">{song.info}</div>
-                    )}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         ))}
 
-        {/* Stats Footer */}
-        <div className="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-sm">
-          <span className="text-gray-600">
-            <span className="font-semibold text-rose-600">{show.setlist.uniqueCount}</span>
-            {' '}unique {show.setlist.uniqueCount === 1 ? 'song' : 'songs'}
+        <div className="mt-6 flex items-center justify-between border-t border-line pt-4 font-mono text-[11px] tracking-[0.04em]">
+          <span className="text-ash">
+            <span className="text-ember">{show.setlist.uniqueCount}</span> UNIQUE{' '}
+            {show.setlist.uniqueCount === 1 ? 'SONG' : 'SONGS'}
           </span>
-          <span className="text-gray-400 text-xs">
-            {show.setlist.totalSongs} total
-          </span>
+          <span className="text-ash-2">{show.setlist.totalSongs} TOTAL</span>
         </div>
       </div>
     </div>
