@@ -30,7 +30,7 @@ function isLinkinParkSong(song: RawSong): boolean {
  * as an intensity bucket (0 = never … 4 = every night of that leg).
  * Returns the top `topN` songs by total plays.
  */
-export function buildHeatmap(data: TourData, topN = 16): HeatmapData {
+export function buildHeatmap(data: TourData, topN = 16, sort: 'plays' | 'variation' = 'plays'): HeatmapData {
   const showsByLeg = new Map<number, number>();
   for (const s of data.shows) {
     showsByLeg.set(s.legId, (showsByLeg.get(s.legId) ?? 0) + 1);
@@ -70,7 +70,16 @@ export function buildHeatmap(data: TourData, topN = 16): HeatmapData {
     return { title, total, intensity };
   });
 
-  rows.sort((a, b) => b.total - a.total);
+  if (sort === 'variation') {
+    // spread of per-leg intensity — surfaces songs that came/went/grew, not flat staples
+    const spread = (arr: number[]) => {
+      const mean = arr.reduce((x, y) => x + y, 0) / arr.length;
+      return Math.sqrt(arr.reduce((x, y) => x + (y - mean) ** 2, 0) / arr.length);
+    };
+    rows.sort((a, b) => spread(b.intensity) - spread(a.intensity) || b.total - a.total);
+  } else {
+    rows.sort((a, b) => b.total - a.total);
+  }
 
   return {
     legIds,

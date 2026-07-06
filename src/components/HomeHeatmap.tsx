@@ -30,16 +30,14 @@ export function HomeHeatmap({
   index = '02.',
   heading = 'WHAT THEY PLAYED, LEG BY LEG',
   seeAll = true,
-  sort = 'plays',
 }: {
   limit?: number;
   index?: string;
   heading?: string;
   seeAll?: boolean;
-  sort?: 'plays' | 'variation';
 } = {}) {
   const data = getTourData();
-  const heatmap = useMemo(() => buildHeatmap(data, limit, sort), [data, limit, sort]);
+  const heatmap = useMemo(() => buildHeatmap(data, limit), [data, limit]);
 
   const statByTitle = useMemo(() => {
     const stats = calculateTourStats(data.shows.map((s) => s.setlist as never));
