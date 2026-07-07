@@ -38,6 +38,12 @@ export function TourHero() {
 
   return (
     <header className="relative overflow-hidden bg-ink font-body text-bone">
+      <img
+        src="/lp-transparent.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 select-none object-cover object-right opacity-40 [mask-image:linear-gradient(to_right,transparent,black_45%)] md:block"
+      />
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain opacity-[0.13] mix-blend-overlay" />
 
       <div className="relative">

@@ -120,7 +120,7 @@ export function HomeHeatmap({
           )}
         </div>
         <p className="mb-6 font-mono text-[11px] tracking-[0.04em] text-ash-2">
-          Each column is a tour leg, in order — hover to trace, click a song for its history.
+          Click any song to see its full run across the tour.
         </p>
 
         <div className="overflow-x-auto">
