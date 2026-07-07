@@ -54,7 +54,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-ink font-body text-bone">
       <TourHero />
-      <HomeHeatmap />
+      <HomeHeatmap sort="variation" heading="WHAT CHANGED, LEG BY LEG" />
 
       {/* Explorer */}
       <div className="mx-auto max-w-7xl px-6 py-16">

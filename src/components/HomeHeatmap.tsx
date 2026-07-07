@@ -30,14 +30,16 @@ export function HomeHeatmap({
   index = '02.',
   heading = 'WHAT THEY PLAYED, LEG BY LEG',
   seeAll = true,
+  sort = 'plays',
 }: {
   limit?: number;
   index?: string;
   heading?: string;
   seeAll?: boolean;
+  sort?: 'plays' | 'variation';
 } = {}) {
   const data = getTourData();
-  const heatmap = useMemo(() => buildHeatmap(data, limit), [data, limit]);
+  const heatmap = useMemo(() => buildHeatmap(data, limit, sort), [data, limit, sort]);
 
   const statByTitle = useMemo(() => {
     const stats = calculateTourStats(data.shows.map((s) => s.setlist as never));
@@ -111,7 +113,7 @@ export function HomeHeatmap({
           {seeAll && (
             <Link
               to="/stats"
-              className="font-mono text-[11px] tracking-[0.1em] text-ember transition-colors hover:text-ember-bright"
+              className="font-mono text-[11px] tracking-widest text-ember transition-colors hover:text-ember-bright"
             >
               SEE ALL SONGS →
             </Link>
@@ -172,7 +174,7 @@ export function HomeHeatmap({
                             setHoverRow(r);
                             setHoverCol(c);
                           }}
-                          className="hm-cell h-4 rounded-[2px]"
+                          className="hm-cell h-4 rounded-xs"
                           style={{
                             background: SHADES[v],
                             border: v === 0 ? '0.5px solid #2a241d' : undefined,
@@ -205,7 +207,7 @@ export function HomeHeatmap({
           {SHADES.map((s, i) => (
             <span
               key={i}
-              className="inline-block h-3 w-4 rounded-[2px]"
+              className="inline-block h-3 w-4 rounded-xs"
               style={{ background: s, border: i === 0 ? '0.5px solid #2a241d' : undefined }}
             />
           ))}
