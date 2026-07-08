@@ -94,8 +94,7 @@ export const ComparisonPage = () => {
           </p>
           <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">Setlist Comparison</h1>
           <p className="mt-4 max-w-xl font-body italic text-bone-dim">
-            Compare any two nights side by side - see which songs they shared, and which made each one special.
-          </p>
+            Compare any two shows side by side to see what stayed the same - and what made each night unique.          </p>
         </div>
       </div>
 
