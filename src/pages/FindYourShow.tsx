@@ -123,7 +123,7 @@ export const FindYourShow = () => {
               <optgroup key={leg.id} label={`Leg ${leg.id} · ${leg.region}`}>
                 {leg.shows.map((s) => (
                   <option key={s.id} value={s.id} className="bg-ink text-bone">
-                    {s.city} — {fmtDate(s.date)}
+                    {s.city} - {fmtDate(s.date)}
                   </option>
                 ))}
               </optgroup>

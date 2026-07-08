@@ -120,7 +120,7 @@ export function HomeHeatmap({
           )}
         </div>
         <p className="mb-6 font-mono text-[11px] tracking-[0.04em] text-ash-2">
-          Click any song to see its full run across the tour.
+          Click a song to see when it appeared throughout the tour.
         </p>
 
         <div className="overflow-x-auto">

@@ -7,6 +7,7 @@ import { LPSongs } from "./pages/LPSongs.tsx";
 import { ComparisonPage } from "./pages/ComparisonPage.tsx";
 import { StatsPage } from "./pages/StatsPage.tsx";
 import { FindYourShow } from "./pages/FindYourShow.tsx";
+import { AboutPage } from "./pages/AboutPage.tsx";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="comparison" element={<ComparisonPage />} />
           <Route path="stats" element={<StatsPage />} />
           <Route path="your-show" element={<FindYourShow />} />
+          <Route path="about" element={<AboutPage />} />
         </Routes>
       </main>
 

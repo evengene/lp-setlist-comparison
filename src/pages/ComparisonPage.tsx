@@ -32,7 +32,7 @@ function ShowSelect({
         >
           {shows.map((show) => (
             <option key={show.id} value={show.id} className="bg-ink text-bone">
-              {show.name} — {show.date}
+              {show.name} - {show.date}
             </option>
           ))}
         </select>

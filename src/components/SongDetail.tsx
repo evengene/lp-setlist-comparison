@@ -14,7 +14,7 @@ const BADGE: Record<string, string> = {
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 function fmtDate(d?: string): string {
-  if (!d) return '—';
+  if (!d) return '-';
   const [dd, mm, yyyy] = d.split('-');
   return `${parseInt(dd, 10)} ${MONTHS[parseInt(mm, 10) - 1] ?? mm} ${yyyy}`;
 }
@@ -70,7 +70,7 @@ export function SongDetail({ song }: { song: SongStats }) {
           <div className="mt-1.5 font-mono text-[10px] tracking-[0.1em] text-ash">OF SHOWS</div>
         </div>
         <div className="bg-ink-2 px-4 py-4">
-          <div className="font-display text-3xl leading-none text-bone">{song.positionRange ?? '—'}</div>
+          <div className="font-display text-3xl leading-none text-bone">{song.positionRange ?? '-'}</div>
           <div className="mt-1.5 font-mono text-[10px] tracking-[0.1em] text-ash">TYPICAL SLOT</div>
         </div>
       </div>
@@ -86,7 +86,7 @@ export function SongDetail({ song }: { song: SongStats }) {
               <div
                 className="h-8 w-full rounded-[2px]"
                 style={{ background: SHADES[v], border: v === 0 ? '0.5px solid #2a241d' : undefined }}
-                title={`Leg ${bd.legIds[i]} — ${bd.perLeg[i]}/${bd.showsPerLeg[i]} shows`}
+                title={`Leg ${bd.legIds[i]} - ${bd.perLeg[i]}/${bd.showsPerLeg[i]} shows`}
               />
               <div className="font-mono text-[9px] text-ash-2">{bd.legLabels[i]}</div>
             </div>
@@ -102,7 +102,7 @@ export function SongDetail({ song }: { song: SongStats }) {
           </>
         ) : bd.lastCity ? (
           <>
-            LAST PLAYED — <span className="text-bone">{bd.lastCity.toUpperCase()}</span> · {fmtDate(bd.lastDate)}
+            LAST PLAYED - <span className="text-bone">{bd.lastCity.toUpperCase()}</span> · {fmtDate(bd.lastDate)}
           </>
         ) : null}
       </div>

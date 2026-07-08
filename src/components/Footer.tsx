@@ -10,9 +10,9 @@ export const Footer = () => {
           <div>
             <h3 className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ash">About</h3>
             <p className="text-sm leading-relaxed text-bone-dim">
-              Linkin Park Setlist Comparison — From Zero World Tour.
+              An interactive retrospective of Linkin Park's From Zero World Tour.
               <br />
-              Celebrating the artistry of Linkin Park's live performances.
+              Celebrating the artistry of their live performances.
             </p>
           </div>
 
@@ -24,6 +24,7 @@ export const Footer = () => {
               <li><a href="/comparison" className="text-bone-dim transition-colors hover:text-ember">Setlists</a></li>
               <li><a href="/songs" className="text-bone-dim transition-colors hover:text-ember">Songs</a></li>
               <li><a href="/stats" className="text-bone-dim transition-colors hover:text-ember">Data</a></li>
+              <li><a href="/about" className="text-bone-dim transition-colors hover:text-ember">About</a></li>
             </ul>
           </div>
 
@@ -48,7 +49,7 @@ export const Footer = () => {
           <div>
             <h3 className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ash">Connect</h3>
             <p className="mb-4 text-sm leading-relaxed text-bone-dim">
-              For any inquiries, feedback, or collaboration opportunities, please reach out via email.
+              Questions, ideas, or spotted something I missed? I'd love to hear from you.
             </p>
             <a href="mailto:evengene@gmail.com" className="mb-6 inline-block text-sm text-ember transition-colors hover:text-ember-bright">
               Contact here →
@@ -83,8 +84,8 @@ export const Footer = () => {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-line pt-8 font-mono text-[11px] tracking-[0.04em] text-ash md:flex-row">
           <div>
-            © 2025–{new Date().getFullYear()} LP SETLISTS · FOR FANS, MADE WITH ❤ BY{" "}
-            <a href="https://github.com/evengene" target="_blank" rel="noopener noreferrer" className="text-bone transition-colors hover:text-ember">
+            © 2025-{new Date().getFullYear()} LP SETLISTS · FOR FANS, MADE WITH ❤ BY{" "}
+            <a href="/about" className="text-bone transition-colors hover:text-ember">
               evengene
             </a>
           </div>
