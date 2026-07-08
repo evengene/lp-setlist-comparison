@@ -9,18 +9,18 @@ import { TourLeg } from "../components/TourLeg.tsx";
 import { SongDetail } from "../components/SongDetail.tsx";
 import { AudioLines } from "lucide-react";
 
-const FILTERS = [
-  { key: 'all', label: 'All' },
-  { key: 'staples', label: 'Staple' },
-  { key: 'rotation', label: 'Rotation' },
-  { key: 'rare', label: 'Rare' },
-  { key: 'deep-cut', label: 'Deep Cut' },
+const SORTS = [
+  { key: 'plays', label: 'Most played' },
+  { key: 'az', label: 'A-Z' },
+  { key: 'rare', label: 'Rarest' },
 ];
+
+const RARITY_RANK: Record<string, number> = { staple: 3, rotation: 2, rare: 1, 'deep-cut': 0, prediction: 0 };
 
 export default function HomePage() {
   const tourData = getTourData();
   const [selectedLeg, setSelectedLeg] = useState<number | null>(null);
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [sortBy, setSortBy] = useState('plays');
   const [selectedSong, setSelectedSong] = useState<SongStats | null>(null);
 
   // Close the modal on Escape
@@ -40,17 +40,18 @@ export default function HomePage() {
 
   const stats = calculateTourStats(filteredShows.map(s => s.setlist as any));
 
-  const displayedSongs = useMemo(() => {
-    if (!stats || !stats.allSongs) return [];
-    switch (activeFilter) {
-      case 'staples': return stats.staple || [];
-      case 'rotation': return stats.rotation || [];
-      case 'rare': return stats.rare || [];
-      case 'deep-cut': return stats.deepCut || [];
-      case 'predictions': return stats.overdue || [];
-      default: return stats.allSongs || [];
+  const displayedSongs = useMemo(() => stats?.allSongs ?? [], [stats]);
+
+  const sortedSongs = useMemo(() => {
+    const arr = [...displayedSongs];
+    if (sortBy === 'az') return arr.sort((a, b) => a.title.localeCompare(b.title));
+    if (sortBy === 'rare') {
+      return arr.sort(
+        (a, b) => (RARITY_RANK[a.category] ?? 0) - (RARITY_RANK[b.category] ?? 0) || a.timesPlayed - b.timesPlayed,
+      );
     }
-  }, [activeFilter, stats]);
+    return arr.sort((a, b) => b.timesPlayed - a.timesPlayed);
+  }, [displayedSongs, sortBy]);
 
   return (
     <div className="min-h-screen bg-ink font-body text-bone">
@@ -93,55 +94,53 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Rarity filters */}
-        <div className="mb-8 flex flex-wrap items-center gap-2">
-          <span className="mr-2 font-mono text-[11px] tracking-[0.14em] text-ash">FILTER BY RARITY</span>
-          {FILTERS.map(f => {
-            const active = activeFilter === f.key;
-            return (
-              <button
-                key={f.key}
-                onClick={() => setActiveFilter(f.key)}
-                className={`rounded-full px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors ${
-                  active
-                    ? 'bg-ember text-ink'
-                    : 'border border-line text-ash hover:border-ash-2 hover:text-bone'
-                }`}
-              >
-                {f.label}
-              </button>
-            );
-          })}
-        </div>
-
         {/* Songs */}
         {displayedSongs.length > 0 && (
-          <div className="mb-6">
-            <h3 className="font-display text-3xl uppercase leading-none text-bone">Songs played</h3>
-            <p className="mt-2 font-mono text-[11px] tracking-[0.08em] text-ash">
-              {displayedSongs.length} SONGS · {filteredShows.length} SHOWS
-              {selectedLeg ? ` · LEG ${selectedLeg}` : ''}
-            </p>
+          <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h3 className="font-display text-3xl uppercase leading-none text-bone">Songs played</h3>
+              <p className="mt-2 font-mono text-[11px] tracking-[0.08em] text-ash">
+                {displayedSongs.length} SONGS · {filteredShows.length} SHOWS
+                {selectedLeg ? ` · LEG ${selectedLeg}` : ''}
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="mr-1 font-mono text-[11px] tracking-[0.14em] text-ash">SORT</span>
+              {SORTS.map((s) => {
+                const active = sortBy === s.key;
+                return (
+                  <button
+                    key={s.key}
+                    onClick={() => setSortBy(s.key)}
+                    className={`rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] transition-colors ${
+                      active ? 'bg-ember text-ink' : 'border border-line text-ash hover:border-ash-2 hover:text-bone'
+                    }`}
+                  >
+                    {s.label}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         )}
 
-        <div className="flex flex-col gap-2">
-          {displayedSongs.length === 0 ? (
-            <div className="rounded-lg border border-line bg-ink-2 p-12 text-center">
-              <h3 className="mb-2 font-body text-lg font-semibold text-bone">No songs found</h3>
-              <p className="font-mono text-[11px] tracking-[0.08em] text-ash">TRY A DIFFERENT FILTER OR LEG</p>
-            </div>
-          ) : (
-            displayedSongs.map((song) => (
+        {displayedSongs.length === 0 ? (
+          <div className="rounded-lg border border-line bg-ink-2 p-12 text-center">
+            <h3 className="mb-2 font-body text-lg font-semibold text-bone">No songs found</h3>
+            <p className="font-mono text-[11px] tracking-[0.08em] text-ash">TRY A DIFFERENT FILTER OR LEG</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {sortedSongs.map((song) => (
               <SongCard
                 key={song.title}
                 song={song}
                 totalShows={filteredShows.length}
                 onClick={() => setSelectedSong(song)}
               />
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Who made this */}
