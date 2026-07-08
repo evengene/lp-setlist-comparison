@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 import { Navigation } from './components/Navigation';
 import { Footer } from "./components/Footer.tsx";
-import HomePage from "./pages/HomePage_full_tabs.tsx";
+import HomePage from "./pages/HomePage.tsx";
 import { LPSongs } from "./pages/LPSongs.tsx";
 import { ComparisonPage } from "./pages/ComparisonPage.tsx";
 import { StatsPage } from "./pages/StatsPage.tsx";

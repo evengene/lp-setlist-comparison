@@ -99,7 +99,7 @@ export const Footer = () => {
       </div>
 
       <div className="relative border-t border-line py-10">
-        <h2 className="text-center font-display text-6xl uppercase leading-none tracking-wide text-bone md:text-9xl">
+        <h2 className="text-bone text-center font-display text-6xl uppercase leading-none tracking-wide md:text-9xl">
           Linkin Park
         </h2>
       </div>

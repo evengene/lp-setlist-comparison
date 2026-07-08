@@ -1,6 +1,6 @@
 import { Route, Routes as ReactRouterRoutes } from 'react-router-dom';
 import LPSongs from "../pages/LPSongs.tsx";
-import HomePage from "../pages/HomePage_full_tabs.tsx";
+import HomePage from "../pages/HomePage.tsx";
 
 export const Routes = () => {
 
