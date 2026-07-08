@@ -18,6 +18,17 @@
 
 @layer base, components, utilities;
 
+/* Pin the root background so overscroll / rubber-band never flashes white */
+@layer base {
+  html {
+    background-color: var(--color-ink);
+  }
+  body {
+    background-color: var(--color-ink);
+    overscroll-behavior: none;
+  }
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
