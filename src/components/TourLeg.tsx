@@ -18,7 +18,7 @@ export const TourLeg = (props: PropTypes) => {
     >
       <img
         src={`/tour-images/leg-${legId}.jpg`}
-        alt={`Leg ${legId} — ${region}`}
+        alt={`Leg ${legId} - ${region}`}
         className={`absolute inset-0 h-full w-full object-cover transition-all ${
           active ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'
         }`}

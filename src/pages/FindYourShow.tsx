@@ -105,7 +105,7 @@ export const FindYourShow = () => {
           </p>
           <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">Find your show</h1>
           <p className="mt-4 max-w-xl font-body italic text-bone-dim">
-            Were you there? Pick your night and take home the setlist.
+            Were you there? Find your night and take home the setlist.
           </p>
         </div>
       </div>
@@ -123,7 +123,7 @@ export const FindYourShow = () => {
               <optgroup key={leg.id} label={`Leg ${leg.id} · ${leg.region}`}>
                 {leg.shows.map((s) => (
                   <option key={s.id} value={s.id} className="bg-ink text-bone">
-                    {s.city} — {fmtDate(s.date)}
+                    {s.city} - {fmtDate(s.date)}
                   </option>
                 ))}
               </optgroup>

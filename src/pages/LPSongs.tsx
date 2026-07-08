@@ -83,7 +83,7 @@ export const LPSongs: React.FC = () => {
           </p>
           <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">The Songbook</h1>
           <p className="mt-4 max-w-xl font-body italic text-bone-dim">
-            Every Linkin Park song and its abbreviation — the {totalPlayed} played on the tour open their deep-dive.
+            Every Linkin Park song in one place. Tap any of the {totalPlayed} performed on tour to explore its story.
           </p>
         </div>
       </div>
@@ -107,7 +107,7 @@ export const LPSongs: React.FC = () => {
                   viewMode === mode ? 'bg-ember text-ink' : 'text-ash hover:text-bone'
                 }`}
               >
-                {mode === 'album' ? 'By Album' : 'A–Z'}
+                {mode === 'album' ? 'By Album' : 'A-Z'}
               </button>
             ))}
           </div>

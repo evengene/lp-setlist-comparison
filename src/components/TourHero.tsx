@@ -38,6 +38,12 @@ export function TourHero() {
 
   return (
     <header className="relative overflow-hidden bg-ink font-body text-bone">
+      <img
+        src="/lp-transparent.png"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 select-none object-cover object-right opacity-40 [mask-image:linear-gradient(to_right,transparent,black_45%)] md:block"
+      />
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain opacity-[0.13] mix-blend-overlay" />
 
       <div className="relative">
@@ -62,7 +68,7 @@ export function TourHero() {
         {/* headline */}
         <div className="mx-auto max-w-7xl px-6 pt-12">
           <p className="font-mono text-[11px] tracking-[0.22em] text-ash">
-            <span className="text-ember">①</span>&nbsp;&nbsp;AN INTERACTIVE RETROSPECTIVE · 2024–26
+            <span className="text-ember">01.</span>&nbsp;&nbsp;AN INTERACTIVE RETROSPECTIVE · 2024-26
           </p>
 
           <h1 className="mt-4 font-display text-[64px] uppercase leading-[0.82] tracking-[0.01em] text-bone sm:text-[104px]">
@@ -70,8 +76,9 @@ export function TourHero() {
           </h1>
 
           <p className="mt-5 max-w-xl font-body text-lg font-semibold italic text-bone-dim">
-            Every setlist, every city, one era —{' '}
-            <span className="text-ember">the whole From Zero World Tour, mapped.</span>
+            Every setlist tells a story.
+            <br/>
+            <span className="text-ember"> A love letter to one unforgettable tour.</span>
           </p>
         </div>
 

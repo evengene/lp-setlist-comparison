@@ -36,7 +36,7 @@ export const StatsPage = () => {
           </p>
           <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">The Data</h1>
           <p className="mt-4 max-w-xl font-body italic text-bone-dim">
-            Every song, every leg — the whole tour, counted.
+            Every song, every stop - the whole tour, counted.
           </p>
         </div>
       </div>
@@ -54,7 +54,7 @@ export const StatsPage = () => {
       </div>
 
       {/* Full heatmap */}
-      <HomeHeatmap limit={999} index="01." heading="EVERY SONG, LEG BY LEG" seeAll={false} />
+      <HomeHeatmap limit={999} index="01." heading="EVERY SONG, EVERY STOP" seeAll={false} />
 
       {/* Superlatives */}
       <div className="mx-auto max-w-7xl px-6 py-12">
@@ -98,7 +98,7 @@ export const StatsPage = () => {
                 ))}
               </div>
             ) : (
-              <p className="font-mono text-[11px] tracking-[0.06em] text-ash">NONE — EVERY SONG CAME BACK.</p>
+              <p className="font-mono text-[11px] tracking-[0.06em] text-ash">NONE - EVERY SONG CAME BACK.</p>
             )}
           </div>
         </div>
