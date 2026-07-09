@@ -1,7 +1,9 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 import { Navigation } from './components/Navigation';
 import { ScrollToTop } from './components/ScrollToTop';
+import { AboutSection } from './components/AboutSection';
+import { QuoteSection } from './components/QuoteSection';
 import { Footer } from "./components/Footer.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import { LPSongs } from "./pages/LPSongs.tsx";
@@ -12,6 +14,7 @@ import { AboutPage } from "./pages/AboutPage.tsx";
 
 
 function App() {
+  const { pathname } = useLocation();
 
   return (
     <div className="min-h-screen bg-ink">
@@ -29,6 +32,9 @@ function App() {
         </Routes>
       </main>
 
+      {/* Universal outro sections, before the footer */}
+      {pathname !== '/about' && <AboutSection />}
+      <QuoteSection />
 
       {/* Footer */}
       <Footer />
