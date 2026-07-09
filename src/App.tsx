@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import { Navigation } from './components/Navigation';
+import { ScrollToTop } from './components/ScrollToTop';
 import { Footer } from "./components/Footer.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import { LPSongs } from "./pages/LPSongs.tsx";
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-ink">
+      <ScrollToTop />
       <Navigation />
 
       <main className="flex-1">

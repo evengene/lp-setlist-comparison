@@ -15,8 +15,8 @@ export const AboutPage = () => {
           <p className="font-mono text-[11px] tracking-[0.22em] text-ash">
             <span className="text-ember">→</span>&nbsp;&nbsp;FROM ZERO WORLD TOUR · ABOUT
           </p>
-          <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">Developed by</h1>
-          <p className="mt-4 max-w-xl font-body italic text-bone-dim">A fan, a developer, and two shows that inspired it all.</p>
+          <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">About</h1>
+          <p className="mt-4 max-w-xl font-body italic text-bone-dim">A little about me - and the two shows that inspired it all</p>
         </div>
       </div>
 
