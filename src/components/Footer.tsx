@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export const Footer = () => {
   return (
     <footer className="relative overflow-hidden border-t border-line bg-ink font-body text-bone">
@@ -20,11 +22,11 @@ export const Footer = () => {
           <div>
             <h3 className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ash">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="/" className="text-bone-dim transition-colors hover:text-ember">Retrospective</a></li>
-              <li><a href="/comparison" className="text-bone-dim transition-colors hover:text-ember">Setlists</a></li>
-              <li><a href="/songs" className="text-bone-dim transition-colors hover:text-ember">Songs</a></li>
-              <li><a href="/stats" className="text-bone-dim transition-colors hover:text-ember">Stats</a></li>
-              <li><a href="/about" className="text-bone-dim transition-colors hover:text-ember">About</a></li>
+              <li><Link to="/" className="text-bone-dim transition-colors hover:text-ember">Retrospective</Link></li>
+              <li><Link to="/comparison" className="text-bone-dim transition-colors hover:text-ember">Setlists</Link></li>
+              <li><Link to="/songs" className="text-bone-dim transition-colors hover:text-ember">Songs</Link></li>
+              <li><Link to="/stats" className="text-bone-dim transition-colors hover:text-ember">Stats</Link></li>
+              <li><Link to="/about" className="text-bone-dim transition-colors hover:text-ember">About</Link></li>
             </ul>
           </div>
 
@@ -32,11 +34,6 @@ export const Footer = () => {
           <div>
             <h3 className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ash">Resources</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <a href="https://www.setlist.fm/" target="_blank" rel="noopener noreferrer" className="text-bone-dim transition-colors hover:text-ember">
-                  Setlist.fm
-                </a>
-              </li>
               <li>
                 <a href="https://linkinpark.com" target="_blank" rel="noopener noreferrer" className="text-bone-dim transition-colors hover:text-ember">
                   Official Website
@@ -85,9 +82,9 @@ export const Footer = () => {
         <div className="flex flex-col items-center justify-between gap-4 border-t border-line pt-8 font-mono text-[11px] tracking-[0.04em] text-ash md:flex-row">
           <div>
             © 2025-{new Date().getFullYear()} LP SETLISTS · FOR FANS, MADE WITH ❤ BY{" "}
-            <a href="/about" className="text-bone transition-colors hover:text-ember">
+            <Link to="/about" className="text-bone transition-colors hover:text-ember">
               evengene
-            </a>
+            </Link>
           </div>
           <div>
             DATA BY{" "}
@@ -98,8 +95,9 @@ export const Footer = () => {
         </div>
       </div>
 
-      <div className="relative border-t border-line py-10">
-        <h2 className="text-bone text-center font-display text-6xl uppercase leading-none tracking-wide md:text-9xl">
+      {/* Oversized wordmark - full-bleed and flush to the bottom, so it anchors the page */}
+      <div className="relative overflow-hidden" aria-hidden="true">
+        <h2 className="translate-y-[0.14em] whitespace-nowrap text-center font-display text-[19vw] uppercase leading-[0.72] tracking-tight text-line">
           Linkin Park
         </h2>
       </div>

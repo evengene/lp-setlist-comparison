@@ -32,9 +32,8 @@ function App() {
         </Routes>
       </main>
 
-      {/* Universal outro sections, before the footer */}
-      {pathname !== '/about' && <AboutSection />}
       <QuoteSection />
+      {pathname !== '/about' && <AboutSection />}
 
       {/* Footer */}
       <Footer />
