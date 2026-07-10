@@ -49,7 +49,7 @@ export const StatsPage = () => {
           <Metric value={countries} label="COUNTRIES" />
           <Metric value={stats.uniqueSongs} label="UNIQUE SONGS" />
           <Metric value={songsPerformed} label="SONGS PERFORMED" />
-          <Metric value={oneOffs.length} label="PLAYED ONCE" />
+          <Metric value={oneOffs.length} label="SONGS PLAYED ONCE" />
         </div>
       </div>
 
