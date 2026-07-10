@@ -23,7 +23,7 @@ export const Footer = () => {
               <li><a href="/" className="text-bone-dim transition-colors hover:text-ember">Retrospective</a></li>
               <li><a href="/comparison" className="text-bone-dim transition-colors hover:text-ember">Setlists</a></li>
               <li><a href="/songs" className="text-bone-dim transition-colors hover:text-ember">Songs</a></li>
-              <li><a href="/stats" className="text-bone-dim transition-colors hover:text-ember">Data</a></li>
+              <li><a href="/stats" className="text-bone-dim transition-colors hover:text-ember">Stats</a></li>
               <li><a href="/about" className="text-bone-dim transition-colors hover:text-ember">About</a></li>
             </ul>
           </div>

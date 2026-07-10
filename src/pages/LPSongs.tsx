@@ -81,9 +81,9 @@ export const LPSongs: React.FC = () => {
           <p className="font-mono text-[11px] tracking-[0.22em] text-ash">
             <span className="text-ember">→</span>&nbsp;&nbsp;FROM ZERO WORLD TOUR · SONGS
           </p>
-          <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">The Songbook</h1>
+          <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">Songs</h1>
           <p className="mt-4 max-w-xl font-body italic text-bone-dim">
-            Every Linkin Park song in one place. Tap any of the {totalPlayed} performed on tour to explore its story.
+            Linkin Park's catalog, album by album. Tap any of the {totalPlayed} performed on tour to explore its story.
           </p>
         </div>
       </div>

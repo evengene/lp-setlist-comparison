@@ -12,7 +12,7 @@ export const Navigation = () => {
     { path: '/your-show', label: 'Your Show' },
     { path: '/comparison', label: 'Setlists' },
     { path: '/songs', label: 'Songs' },
-    { path: '/stats', label: 'Data' },
+    { path: '/stats', label: 'Stats' },
   ];
 
   const quickLinks = [
