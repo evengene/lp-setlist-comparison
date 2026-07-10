@@ -7,6 +7,7 @@ export function QuoteSection() {
       <div className="mx-auto max-w-4xl px-6 text-center">
         <p className="font-body text-2xl italic text-bone-dim md:text-3xl">
           "Dream big, work hard, and don't be an a**hole."{' '}
+          <br/>
           <span className="text-ash">- Mike Shinoda</span>
         </p>
       </div>
