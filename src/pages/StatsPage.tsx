@@ -25,6 +25,13 @@ export const StatsPage = () => {
   const mostPlayed = allSongs.slice(0, 8);
   const maxPlayed = mostPlayed[0]?.timesPlayed ?? 1;
 
+  // Rarely played
+  const rarest = [...allSongs]
+    .filter((s) => s.timesPlayed > 1)
+    .sort((a, b) => a.timesPlayed - b.timesPlayed)
+    .slice(0, 5);
+  const rarestMax = rarest.length ? rarest[rarest.length - 1].timesPlayed : 1;
+
   return (
     <div className="min-h-screen bg-ink font-body text-bone">
       {/* Header */}
@@ -58,16 +65,17 @@ export const StatsPage = () => {
 
       {/* Superlatives */}
       <div className="mx-auto max-w-7xl px-6 py-12">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* Most played */}
           <div>
             <h2 className="mb-5 font-mono text-[11px] tracking-[0.14em] text-ash">
-              <span className="text-ember">02.</span>&nbsp;&nbsp;MOST PLAYED
+              <span className="text-ember">02.</span>&nbsp;&nbsp;MOST PLAYED{' '}
+              <span className="text-ash-2">({mostPlayed.length})</span>
             </h2>
             <div className="flex flex-col gap-2.5">
               {mostPlayed.map((s) => (
                 <div key={s.title} className="flex items-center gap-3">
-                  <span className="w-40 shrink-0 truncate text-[13px] text-bone-dim">{s.title}</span>
+                  <span className="w-32 shrink-0 truncate text-[13px] text-bone-dim">{s.title}</span>
                   <span className="h-2 flex-1 overflow-hidden rounded-full bg-ink-2">
                     <span
                       className="block h-full bg-ember"
@@ -80,10 +88,32 @@ export const StatsPage = () => {
             </div>
           </div>
 
+          {/* Rarely played */}
+          <div>
+            <h2 className="mb-5 font-mono text-[11px] tracking-[0.14em] text-ash">
+              <span className="text-ember">03.</span>&nbsp;&nbsp;RARELY PLAYED{' '}
+              <span className="text-ash-2">({rarest.length})</span>
+            </h2>
+            <div className="flex flex-col gap-2.5">
+              {rarest.map((s) => (
+                <div key={s.title} className="flex items-center gap-3">
+                  <span className="w-32 shrink-0 truncate text-[13px] text-bone-dim">{s.title}</span>
+                  <span className="h-2 flex-1 overflow-hidden rounded-full bg-ink-2">
+                    <span
+                      className="block h-full bg-ember"
+                      style={{ width: `${Math.round((s.timesPlayed / rarestMax) * 100)}%` }}
+                    />
+                  </span>
+                  <span className="w-10 text-right font-mono text-[12px] text-ash">{s.timesPlayed}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* Played once */}
           <div>
             <h2 className="mb-5 font-mono text-[11px] tracking-[0.14em] text-ash">
-              <span className="text-ember">03.</span>&nbsp;&nbsp;PLAYED JUST ONCE{' '}
+              <span className="text-ember">04.</span>&nbsp;&nbsp;PLAYED JUST ONCE{' '}
               <span className="text-ash-2">({oneOffs.length})</span>
             </h2>
             {oneOffs.length ? (
