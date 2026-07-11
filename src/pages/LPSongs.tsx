@@ -16,7 +16,16 @@ export const LPSongs: React.FC = () => {
     const data = getTourData();
     const stats = calculateTourStats(data.shows.map((s) => s.setlist as never));
     const map = new Map<string, SongStats>();
-    (stats.allSongs ?? []).forEach((s) => map.set(s.title, s));
+    (stats.allSongs ?? []).forEach((s) => {
+      map.set(s.title, s);
+      // Include mashup songs as separate keys for searching
+      if (s.title.includes(' / ')) {
+        s.title.split(' / ').forEach((part) => {
+          const key = part.trim();
+          if (!map.has(key)) map.set(key, s);
+        });
+      }
+    });
     return map;
   }, []);
 
