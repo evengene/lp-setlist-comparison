@@ -4,6 +4,7 @@ import { Download, Link as LinkIcon, Check } from 'lucide-react';
 import { getTourData } from '../services/tourDataService';
 import { calculateTourStats } from '../utils/setlistStats';
 import { formatCountLabel } from '../utils/format';
+import { PageHeader } from '../components/PageHeader';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 function fmtDate(d: string): string {
@@ -97,20 +98,16 @@ export const FindYourShow = () => {
   return (
     <div className="min-h-screen bg-ink font-body text-bone">
 
-      {/* Header */}
-      <div className="relative overflow-hidden border-b border-line">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain opacity-[0.13] mix-blend-overlay" />
-        <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-12">
-          <p className="font-mono text-[11px] tracking-[0.22em] text-ash">
-            <span className="mr-1 text-[18px] text-ember">→</span>{' '}FROM ZERO WORLD TOUR · YOUR SHOW
-          </p>
-          <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">Find your show</h1>
-          <p className="mt-4 max-w-xl font-body text-bone-dim">
+      <PageHeader
+        eyebrow="From Zero World Tour · Your Show"
+        title="Find your show"
+        description={
+          <>
             Select a date and city and check the full setlist from that night.
             Feel free to share this with your friends or fellow fans, and download a high-res image of the setlist to keep as a memento.
-          </p>
-        </div>
-      </div>
+          </>
+        }
+      />
 
       <div className="mx-auto max-w-3xl px-6 py-12">
         {/* Pick a show */}

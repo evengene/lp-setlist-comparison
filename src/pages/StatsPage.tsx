@@ -1,6 +1,7 @@
 import { getTourData } from '../services/tourDataService';
 import { calculateTourStats } from '../utils/setlistStats';
 import { HomeHeatmap } from '../components/HomeHeatmap';
+import { PageHeader } from '../components/PageHeader';
 
 function Metric({ value, label }: { value: string | number; label: string }) {
   return (
@@ -34,19 +35,11 @@ export const StatsPage = () => {
 
   return (
     <div className="min-h-screen bg-ink font-body text-bone">
-      {/* Header */}
-      <div className="relative overflow-hidden border-b border-line">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain opacity-[0.13] mix-blend-overlay" />
-        <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-12">
-          <p className="font-mono text-[11px] tracking-[0.22em] text-ash">
-            <span className="mr-1 text-[18px] text-ember">→</span>{' '}FROM ZERO WORLD TOUR · STATS
-          </p>
-          <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">Stats</h1>
-          <p className="mt-4 max-w-xl font-body text-bone-dim">
-            A more detailed look at the tour.
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        eyebrow="From Zero World Tour · Stats"
+        title="Stats"
+        description="A more detailed look at the tour."
+      />
 
       {/* By the numbers */}
       <div className="mx-auto max-w-7xl px-6 py-12">
@@ -68,7 +61,7 @@ export const StatsPage = () => {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* Most played */}
           <div>
-            <h2 className="mb-5 font-body text-[14px] text-bone-dim font-semibold">
+            <h2 className="type-section-title mb-5 text-bone-dim">
               <span className="mr-1 text-ember">02.</span>{' '}MOST PLAYED{' '}
               <span className="text-ash-2">({mostPlayed.length})</span>
             </h2>
@@ -90,7 +83,7 @@ export const StatsPage = () => {
 
           {/* Rarely played */}
           <div>
-            <h2 className="mb-5 font-body text-[14px] text-bone-dim font-semibold">
+            <h2 className="type-section-title mb-5 text-bone-dim">
               <span className="mr-1 text-ember">03.</span>{' '}RARELY PLAYED{' '}
               <span className="text-ash-2">({rarest.length})</span>
             </h2>
@@ -112,7 +105,7 @@ export const StatsPage = () => {
 
           {/* Played once */}
           <div>
-            <h2 className="mb-5 font-body text-[14px] text-bone-dim font-semibold">
+            <h2 className="type-section-title mb-5 text-bone-dim">
               <span className="mr-1 text-ember">04.</span>{' '}PLAYED JUST ONCE{' '}
               <span className="text-ash-2">({oneOffs.length})</span>
             </h2>

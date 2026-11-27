@@ -3,6 +3,7 @@ import { useLPSongData } from '../hooks/useLPSongData.ts';
 import { getTourData } from '../services/tourDataService';
 import { calculateTourStats, type SongStats } from '../utils/setlistStats';
 import { SongDetail } from '../components/SongDetail.tsx';
+import { PageHeader } from '../components/PageHeader';
 import { formatCountLabel } from '../utils/format';
 
 export const LPSongs: React.FC = () => {
@@ -84,21 +85,17 @@ export const LPSongs: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-ink font-body text-bone">
-      {/* Header */}
-      <div className="relative overflow-hidden border-b border-line">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain opacity-[0.13] mix-blend-overlay" />
-        <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-12">
-          <p className="font-mono text-[11px] tracking-[0.22em] text-ash">
-            <span className="mr-3 text-[18px] text-ember">→</span>{' '}FROM ZERO WORLD TOUR · SONGS
-          </p>
-          <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">Songs</h1>
-          <p className="mt-4 max-w-xl font-body text-bone-dim">
+      <PageHeader
+        eyebrow="From Zero World Tour · Songs"
+        title="Songs"
+        description={
+          <>
             A list of all songs with the abbreviations used in the community chats.
-            <br/>
-          Click on any song to see the rarity of its performance on the tour.
-          </p>
-        </div>
-      </div>
+            <br />
+            Click on any song to see the rarity of its performance on the tour.
+          </>
+        }
+      />
 
       <div className="mx-auto max-w-7xl px-6 py-10">
         {/* Controls */}

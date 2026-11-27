@@ -66,11 +66,11 @@ export function TourHero() {
 
         {/* headline */}
         <div className="mx-auto max-w-7xl px-6 pt-12">
-          <h2 className="font-body text-[14px] text-bone-dim font-semibold">
+          <h2 className="type-eyebrow text-bone-dim">
             <span className="mr-2 text-ember">01.</span>{' '}AN INTERACTIVE RETROSPECTIVE · 2024-26
           </h2>
 
-          <h1 className="mt-4 font-display text-[64px] uppercase leading-[0.82] tracking-[0.01em] text-bone sm:text-[104px]">
+          <h1 className="type-hero-title mt-4 text-bone">
             Linkin<br />Park
           </h1>
 

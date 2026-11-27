@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { PageHeader } from '../components/PageHeader';
 
 const SHOWS = [
   { city: 'Denver', venue: 'Ball Arena', date: 'Sep 3, 2025', id: '3b5ef070' },
@@ -8,17 +9,11 @@ const SHOWS = [
 export const AboutPage = () => {
   return (
     <div className="min-h-screen bg-ink font-body text-bone">
-      {/* Header */}
-      <div className="relative overflow-hidden border-b border-line">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain opacity-[0.13] mix-blend-overlay" />
-        <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-12">
-          <p className="font-mono text-[11px] tracking-[0.22em] text-ash">
-            <span className="mr-3 text-[18px] text-ember">→</span>{' '}FROM ZERO WORLD TOUR · ABOUT
-          </p>
-          <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">About</h1>
-          <p className="mt-4 max-w-xl font-body text-bone-dim">A little about me - and the two shows that inspired it all</p>
-        </div>
-      </div>
+      <PageHeader
+        eyebrow="From Zero World Tour · About"
+        title="About"
+        description="A little about me - and the two shows that inspired it all"
+      />
 
       <div className="mx-auto max-w-3xl px-6 py-12">
         {/* pass card */}
@@ -52,7 +47,7 @@ export const AboutPage = () => {
 
         {/* I was there */}
         <div className="mt-10">
-          <h2 className="mb-4 font-mono text-[11px] tracking-[0.14em] text-ash">
+          <h2 className="type-section-label mb-4 text-ash">
             <span className="mr-1 text-[18px] text-ember">→</span>{' '}I WAS THERE
           </h2>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
