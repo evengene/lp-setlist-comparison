@@ -7,6 +7,7 @@ import { HomeHeatmap } from "../components/HomeHeatmap.tsx";
 import { TourLeg } from "../components/TourLeg.tsx";
 import { SongDetail } from "../components/SongDetail.tsx";
 import { AudioLines } from "lucide-react";
+import { formatCountLabel } from '../utils/format';
 
 const SORTS = [
   { key: 'plays', label: 'Most played' },
@@ -100,7 +101,7 @@ export default function HomePage() {
               {/*<h3 className="font-display text-3xl uppercase leading-none text-bone">All Songs by tour</h3>*/}
               <p className="mt-2 font-mono text-[11px] tracking-[0.08em] text-ash">
                 {selectedLeg ? ` LEG ${selectedLeg} · ` : ''}
-                {filteredShows.length} SHOWS
+                {formatCountLabel(filteredShows.length, 'SHOW')}
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-2">

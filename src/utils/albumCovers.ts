@@ -38,6 +38,7 @@ const ALBUM_COVERS: Record<string, string> = {
   "The Hunting Party": theHuntingParty,
   "One More Light": oneMoreLight,
   "One More Light (Bonus)": oneMoreLight,
+  "Hybrid Theory (Bonus)": hybrid,
   "From Zero": fromZero,
   "From Zero (Deluxe)": fromZero,
   "Fort Minor - The Rising Tied": fortMinor,

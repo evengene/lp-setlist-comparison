@@ -3,6 +3,7 @@ import { toPng } from 'html-to-image';
 import { Download, Link as LinkIcon, Check } from 'lucide-react';
 import { getTourData } from '../services/tourDataService';
 import { calculateTourStats } from '../utils/setlistStats';
+import { formatCountLabel } from '../utils/format';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 function fmtDate(d: string): string {
@@ -170,7 +171,7 @@ export const FindYourShow = () => {
             </div>
 
             <div className="mt-6 flex items-center justify-between border-t border-line pt-4 font-mono text-[11px] tracking-[0.06em] text-ash-2">
-              <span>{totalSongs} SONGS</span>
+              <span>{formatCountLabel(totalSongs, 'SONG')}</span>
               <span>lpsetlists.com</span>
             </div>
           </div>

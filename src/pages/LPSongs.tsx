@@ -3,6 +3,7 @@ import { useLPSongData } from '../hooks/useLPSongData.ts';
 import { getTourData } from '../services/tourDataService';
 import { calculateTourStats, type SongStats } from '../utils/setlistStats';
 import { SongDetail } from '../components/SongDetail.tsx';
+import { formatCountLabel } from '../utils/format';
 
 export const LPSongs: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -151,7 +152,7 @@ export const LPSongs: React.FC = () => {
                       <div className="min-w-0">
                         <h2 className="font-display text-2xl uppercase leading-none text-bone">{album.name}</h2>
                         <p className="mt-2 font-mono text-[11px] tracking-[0.06em] text-ash">
-                          {album.year} · {album.songs.length} TRACKS
+                          {album.year} · {formatCountLabel(album.songs.length, 'TRACK')}
                           {played > 0 && <span className="text-ember"> · {played} ON TOUR</span>}
                         </p>
                       </div>
@@ -225,7 +226,7 @@ export const LPSongs: React.FC = () => {
 
         {/* Footer summary */}
         <div className="mt-12 border-t border-line pt-8 text-center font-mono text-[11px] tracking-[0.06em] text-ash">
-          {albumsWithSongs.length} ALBUMS · {totalSongs} SONGS · <span className="text-ember">{totalPlayed} PLAYED ON THE TOUR</span>
+          {formatCountLabel(albumsWithSongs.length, 'ALBUM')} · {formatCountLabel(totalSongs, 'SONG')} · <span className="text-ember">{totalPlayed} PLAYED ON THE TOUR</span>
         </div>
       </div>
 

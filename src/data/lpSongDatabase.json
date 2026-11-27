@@ -78,6 +78,13 @@
       "track": 11
     },
     {
+      "title": "My December",
+      "abbreviation": "MD",
+      "album": "Hybrid Theory (Bonus)",
+      "year": 2000,
+      "track": null
+    },
+    {
       "title": "Don't Stay",
       "abbreviation": "DS",
       "album": "Meteora",
@@ -526,67 +533,81 @@
       "track": 3
     },
     {
-      "title": "Casualty",
-      "abbreviation": "CSL",
+      "title": "Heavy Is the Crown",
+      "abbreviation": "HITC",
       "album": "From Zero",
       "year": 2024,
       "track": 4
-    },
-    {
-      "title": "Overflow",
-      "abbreviation": "OVF",
-      "album": "From Zero",
-      "year": 2024,
-      "track": 5
-    },
-    {
-      "title": "Two Faced",
-      "abbreviation": "TF",
-      "album": "From Zero",
-      "year": 2024,
-      "track": 6
-    },
-    {
-      "title": "Stained",
-      "abbreviation": "STN",
-      "album": "From Zero",
-      "year": 2024,
-      "track": 7
-    },
-    {
-      "title": "IGYEIH",
-      "abbreviation": "IGYEIH",
-      "album": "From Zero",
-      "year": 2024,
-      "track": 8
-    },
-    {
-      "title": "Good Things Go",
-      "abbreviation": "GTG",
-      "album": "From Zero",
-      "year": 2024,
-      "track": 9
     },
     {
       "title": "Over Each Other",
       "abbreviation": "OEO",
       "album": "From Zero",
       "year": 2024,
+      "track": 5
+    },
+    {
+      "title": "Casualty",
+      "abbreviation": "CSL",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 6
+    },
+    {
+      "title": "Overflow",
+      "abbreviation": "OVF",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 7
+    },
+    {
+      "title": "Two Faced",
+      "abbreviation": "TF",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 8
+    },
+    {
+      "title": "Stained",
+      "abbreviation": "STN",
+      "album": "From Zero",
+      "year": 2024,
+      "track": 9
+    },
+    {
+      "title": "IGYEIH",
+      "abbreviation": "IGYEIH",
+      "album": "From Zero",
+      "year": 2024,
       "track": 10
     },
     {
-      "title": "Unshatter",
-      "abbreviation": "USH",
+      "title": "Good Things Go",
+      "abbreviation": "GTG",
       "album": "From Zero",
       "year": 2024,
       "track": 11
     },
     {
+      "title": "Up From the Bottom",
+      "abbreviation": "UFTB",
+      "album": "From Zero (Deluxe)",
+      "year": 2025,
+      "track": 12
+    },
+    {
+      "title": "Unshatter",
+      "abbreviation": "USH",
+      "album": "From Zero (Deluxe)",
+      "year": 2025,
+      "track": 13
+    },
+    {
       "title": "Let You Fade",
       "abbreviation": "LYF",
-      "album": "From Zero",
-      "year": 2024,
-      "track": null
+      "album": "From Zero (Deluxe)",
+      "year": 2025,
+      "track": 14
     },
     {
       "title": "New Divide",
@@ -594,13 +615,6 @@
       "album": "Single",
       "year": 2009,
       "track": null
-    },
-    {
-      "title": "Heavy Is the Crown",
-      "abbreviation": "HITC",
-      "album": "From Zero (Deluxe)",
-        "year": 2024,
-        "track": null
     },
     {
       "title": "Lost",
@@ -615,13 +629,6 @@
       "album": "One More Light (Bonus)",
       "year": 2023,
       "track": null
-    },
-    {
-      "title": "Up From the Bottom",
-      "abbreviation": "UFTB",
-      "album": "From Zero (Deluxe)",
-        "year": 2024,
-        "track": null
     },
     {
       "title": "Where'd You Go",

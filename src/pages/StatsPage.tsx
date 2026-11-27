@@ -61,14 +61,14 @@ export const StatsPage = () => {
       </div>
 
       {/* Full heatmap */}
-      <HomeHeatmap limit={999} index="01." heading="EVERY SONG, EVERY STOP" seeAll={false} />
+      <HomeHeatmap limit={999} index="01." heading="ALL SONGS" seeAll={false} />
 
       {/* Superlatives */}
       <div className="mx-auto max-w-7xl px-6 py-12">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* Most played */}
           <div>
-            <h2 className="mb-5 font-mono text-[11px] tracking-[0.14em] text-ash">
+            <h2 className="mb-5 font-body text-[14px] text-bone-dim font-semibold">
               <span className="mr-1 text-ember">02.</span>{' '}MOST PLAYED{' '}
               <span className="text-ash-2">({mostPlayed.length})</span>
             </h2>
@@ -90,7 +90,7 @@ export const StatsPage = () => {
 
           {/* Rarely played */}
           <div>
-            <h2 className="mb-5 font-mono text-[11px] tracking-[0.14em] text-ash">
+            <h2 className="mb-5 font-body text-[14px] text-bone-dim font-semibold">
               <span className="mr-1 text-ember">03.</span>{' '}RARELY PLAYED{' '}
               <span className="text-ash-2">({rarest.length})</span>
             </h2>
@@ -112,7 +112,7 @@ export const StatsPage = () => {
 
           {/* Played once */}
           <div>
-            <h2 className="mb-5 font-mono text-[11px] tracking-[0.14em] text-ash">
+            <h2 className="mb-5 font-body text-[14px] text-bone-dim font-semibold">
               <span className="mr-1 text-ember">04.</span>{' '}PLAYED JUST ONCE{' '}
               <span className="text-ash-2">({oneOffs.length})</span>
             </h2>
