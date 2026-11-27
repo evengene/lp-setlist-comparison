@@ -102,7 +102,7 @@ export function HomeHeatmap({
 
       <div className="relative mx-auto max-w-7xl px-6 py-16">
         <div className="mb-2 flex items-baseline justify-between">
-          <h2 className="font-body text-[14px] text-bone-dim font-semibold">
+          <h2 className="type-section-title text-bone-dim">
             {index && (
               <>
                 <span className="mr-2 text-ember">{index}</span>{' '}

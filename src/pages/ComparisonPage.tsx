@@ -4,6 +4,7 @@ import { getTourData } from '../services/tourDataService';
 import { processSetlist, compareShows } from '../utils/setlistHelpers.ts';
 
 import { ShowCard } from "../components/ShowCard.tsx";
+import { PageHeader } from "../components/PageHeader";
 import { ShareButton } from "../components/ShareButton.tsx";
 
 import type { ComparisonStats, Setlist, Show } from "../types/setlist.ts";
@@ -85,18 +86,11 @@ export const ComparisonPage = () => {
 
   return (
     <div className="min-h-screen bg-ink font-body text-bone">
-      {/* Header */}
-      <div className="relative overflow-hidden border-b border-line">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain opacity-[0.13] mix-blend-overlay" />
-        <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-12">
-          <p className="font-mono text-[11px] tracking-[0.22em] text-ash">
-            <span className="mr-1 text-[18px] text-ember">→</span>{' '}FROM ZERO WORLD TOUR · COMPARE
-          </p>
-          <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">Setlist Comparison</h1>
-          <p className="mt-4 max-w-xl font-body text-bone-dim">
-            Compare any two shows side by side to see what stayed the same - and what made each night unique.          </p>
-        </div>
-      </div>
+      <PageHeader
+        eyebrow="From Zero World Tour · Compare"
+        title="Setlist Comparison"
+        description="Compare any two shows side by side to see what stayed the same - and what made each night unique."
+      />
 
       <div className="mx-auto max-w-7xl px-6 py-12">
         {/* Selectors */}

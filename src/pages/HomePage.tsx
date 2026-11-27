@@ -62,7 +62,7 @@ export default function HomePage() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         {/* Leg selector */}
         <div className="mb-12">
-          <h2 className="font-body text-[14px] text-bone-dim font-semibold mb-4">
+          <h2 className="type-section-title mb-4 text-bone-dim">
             <span className="mr-1 text-ember">03.</span>{' '}BROWSE BY LEG
           </h2>
 
