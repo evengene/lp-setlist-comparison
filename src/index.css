@@ -21,10 +21,10 @@
 /* Pin the root background so overscroll / rubber-band never flashes white */
 @layer base {
   html {
-    background-color: var(--color-ink);
+    background-color: var(--color-ink-2);
   }
   body {
-    background-color: var(--color-ink);
+    background-color: var(--color-ink-2);
     overscroll-behavior: none;
   }
 }

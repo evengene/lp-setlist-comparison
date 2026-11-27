@@ -6,7 +6,7 @@ function Metric({ value, label }: { value: string | number; label: string }) {
   return (
     <div className="bg-ink px-5 py-6">
       <div className="font-display text-4xl leading-none text-bone sm:text-5xl">{value}</div>
-      <div className="mt-2 font-mono text-[10px] tracking-[0.1em] text-ash">{label}</div>
+      <div className="mt-2 font-mono text-[10px] tracking-widest text-ash">{label}</div>
     </div>
   );
 }
@@ -39,11 +39,11 @@ export const StatsPage = () => {
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain opacity-[0.13] mix-blend-overlay" />
         <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-12">
           <p className="font-mono text-[11px] tracking-[0.22em] text-ash">
-            <span className="text-ember">→</span>&nbsp;&nbsp;FROM ZERO WORLD TOUR · STATS
+            <span className="mr-1 text-[18px] text-ember">→</span>{' '}FROM ZERO WORLD TOUR · STATS
           </p>
           <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">Stats</h1>
-          <p className="mt-4 max-w-xl font-body italic text-bone-dim">
-            Every song, every stop - the whole tour, counted.
+          <p className="mt-4 max-w-xl font-body text-bone-dim">
+            A more detailed look at the tour.
           </p>
         </div>
       </div>
@@ -69,7 +69,7 @@ export const StatsPage = () => {
           {/* Most played */}
           <div>
             <h2 className="mb-5 font-mono text-[11px] tracking-[0.14em] text-ash">
-              <span className="text-ember">02.</span>&nbsp;&nbsp;MOST PLAYED{' '}
+              <span className="mr-1 text-ember">02.</span>{' '}MOST PLAYED{' '}
               <span className="text-ash-2">({mostPlayed.length})</span>
             </h2>
             <div className="flex flex-col gap-2.5">
@@ -91,7 +91,7 @@ export const StatsPage = () => {
           {/* Rarely played */}
           <div>
             <h2 className="mb-5 font-mono text-[11px] tracking-[0.14em] text-ash">
-              <span className="text-ember">03.</span>&nbsp;&nbsp;RARELY PLAYED{' '}
+              <span className="mr-1 text-ember">03.</span>{' '}RARELY PLAYED{' '}
               <span className="text-ash-2">({rarest.length})</span>
             </h2>
             <div className="flex flex-col gap-2.5">
@@ -113,7 +113,7 @@ export const StatsPage = () => {
           {/* Played once */}
           <div>
             <h2 className="mb-5 font-mono text-[11px] tracking-[0.14em] text-ash">
-              <span className="text-ember">04.</span>&nbsp;&nbsp;PLAYED JUST ONCE{' '}
+              <span className="mr-1 text-ember">04.</span>{' '}PLAYED JUST ONCE{' '}
               <span className="text-ash-2">({oneOffs.length})</span>
             </h2>
             {oneOffs.length ? (

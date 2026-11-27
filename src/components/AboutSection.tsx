@@ -21,13 +21,14 @@ export function AboutSection() {
             className="h-16 w-16 shrink-0 rounded-md object-cover"
           />
           <div>
-            <div className="font-mono text-[11px] tracking-[0.14em] text-ash">"I couldn't let the tour end."</div>
-            <p className="mt-1 text-sm text-bone-dim">
+            <h3 className="font-display uppercase font-bold text-bone-dim tracking-[1px]">"I couldn't let the tour end."</h3>
+            <p className="mt-1 text-sm text-bone-dim font-body">
               A developer and LPU member who caught the tour twice - Denver and Seattle.
             </p>
           </div>
         </div>
-        <span className="shrink-0 rounded-md border border-line px-5 py-3 font-mono text-xs uppercase tracking-widest text-bone-dim transition-colors group-hover:border-ember group-hover:text-ember">
+        <span
+          className="shrink-0 rounded-md border border-line px-5 py-3 font-body text-xs uppercase tracking-widest text-bone-dim transition-colors group-hover:border-ember group-hover:text-ember">
           Behind the project →
         </span>
       </Link>

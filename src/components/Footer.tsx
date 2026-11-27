@@ -10,8 +10,10 @@ export const Footer = () => {
 
           {/* About */}
           <div>
-            <h3 className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ash">About</h3>
-            <p className="text-sm leading-relaxed text-bone-dim">
+            <Link to="/" className="font-body text-sm font-medium tracking-[0.16em] text-bone mb-4">
+              LP SETLISTS
+            </Link>
+            <p className="text-sm leading-relaxed text-bone-dim mt-4">
               An interactive retrospective of Linkin Park's From Zero World Tour.
               <br />
               Celebrating the artistry of their live performances.
@@ -20,7 +22,7 @@ export const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ash">Quick Links</h3>
+            <h3 className="mb-4 font-body text-[11px] uppercase tracking-[0.14em] text-ash">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li><Link to="/" className="text-bone-dim transition-colors hover:text-ember">Retrospective</Link></li>
               <li><Link to="/comparison" className="text-bone-dim transition-colors hover:text-ember">Setlists</Link></li>
@@ -32,7 +34,7 @@ export const Footer = () => {
 
           {/* Resources */}
           <div>
-            <h3 className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ash">Resources</h3>
+            <h3 className="mb-4 font-body text-[11px] uppercase tracking-[0.14em] text-ash">Resources</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="https://linkinpark.com" target="_blank" rel="noopener noreferrer" className="text-bone-dim transition-colors hover:text-ember">
@@ -44,7 +46,7 @@ export const Footer = () => {
 
           {/* Connect */}
           <div>
-            <h3 className="mb-4 font-mono text-[11px] uppercase tracking-[0.14em] text-ash">Connect</h3>
+            <h3 className="mb-4 font-body text-[11px] uppercase tracking-[0.14em] text-ash">Connect</h3>
             <p className="mb-4 text-sm leading-relaxed text-bone-dim">
               Questions, ideas, or spotted something I missed? I'd love to hear from you.
             </p>
@@ -79,7 +81,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-line pt-8 font-mono text-[11px] tracking-[0.04em] text-ash md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-line pt-8 font-body text-[11px] tracking-[0.04em] text-ash md:flex-row">
           <div>
             © 2025-{new Date().getFullYear()} LP SETLISTS · FOR FANS, MADE WITH ❤ BY{" "}
             <Link to="/about" className="text-bone transition-colors hover:text-ember">
