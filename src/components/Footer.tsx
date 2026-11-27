@@ -99,7 +99,7 @@ export const Footer = () => {
 
       {/* Oversized wordmark - full-bleed and flush to the bottom, so it anchors the page */}
       <div className="relative overflow-hidden" aria-hidden="true">
-        <h2 className="translate-y-[0.14em] whitespace-nowrap text-center font-display text-[19vw] uppercase leading-[0.72] tracking-tight text-line">
+        <h2 className="translate-y-[0.14em] whitespace-nowrap text-center font-display text-[23.5vw] uppercase leading-[0.72] tracking-tight text-ash-2/30">
           Linkin Park
         </h2>
       </div>
