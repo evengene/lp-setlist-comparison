@@ -43,7 +43,7 @@ export function SongDetail({ song }: { song: SongStats }) {
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2">
             <span
-              className={`rounded-[3px] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.08em] ${
+              className={`rounded-[3px] px-2 py-1 font-body text-[10px] uppercase tracking-[0.08em] ${
                 BADGE[song.category] ?? 'border border-line text-ash'
               }`}
             >
@@ -61,30 +61,30 @@ export function SongDetail({ song }: { song: SongStats }) {
 
       {/* stats */}
       <div className="mt-6 grid grid-cols-3 gap-px bg-line">
-        <div className="bg-ink-2 px-4 py-4">
+        <div className="bg-ink-2 px-4 py-4 text-center">
           <div className="font-display text-3xl leading-none text-bone">{bd.total}</div>
-          <div className="mt-1.5 font-mono text-[10px] tracking-[0.1em] text-ash">PLAYS</div>
+          <div className="mt-1.5 font-mono text-[10px] tracking-widest text-ash">PLAYS</div>
         </div>
-        <div className="bg-ink-2 px-4 py-4">
+        <div className="bg-ink-2 px-4 py-4 text-center">
           <div className="font-display text-3xl leading-none text-ember">{pct}%</div>
-          <div className="mt-1.5 font-mono text-[10px] tracking-[0.1em] text-ash">OF SHOWS</div>
+          <div className="mt-1.5 font-mono text-[10px] tracking-widest text-ash">OF SHOWS</div>
         </div>
-        <div className="bg-ink-2 px-4 py-4">
+        <div className="bg-ink-2 px-4 py-4 text-center">
           <div className="font-display text-3xl leading-none text-bone">{song.positionRange ?? '-'}</div>
-          <div className="mt-1.5 font-mono text-[10px] tracking-[0.1em] text-ash">TYPICAL SLOT</div>
+          <div className="mt-1.5 font-mono text-[10px] tracking-widest text-ash">TYPICAL SLOT</div>
         </div>
       </div>
 
       {/* across the tour */}
       <div className="mt-6">
-        <div className="mb-3 font-mono text-[11px] tracking-[0.14em] text-ash">
-          <span className="text-ember">→</span>&nbsp;&nbsp;ACROSS THE TOUR
+        <div className="mb-3 font-body text-[11px] tracking-[0.14em] text-ash">
+          <span className="mr- text-[18px] text-ember">→</span>{' '}ACROSS THE TOUR
         </div>
         <div className="grid gap-1.5" style={{ gridTemplateColumns: `repeat(${bd.legIds.length}, minmax(0,1fr))` }}>
           {bd.intensity.map((v, i) => (
             <div key={i} className="flex flex-col items-center gap-1.5">
               <div
-                className="h-8 w-full rounded-[2px]"
+                className="h-8 w-full rounded-xs"
                 style={{ background: SHADES[v], border: v === 0 ? '0.5px solid #2a241d' : undefined }}
                 title={`Leg ${bd.legIds[i]} - ${bd.perLeg[i]}/${bd.showsPerLeg[i]} shows`}
               />
@@ -95,7 +95,7 @@ export function SongDetail({ song }: { song: SongStats }) {
       </div>
 
       {/* footnote */}
-      <div className="mt-5 font-mono text-[11px] tracking-[0.06em] text-bone-dim">
+      <div className="mt-5 font-body text-[11px] tracking-[0.06em] text-bone-dim">
         {everyShow ? (
           <>
             PLAYED AT <span className="text-ember">EVERY</span> SHOW ON THE TOUR.

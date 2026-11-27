@@ -6,7 +6,7 @@ import { useCountUp } from '../hooks/useCountUp';
 function Stat({ target, label, accent = false }: { target: number; label: string; accent?: boolean }) {
   const value = useCountUp(target);
   return (
-    <div className="bg-ink px-5 py-6">
+    <div className="bg-ink px-5 py-6 text-center">
       <div className={`font-display text-5xl leading-none ${accent ? 'text-ember' : 'text-bone'}`}>
         {value}
       </div>
@@ -42,12 +42,11 @@ export function TourHero() {
         src="/lp-transparent.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 select-none object-cover object-right opacity-40 [mask-image:linear-gradient(to_right,transparent,black_45%)] md:block"
+        className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 select-none object-cover object-right opacity-40 mask-[linear-gradient(to_right,transparent,black_45%)] md:block"
       />
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain opacity-[0.13] mix-blend-overlay" />
 
       <div className="relative">
-        {/* the one moving element — a slow ghost watermark of the tour name */}
         <div className="overflow-hidden border-b border-line py-3">
           <div
             className="marquee-anim inline-flex whitespace-nowrap will-change-transform"
@@ -67,15 +66,15 @@ export function TourHero() {
 
         {/* headline */}
         <div className="mx-auto max-w-7xl px-6 pt-12">
-          <p className="font-mono text-[11px] tracking-[0.22em] text-ash">
-            <span className="text-ember">01.</span>&nbsp;&nbsp;AN INTERACTIVE RETROSPECTIVE · 2024-26
-          </p>
+          <h2 className="font-body text-[14px] text-bone-dim font-semibold">
+            <span className="mr-2 text-ember">01.</span>{' '}AN INTERACTIVE RETROSPECTIVE · 2024-26
+          </h2>
 
           <h1 className="mt-4 font-display text-[64px] uppercase leading-[0.82] tracking-[0.01em] text-bone sm:text-[104px]">
             Linkin<br />Park
           </h1>
 
-          <p className="mt-5 max-w-xl font-body text-lg font-semibold italic text-bone-dim">
+          <p className="mt-5 max-w-xl font-body text-lg font-semibold text-bone-dim">
             Every setlist tells a story.
             <br/>
             <span className="text-ember"> A love letter to one unforgettable tour.</span>

@@ -55,8 +55,8 @@ export const Navigation = () => {
     <nav className="relative border-b border-line bg-ink font-body">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <Link to="/" className="font-mono text-sm font-medium tracking-[0.16em] text-bone">
-            LP&nbsp;SETLISTS
+          <Link to="/" className="font-body text-sm font-medium tracking-[0.16em] text-bone">
+            LP SETLISTS
           </Link>
 
           {/* Desktop nav */}
@@ -67,7 +67,7 @@ export const Navigation = () => {
                 <Link
                   key={item.path}
                   to={item.path}
-                  className={`font-mono text-xs uppercase tracking-[0.14em] transition-colors ${
+                  className={`font-body text-xs uppercase tracking-[0.14em] transition-colors ${
                     active ? 'text-ember' : 'text-ash hover:text-bone'
                   }`}
                 >
@@ -127,7 +127,7 @@ export const Navigation = () => {
                   key={item.path}
                   to={item.path}
                   onClick={() => setMobileOpen(false)}
-                  className={`rounded-md px-3 py-3 font-mono text-sm uppercase tracking-[0.14em] transition-colors ${
+                  className={`rounded-md px-3 py-3 font-body text-sm uppercase tracking-[0.14em] transition-colors ${
                     active ? 'text-ember' : 'text-bone hover:bg-ink-2'
                   }`}
                 >
@@ -140,7 +140,7 @@ export const Navigation = () => {
           <div className="flex-1" />
 
           <div className="border-t border-line pt-4">
-            <div className="mb-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ash">Quick links</div>
+            <div className="mb-2 font-body text-[11px] uppercase tracking-[0.14em] text-ash">Quick links</div>
             <div className="flex flex-col gap-1">
               {quickLinks.map((l) => (
                 <a
@@ -155,7 +155,7 @@ export const Navigation = () => {
               ))}
             </div>
 
-            <div className="mb-2 mt-5 font-mono text-[11px] uppercase tracking-[0.14em] text-ash">Social</div>
+            <div className="mb-2 mt-5 font-body text-[11px] uppercase tracking-[0.14em] text-ash">Social</div>
             <div className="flex gap-2">
               {socials.map((s) => (
                 <a
@@ -170,7 +170,7 @@ export const Navigation = () => {
               ))}
             </div>
 
-            <div className="mt-4 px-1 font-mono text-[11px] text-ash-2">Press ESC to close.</div>
+            <div className="mt-4 px-1 font-body text-[11px] text-ash-2">Press ESC to close.</div>
           </div>
         </div>
       </div>

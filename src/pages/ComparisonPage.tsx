@@ -90,10 +90,10 @@ export const ComparisonPage = () => {
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain opacity-[0.13] mix-blend-overlay" />
         <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-12">
           <p className="font-mono text-[11px] tracking-[0.22em] text-ash">
-            <span className="text-ember">→</span>&nbsp;&nbsp;FROM ZERO WORLD TOUR · COMPARE
+            <span className="mr-1 text-[18px] text-ember">→</span>{' '}FROM ZERO WORLD TOUR · COMPARE
           </p>
           <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">Setlist Comparison</h1>
-          <p className="mt-4 max-w-xl font-body italic text-bone-dim">
+          <p className="mt-4 max-w-xl font-body text-bone-dim">
             Compare any two shows side by side to see what stayed the same - and what made each night unique.          </p>
         </div>
       </div>

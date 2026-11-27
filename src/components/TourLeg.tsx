@@ -25,7 +25,7 @@ export const TourLeg = (props: PropTypes) => {
       />
       <div className="absolute inset-0 bg-ink/40 transition-all group-hover:bg-ink/20" />
       <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-ink to-transparent p-2">
-        <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-bone">Leg {legId}</div>
+        <div className="font-body text-[11px] uppercase text-bone">Leg {legId}</div>
         <div className="truncate text-[11px] text-bone-dim">{region}</div>
       </div>
     </button>

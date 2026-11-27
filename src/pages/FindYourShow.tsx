@@ -3,6 +3,7 @@ import { toPng } from 'html-to-image';
 import { Download, Link as LinkIcon, Check } from 'lucide-react';
 import { getTourData } from '../services/tourDataService';
 import { calculateTourStats } from '../utils/setlistStats';
+import { formatCountLabel } from '../utils/format';
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 function fmtDate(d: string): string {
@@ -55,7 +56,6 @@ export const FindYourShow = () => {
   const [copied, setCopied] = useState(false);
 
   const show = data.shows.find((s) => s.id === selectedId);
-  const region = data.legs.find((l) => l.id === show?.legId)?.region;
   const sets = show ? getSets(show.setlist) : [];
   const totalSongs = sets.reduce((a, s) => a + s.songs.length, 0);
   let counter = 0;
@@ -96,23 +96,25 @@ export const FindYourShow = () => {
 
   return (
     <div className="min-h-screen bg-ink font-body text-bone">
+
       {/* Header */}
       <div className="relative overflow-hidden border-b border-line">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain opacity-[0.13] mix-blend-overlay" />
         <div className="relative mx-auto max-w-7xl px-6 pb-10 pt-12">
           <p className="font-mono text-[11px] tracking-[0.22em] text-ash">
-            <span className="text-ember">→</span>&nbsp;&nbsp;FROM ZERO WORLD TOUR · YOUR SHOW
+            <span className="mr-1 text-[18px] text-ember">→</span>{' '}FROM ZERO WORLD TOUR · YOUR SHOW
           </p>
           <h1 className="mt-4 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-7xl">Find your show</h1>
-          <p className="mt-4 max-w-xl font-body italic text-bone-dim">
-            Were you there? Find your night and take home the setlist.
+          <p className="mt-4 max-w-xl font-body text-bone-dim">
+            Select a date and city and check the full setlist from that night.
+            Feel free to share this with your friends or fellow fans, and download a high-res image of the setlist to keep as a memento.
           </p>
         </div>
       </div>
 
       <div className="mx-auto max-w-3xl px-6 py-12">
-        {/* Selector */}
-        <label className="mb-3 block font-mono text-[11px] uppercase tracking-[0.14em] text-ash">Pick a show</label>
+        {/* Pick a show */}
+        <label className="mb-3 block font-body text-[11px] uppercase tracking-[0.14em] text-ash">Select a show below</label>
         <div className="relative">
           <select
             value={selectedId}
@@ -141,14 +143,13 @@ export const FindYourShow = () => {
           <div id="your-show-card" className="mt-8 overflow-hidden rounded-lg border border-line bg-ink p-8">
             <div className="font-mono text-[11px] tracking-[0.14em] text-ash">
               FROM ZERO WORLD TOUR · LEG {show.legId}
-              {region ? ` · ${region.toUpperCase()}` : ''}
             </div>
             <h2 className="mt-3 font-display text-5xl uppercase leading-[0.9] text-bone sm:text-6xl">{show.city}</h2>
-            <div className="mt-2 font-mono text-[12px] tracking-[0.06em] text-bone-dim">
+            <div className="mt-2 font-body text-[14px] text-bone-dim">
               {show.venue} · {fmtDate(show.date)}
             </div>
 
-            <div className="mt-6 [column-gap:2rem] [column-count:1] sm:[column-count:2]">
+            <div className="mt-6 gap-x-8 [column-count:1] sm:[column-count:2]">
               {sets.map((set) => (
                 <div key={set.name} className="mb-5 break-inside-avoid">
                   <div className="mb-2 font-mono text-[11px] tracking-[0.12em] text-ember">{set.name.toUpperCase()}</div>
@@ -170,7 +171,7 @@ export const FindYourShow = () => {
             </div>
 
             <div className="mt-6 flex items-center justify-between border-t border-line pt-4 font-mono text-[11px] tracking-[0.06em] text-ash-2">
-              <span>{totalSongs} SONGS</span>
+              <span>{formatCountLabel(totalSongs, 'SONG')}</span>
               <span>lpsetlists.com</span>
             </div>
           </div>
@@ -182,14 +183,14 @@ export const FindYourShow = () => {
             <button
               onClick={handleDownload}
               disabled={downloading}
-              className="inline-flex items-center gap-2 rounded-md bg-ember px-6 py-3 font-mono text-xs uppercase tracking-[0.1em] text-ink transition-colors hover:bg-ember-bright disabled:opacity-50"
+              className="inline-flex items-center gap-2 rounded-md bg-ember px-6 py-3 font-body text-xs uppercase tracking-widest text-ink transition-colors hover:bg-ember-bright disabled:opacity-50 cursor-pointer"
             >
               <Download className="h-4 w-4" />
               {downloading ? 'Generating…' : 'Download card'}
             </button>
             <button
               onClick={handleCopy}
-              className="inline-flex items-center gap-2 rounded-md border border-line px-6 py-3 font-mono text-xs uppercase tracking-[0.1em] text-bone-dim transition-colors hover:border-ash-2 hover:text-bone"
+              className="inline-flex items-center gap-2 rounded-md border border-line px-6 py-3 font-body text-xs uppercase tracking-widest text-bone-dim transition-colors hover:border-ash-2 hover:text-bone cursor-pointer"
             >
               {copied ? <Check className="h-4 w-4" /> : <LinkIcon className="h-4 w-4" />}
               {copied ? 'Link copied' : 'Copy link'}

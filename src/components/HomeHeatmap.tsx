@@ -102,10 +102,10 @@ export function HomeHeatmap({
 
       <div className="relative mx-auto max-w-7xl px-6 py-16">
         <div className="mb-2 flex items-baseline justify-between">
-          <h2 className="font-mono text-[11px] tracking-[0.14em] text-ash">
+          <h2 className="font-body text-[14px] text-bone-dim font-semibold">
             {index && (
               <>
-                <span className="text-ember">{index}</span>&nbsp;&nbsp;
+                <span className="mr-2 text-ember">{index}</span>{' '}
               </>
             )}
             {heading}
@@ -113,7 +113,7 @@ export function HomeHeatmap({
           {seeAll && (
             <Link
               to="/stats"
-              className="font-mono text-[11px] tracking-widest text-ember transition-colors hover:text-ember-bright"
+              className="font-body text-[11px] tracking-widest text-ember transition-colors hover:text-ember-bright"
             >
               SEE ALL SONGS →
             </Link>
@@ -130,7 +130,7 @@ export function HomeHeatmap({
               <div />
               {legHeaders.map((h, c) => (
                 <div key={c} className="text-center leading-tight">
-                  <div className={`font-mono text-[10px] transition-colors ${hoverCol === c ? 'text-ember' : 'text-ash'}`}>
+                  <div className={`font-mono text-[10px] transition-colors font-bold ${hoverCol === c ? 'text-ember' : 'text-ash'}`}>
                     {h.region}
                   </div>
                   <div

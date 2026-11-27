@@ -39,7 +39,7 @@ const SongCard: React.FC<SongCardProps> = ({ song, onClick }) => {
       <div className="min-w-0 flex-1">
         <h3 className="truncate text-sm font-semibold text-bone group-hover:text-white">{song.title}</h3>
         {song.album && song.year && (
-          <p className="mt-0.5 truncate font-mono text-[10px] tracking-[0.04em] text-ash">
+          <p className="mt-0.5 truncate font-body text-[10px] tracking-[0.04em] text-ash">
             {song.album} · {song.year}
           </p>
         )}
@@ -47,7 +47,7 @@ const SongCard: React.FC<SongCardProps> = ({ song, onClick }) => {
 
       <div className="flex shrink-0 flex-col items-end gap-1.5">
         <span
-          className={`rounded-[3px] px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.06em] ${
+          className={`rounded-[3px] px-1.5 py-0.5 font-body text-[9px] uppercase tracking-[0.06em] ${
             BADGE[song.category] ?? 'border border-line text-ash'
           }`}
         >

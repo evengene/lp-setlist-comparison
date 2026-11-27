@@ -7,6 +7,7 @@ import { HomeHeatmap } from "../components/HomeHeatmap.tsx";
 import { TourLeg } from "../components/TourLeg.tsx";
 import { SongDetail } from "../components/SongDetail.tsx";
 import { AudioLines } from "lucide-react";
+import { formatCountLabel } from '../utils/format';
 
 const SORTS = [
   { key: 'plays', label: 'Most played' },
@@ -55,14 +56,14 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-ink font-body text-bone">
       <TourHero />
-      <HomeHeatmap sort="variation" heading="HOW THE SETLIST CHANGED" />
+      <HomeHeatmap sort="variation" heading="TOP SONGS PLAYED" />
 
       {/* Explorer */}
       <div className="mx-auto max-w-7xl px-6 py-16">
         {/* Leg selector */}
         <div className="mb-12">
-          <h2 className="mb-5 font-mono text-[11px] tracking-[0.14em] text-ash">
-            <span className="text-ember">03.</span>&nbsp;&nbsp;BROWSE BY LEG
+          <h2 className="font-body text-[14px] text-bone-dim font-semibold mb-4">
+            <span className="mr-1 text-ember">03.</span>{' '}BROWSE BY LEG
           </h2>
 
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
@@ -77,7 +78,7 @@ export default function HomePage() {
                 <AudioLines className={`h-20 w-20 ${selectedLeg === null ? 'text-ember' : 'text-ash-2'}`} />
               </div>
               <div className="absolute inset-x-0 bottom-0 p-2">
-                <div className="font-mono text-[11px] uppercase tracking-widest text-bone">All Legs</div>
+                <div className="font-body text-[11px] uppercase tracking-widest text-bone">All Legs</div>
               </div>
             </button>
 
@@ -97,21 +98,21 @@ export default function HomePage() {
         {displayedSongs.length > 0 && (
           <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <h3 className="font-display text-3xl uppercase leading-none text-bone">Songs played</h3>
+              {/*<h3 className="font-display text-3xl uppercase leading-none text-bone">All Songs by tour</h3>*/}
               <p className="mt-2 font-mono text-[11px] tracking-[0.08em] text-ash">
-                {displayedSongs.length} SONGS · {filteredShows.length} SHOWS
-                {selectedLeg ? ` · LEG ${selectedLeg}` : ''}
+                {selectedLeg ? ` LEG ${selectedLeg} · ` : ''}
+                {formatCountLabel(filteredShows.length, 'SHOW')}
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-2">
-              <span className="mr-1 font-mono text-[11px] tracking-[0.14em] text-ash">SORT</span>
+              <span className="mr-1 font-body text-[11px] tracking-[0.14em] text-ash">SORT</span>
               {SORTS.map((s) => {
                 const active = sortBy === s.key;
                 return (
                   <button
                     key={s.key}
                     onClick={() => setSortBy(s.key)}
-                    className={`rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-[0.08em] transition-colors ${
+                    className={`rounded-full px-3 py-1 font-body text-[10px] uppercase tracking-[0.08em] transition-colors ${
                       active ? 'bg-ember text-ink' : 'border border-line text-ash hover:border-ash-2 hover:text-bone'
                     }`}
                   >
@@ -126,7 +127,7 @@ export default function HomePage() {
         {displayedSongs.length === 0 ? (
           <div className="rounded-lg border border-line bg-ink-2 p-12 text-center">
             <h3 className="mb-2 font-body text-lg font-semibold text-bone">No songs found</h3>
-            <p className="font-mono text-[11px] tracking-[0.08em] text-ash">TRY A DIFFERENT FILTER OR LEG</p>
+            <p className="font-body text-[11px] tracking-[0.08em] text-ash">TRY A DIFFERENT FILTER OR LEG</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
